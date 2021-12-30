@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1d856e1f1034d779bce0217fae98a07" Name="Diagram1">
+        <EntityTypeShape EntityType="KMSModel.Acount" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.Bill" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.BillBuy" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.BillBuyDetail" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.BillDetail" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.Cost" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.Employee" Width="1.5" PointX="1.5" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.Item" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.ItemPrice" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KMSModel.Supermarket" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="KMSModel.FK__Acount__status__5CE1B823" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__Bill__creator__629A9179" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__BillBuy__creator__6D181FEC" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__BillDetai__idBil__666B225D" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__BillBuyDe__idBil__71DCD509" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__BillBuyDe__idIte__72D0F942" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__BillDetai__idIte__675F4696" ManuallyRouted="false" />
+        <AssociationConnector Association="KMSModel.FK__ItemPrice__id__53584DE9" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

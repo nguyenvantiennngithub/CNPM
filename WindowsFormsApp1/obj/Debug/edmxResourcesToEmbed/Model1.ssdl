@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acount">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="idEmployee" Type="int" Nullable="false" />
+    <Property Name="post" Type="int" />
+    <Property Name="status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createdDay" Type="date" />
+    <Property Name="creator" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="30" />
+    <Property Name="totalPrice" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="BillBuy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createdDay" Type="date" />
+    <Property Name="creator" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="totalPrice" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="BillBuyDetail">
+    <Key>
+      <PropertyRef Name="idBillBuy" />
+      <PropertyRef Name="idItem" />
+      <PropertyRef Name="classify" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="idBillBuy" Type="int" Nullable="false" />
+    <Property Name="idItem" Type="int" Nullable="false" />
+    <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="remainAmount" Type="int" Nullable="false" />
+    <Property Name="amountCount" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="note" Type="nvarchar" MaxLength="20" />
+    <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillDetail">
+    <Key>
+      <PropertyRef Name="idBill" />
+      <PropertyRef Name="idItem" />
+      <PropertyRef Name="classify" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="idBill" Type="int" Nullable="false" />
+    <Property Name="idItem" Type="int" Nullable="false" />
+    <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="amountCount" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cost">
+    <Key>
+      <PropertyRef Name="month" />
+      <PropertyRef Name="year" />
+    </Key>
+    <Property Name="month" Type="int" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="premiseCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="electricityCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="waterCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="totalFundCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="bankInterestExpensePercent" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="totalTaxCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="totalIncome" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="birthDay" Type="date" />
+    <Property Name="identityCardNumber" Type="int" Nullable="false" />
+    <Property Name="startDay" Type="date" />
+    <Property Name="endDay" Type="date" />
+    <Property Name="status" Type="nvarchar" MaxLength="30" />
+    <Property Name="age" Type="int" Nullable="false" />
+    <Property Name="post" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="salary" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idType" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ItemClassify">
+    <Key>
+      <PropertyRef Name="idItem" />
+      <PropertyRef Name="classify" />
+    </Key>
+    <Property Name="idItem" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" />
+    <Property Name="amountCount" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ItemPrice">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="classify" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="tax" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ItemType">
+    <Key>
+      <PropertyRef Name="idType" />
+    </Key>
+    <Property Name="idType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameType" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questionable">
+    <Key>
+      <PropertyRef Name="idBill" />
+      <PropertyRef Name="idItem" />
+      <PropertyRef Name="classify" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="idBill" Type="int" Nullable="false" />
+    <Property Name="idItem" Type="int" Nullable="false" />
+    <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="time" Type="time" Precision="7" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="amountCount" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supermarket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="website" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Acount__status__45F365D3">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Acount" Type="Self.Acount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Acount">
+        <PropertyRef Name="idEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bill__creator__4BAC3F29">
+    <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Acount">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillBuy__creator__5629CD9C">
+    <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
+    <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Acount">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="BillBuy">
+        <PropertyRef Name="creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillBuyDe__idBil__59FA5E80">
+    <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="1" />
+    <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BillBuy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BillBuyDetail">
+        <PropertyRef Name="idBillBuy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillBuyDetail__5AEE82B9">
+    <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
+    <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemClassify">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Principal>
+      <Dependent Role="BillBuyDetail">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__idBil__4F7CD00D">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="idBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetail__5070F446">
+    <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemClassify">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__idType__32E0915F">
+    <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemType">
+        <PropertyRef Name="idType" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="idType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemClass__idIte__37A5467C">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ItemClassify">
+        <PropertyRef Name="idItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemPrice__3C69FB99">
+    <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
+    <End Role="ItemPrice" Type="Self.ItemPrice" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ItemClassify">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Principal>
+      <Dependent Role="ItemPrice">
+        <PropertyRef Name="id" />
+        <PropertyRef Name="classify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questiona__idBil__5FB337D6">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Questionable">
+        <PropertyRef Name="idBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questionable__60A75C0F">
+    <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
+    <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemClassify">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Principal>
+      <Dependent Role="Questionable">
+        <PropertyRef Name="idItem" />
+        <PropertyRef Name="classify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KMSModelStoreContainer">
+    <EntitySet Name="Acount" EntityType="Self.Acount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillBuy" EntityType="Self.BillBuy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillBuyDetail" EntityType="Self.BillBuyDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillDetail" EntityType="Self.BillDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cost" EntityType="Self.Cost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemClassify" EntityType="Self.ItemClassify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemPrice" EntityType="Self.ItemPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questionable" EntityType="Self.Questionable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supermarket" EntityType="Self.Supermarket" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Acount__status__45F365D3" Association="Self.FK__Acount__status__45F365D3">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Acount" EntitySet="Acount" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bill__creator__4BAC3F29" Association="Self.FK__Bill__creator__4BAC3F29">
+      <End Role="Acount" EntitySet="Acount" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillBuy__creator__5629CD9C" Association="Self.FK__BillBuy__creator__5629CD9C">
+      <End Role="Acount" EntitySet="Acount" />
+      <End Role="BillBuy" EntitySet="BillBuy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillBuyDe__idBil__59FA5E80" Association="Self.FK__BillBuyDe__idBil__59FA5E80">
+      <End Role="BillBuy" EntitySet="BillBuy" />
+      <End Role="BillBuyDetail" EntitySet="BillBuyDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillBuyDetail__5AEE82B9" Association="Self.FK__BillBuyDetail__5AEE82B9">
+      <End Role="ItemClassify" EntitySet="ItemClassify" />
+      <End Role="BillBuyDetail" EntitySet="BillBuyDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__idBil__4F7CD00D" Association="Self.FK__BillDetai__idBil__4F7CD00D">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetail__5070F446" Association="Self.FK__BillDetail__5070F446">
+      <End Role="ItemClassify" EntitySet="ItemClassify" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__idType__32E0915F" Association="Self.FK__Item__idType__32E0915F">
+      <End Role="ItemType" EntitySet="ItemType" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemClass__idIte__37A5467C" Association="Self.FK__ItemClass__idIte__37A5467C">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ItemClassify" EntitySet="ItemClassify" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemPrice__3C69FB99" Association="Self.FK__ItemPrice__3C69FB99">
+      <End Role="ItemClassify" EntitySet="ItemClassify" />
+      <End Role="ItemPrice" EntitySet="ItemPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questiona__idBil__5FB337D6" Association="Self.FK__Questiona__idBil__5FB337D6">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="Questionable" EntitySet="Questionable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questionable__60A75C0F" Association="Self.FK__Questionable__60A75C0F">
+      <End Role="ItemClassify" EntitySet="ItemClassify" />
+      <End Role="Questionable" EntitySet="Questionable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KMSModelStoreContainer" CdmEntityContainer="KMSEntities">
+    <EntitySetMapping Name="Acounts">
+      <EntityTypeMapping TypeName="KMSModel.Acount">
+        <MappingFragment StoreEntitySet="Acount">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="KMSModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="createdDay" ColumnName="createdDay" />
+          <ScalarProperty Name="creator" ColumnName="creator" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillBuys">
+      <EntityTypeMapping TypeName="KMSModel.BillBuy">
+        <MappingFragment StoreEntitySet="BillBuy">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="createdDay" ColumnName="createdDay" />
+          <ScalarProperty Name="creator" ColumnName="creator" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillBuyDetails">
+      <EntityTypeMapping TypeName="KMSModel.BillBuyDetail">
+        <MappingFragment StoreEntitySet="BillBuyDetail">
+          <ScalarProperty Name="idBillBuy" ColumnName="idBillBuy" />
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="classify" ColumnName="classify" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="remainAmount" ColumnName="remainAmount" />
+          <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="singlePrice" ColumnName="singlePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillDetails">
+      <EntityTypeMapping TypeName="KMSModel.BillDetail">
+        <MappingFragment StoreEntitySet="BillDetail">
+          <ScalarProperty Name="idBill" ColumnName="idBill" />
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="classify" ColumnName="classify" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="singlePrice" ColumnName="singlePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Costs">
+      <EntityTypeMapping TypeName="KMSModel.Cost">
+        <MappingFragment StoreEntitySet="Cost">
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="premiseCost" ColumnName="premiseCost" />
+          <ScalarProperty Name="electricityCost" ColumnName="electricityCost" />
+          <ScalarProperty Name="waterCost" ColumnName="waterCost" />
+          <ScalarProperty Name="totalFundCost" ColumnName="totalFundCost" />
+          <ScalarProperty Name="bankInterestExpensePercent" ColumnName="bankInterestExpensePercent" />
+          <ScalarProperty Name="totalTaxCost" ColumnName="totalTaxCost" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="totalIncome" ColumnName="totalIncome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="KMSModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="birthDay" ColumnName="birthDay" />
+          <ScalarProperty Name="identityCardNumber" ColumnName="identityCardNumber" />
+          <ScalarProperty Name="startDay" ColumnName="startDay" />
+          <ScalarProperty Name="endDay" ColumnName="endDay" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="KMSModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemClassifies">
+      <EntityTypeMapping TypeName="KMSModel.ItemClassify">
+        <MappingFragment StoreEntitySet="ItemClassify">
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+          <ScalarProperty Name="classify" ColumnName="classify" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemPrices">
+      <EntityTypeMapping TypeName="KMSModel.ItemPrice">
+        <MappingFragment StoreEntitySet="ItemPrice">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="classify" ColumnName="classify" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemTypes">
+      <EntityTypeMapping TypeName="KMSModel.ItemType">
+        <MappingFragment StoreEntitySet="ItemType">
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="nameType" ColumnName="nameType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questionables">
+      <EntityTypeMapping TypeName="KMSModel.Questionable">
+        <MappingFragment StoreEntitySet="Questionable">
+          <ScalarProperty Name="idBill" ColumnName="idBill" />
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="classify" ColumnName="classify" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="singlePrice" ColumnName="singlePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supermarkets">
+      <EntityTypeMapping TypeName="KMSModel.Supermarket">
+        <MappingFragment StoreEntitySet="Supermarket">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="website" ColumnName="website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
