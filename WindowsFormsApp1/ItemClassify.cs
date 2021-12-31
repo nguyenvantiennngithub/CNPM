@@ -24,7 +24,6 @@ namespace WindowsFormsApp1
     
         public int idItem { get; set; }
         public Nullable<int> amount { get; set; }
-        public string amountCount { get; set; }
         public string classify { get; set; }
         public string status { get; set; }
     

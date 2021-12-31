@@ -37,7 +37,6 @@ namespace WindowsFormsApp1
             }
             addTextBox(pnlOption);
             addTextBox(pnlPrice);
-            addTextBox(pnlUnit);
             addTextBox(pnlCount);
         }
 
@@ -50,7 +49,6 @@ namespace WindowsFormsApp1
             }
             removeTextBox(pnlOption);
             removeTextBox(pnlPrice);
-            removeTextBox(pnlUnit);
             removeTextBox(pnlCount);
         }
 
@@ -65,6 +63,8 @@ namespace WindowsFormsApp1
         private void ItemForm_Load(object sender, EventArgs e)
         {
             loadCategory();
+
+            loadCategoryFind();
             loadDgv();
         }
 
@@ -136,7 +136,6 @@ namespace WindowsFormsApp1
             {
                 if (listNameItem[i] == txbName.Text)
                 {
-                    MessageBox.Show("The name of item is exist");
                     return false;
                 }
             }
@@ -151,9 +150,14 @@ namespace WindowsFormsApp1
                 return false;
             }
 
+            if (txbUnit.Text == "")
+            {
+                MessageBox.Show("The unit of item is empty");
+                return false;
+            }
+
             if (!checkEmptyPanel(pnlOption, "The option is empty")) return false;
             if (!checkEmptyPanel(pnlPrice, "The price is empty")) return false;
-            if (!checkEmptyPanel(pnlUnit, "The unit is empty")) return false;
             if (!checkEmptyPanel(pnlCount, "The count is empty")) return false;
 
             if (!checkNumberPanel(pnlPrice, "The price contants only numbers")) return false;
@@ -162,8 +166,6 @@ namespace WindowsFormsApp1
             if (!checkNegativeNumber(pnlPrice, "The price cant negative")) return false;
             
             if (!checkSameValueInPanel(pnlOption, "The options cant same")) return false;
-
-            if (!checkExistNameItem()) return false;
             
             return true;
          }
@@ -184,20 +186,63 @@ namespace WindowsFormsApp1
             clearPanel(pnlOption);
             clearPanel(pnlCount);
             clearPanel(pnlPrice);
-            clearPanel(pnlUnit);
         }
+
+        private bool checkSame(List<string> list1, FlowLayoutPanel pnl)
+        {
+            for (int i = 0; i < list1.Count; i++)
+            {
+                for (int j = 0; j < pnl.Controls.Count; j++)
+                {
+                    TextBox txb = pnl.Controls[j] as TextBox;
+                    if (list1[i] == txb.Text)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (!checkInput())
             {
                 return;
             }
-            ItemSalesDAO.Instance.addItem(
-                int.Parse(cbCategory.SelectedValue.ToString()),
-                txbName.Text, pnlOption, pnlPrice, pnlUnit, pnlCount
-            );
-            clear();
-            loadDgv();
+    
+            if (!checkExistNameItem())//khi tồn tại thì thêm option
+            {
+                int idCategory = ItemSalesDAO.Instance.getIdCategoryByName(txbName.Text);
+                if (idCategory == int.Parse(cbCategory.SelectedValue.ToString()))//Check xem Là item vừa được thêm nó có cùng category k
+                {
+                    int idItem = ItemSalesDAO.Instance.getIdItemByName(txbName.Text);
+                    List<string> listOption = ItemSalesDAO.Instance.getListOptionByIdBill(idItem);
+                    if (checkSame(listOption, pnlOption))
+                    {
+                        MessageBox.Show("There are some options is exist in database");
+                    }
+                    else
+                    {
+                        ItemSalesDAO.Instance.addOption(txbName.Text, pnlOption, pnlPrice, pnlCount);
+                        loadDgv();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The name of item is exist in database, but diff category," +
+                        "please change category or choose a new name of item");
+                }
+            }
+            else//khi không tồn tại thì thêm mới
+            {
+                ItemSalesDAO.Instance.addItem(
+                    int.Parse(cbCategory.SelectedValue.ToString()),
+                    txbName.Text, txbUnit.Text, pnlOption, pnlPrice, pnlCount
+                );
+                clear();
+                loadDgv();
+            }
         }
 
 
@@ -224,6 +269,60 @@ namespace WindowsFormsApp1
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadCategoryFind()
+        {
+            List<ItemType> listCategory = CategoryDAO.Instance.getListCategory();
+            ItemType item = new ItemType() {
+                idType = -1,
+                nameType = "Tất cả"
+            };
+
+            listCategory.Insert(0, item);
+
+            cbCategoryFind.DataBindings.Clear();
+            cbCategoryFind.DataSource = listCategory;
+            cbCategoryFind.DisplayMember = "nameType";
+            cbCategoryFind.ValueMember = "idType";
+        }
+
+        private void loadDgvFind(List<FullItemDTO> fullItems)
+        {
+            dgvMain.Rows.Clear();
+            for (int i = 0; i < fullItems.Count; i++)
+            {
+                FullItemDTO item = fullItems[i];
+
+                var index = dgvMain.Rows.Add();
+                dgvMain.Rows[index].Cells["index"].Value = index + 1;
+                dgvMain.Rows[index].Cells["id"].Value = item.Id;
+                dgvMain.Rows[index].Cells["category"].Value = item.Category;
+                dgvMain.Rows[index].Cells["name"].Value = item.Name;
+                dgvMain.Rows[index].Cells["option"].Value = item.Option;
+                dgvMain.Rows[index].Cells["price"].Value = item.Price;
+                dgvMain.Rows[index].Cells["count"].Value = item.Count;
+                dgvMain.Rows[index].Cells["unit"].Value = item.Unit;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int idCategory = int.Parse(cbCategoryFind.SelectedValue.ToString());
+            string option = txbOptionFind.Text;
+            string name = txbNameFind.Text;
+
+            List<FullItemDTO> fullItems = ItemSalesDAO.Instance.getListItemFind(idCategory, name, option);
+
+            loadDgvFind(fullItems);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadDgv();
+            cbCategoryFind.SelectedValue = -1;
+            txbNameFind.Text = "";
+            txbOptionFind.Text = "";
         }
     }
 }

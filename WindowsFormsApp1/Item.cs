@@ -23,6 +23,7 @@ namespace WindowsFormsApp1
         public int id { get; set; }
         public string name { get; set; }
         public int idType { get; set; }
+        public string amountCount { get; set; }
         public string status { get; set; }
     
         public virtual ItemType ItemType { get; set; }

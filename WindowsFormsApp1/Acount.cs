@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         public string username { get; set; }
         public string password { get; set; }
         public int idEmployee { get; set; }
+        public string mailAddress { get; set; }
         public Nullable<int> post { get; set; }
         public string status { get; set; }
     

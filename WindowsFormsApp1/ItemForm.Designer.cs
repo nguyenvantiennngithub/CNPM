@@ -49,18 +49,24 @@ namespace WindowsFormsApp1
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlUnit = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnlCount = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRemoveOption = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txbNameFind = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txbOptionFind = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbCategoryFind = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txbUnit = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlOption.SuspendLayout();
             this.pnlPrice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
-            this.pnlUnit.SuspendLayout();
             this.pnlCount.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +125,7 @@ namespace WindowsFormsApp1
             // 
             // btnAddOption
             // 
-            this.btnAddOption.Location = new System.Drawing.Point(32, 90);
+            this.btnAddOption.Location = new System.Drawing.Point(25, 116);
             this.btnAddOption.Name = "btnAddOption";
             this.btnAddOption.Size = new System.Drawing.Size(75, 23);
             this.btnAddOption.TabIndex = 10;
@@ -132,7 +138,7 @@ namespace WindowsFormsApp1
             this.pnlOption.Controls.Add(this.textBox3);
             this.pnlOption.Location = new System.Drawing.Point(210, 37);
             this.pnlOption.Name = "pnlOption";
-            this.pnlOption.Size = new System.Drawing.Size(106, 162);
+            this.pnlOption.Size = new System.Drawing.Size(106, 128);
             this.pnlOption.TabIndex = 11;
             // 
             // textBox3
@@ -147,7 +153,7 @@ namespace WindowsFormsApp1
             this.pnlPrice.Controls.Add(this.textBox4);
             this.pnlPrice.Location = new System.Drawing.Point(322, 37);
             this.pnlPrice.Name = "pnlPrice";
-            this.pnlPrice.Size = new System.Drawing.Size(106, 162);
+            this.pnlPrice.Size = new System.Drawing.Size(106, 128);
             this.pnlPrice.TabIndex = 12;
             // 
             // textBox4
@@ -228,36 +234,12 @@ namespace WindowsFormsApp1
             this.unit.Name = "unit";
             this.unit.ReadOnly = true;
             // 
-            // pnlUnit
-            // 
-            this.pnlUnit.Controls.Add(this.textBox1);
-            this.pnlUnit.Location = new System.Drawing.Point(434, 37);
-            this.pnlUnit.Name = "pnlUnit";
-            this.pnlUnit.Size = new System.Drawing.Size(106, 162);
-            this.pnlUnit.TabIndex = 14;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(470, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Unit";
-            // 
             // pnlCount
             // 
             this.pnlCount.Controls.Add(this.textBox2);
-            this.pnlCount.Location = new System.Drawing.Point(546, 37);
+            this.pnlCount.Location = new System.Drawing.Point(434, 37);
             this.pnlCount.Name = "pnlCount";
-            this.pnlCount.Size = new System.Drawing.Size(106, 162);
+            this.pnlCount.Size = new System.Drawing.Size(106, 128);
             this.pnlCount.TabIndex = 14;
             // 
             // textBox2
@@ -270,7 +252,7 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(592, 18);
+            this.label4.Location = new System.Drawing.Point(481, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 13;
@@ -278,7 +260,7 @@ namespace WindowsFormsApp1
             // 
             // btnRemoveOption
             // 
-            this.btnRemoveOption.Location = new System.Drawing.Point(113, 90);
+            this.btnRemoveOption.Location = new System.Drawing.Point(106, 116);
             this.btnRemoveOption.Name = "btnRemoveOption";
             this.btnRemoveOption.Size = new System.Drawing.Size(91, 23);
             this.btnRemoveOption.TabIndex = 15;
@@ -288,7 +270,7 @@ namespace WindowsFormsApp1
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(106, 176);
+            this.btnSubmit.Location = new System.Drawing.Point(106, 145);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(91, 23);
             this.btnSubmit.TabIndex = 16;
@@ -296,18 +278,112 @@ namespace WindowsFormsApp1
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 201);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Category";
+            // 
+            // txbNameFind
+            // 
+            this.txbNameFind.Location = new System.Drawing.Point(259, 198);
+            this.txbNameFind.Name = "txbNameFind";
+            this.txbNameFind.Size = new System.Drawing.Size(120, 20);
+            this.txbNameFind.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(218, 201);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Name";
+            // 
+            // txbOptionFind
+            // 
+            this.txbOptionFind.Location = new System.Drawing.Point(434, 198);
+            this.txbOptionFind.Name = "txbOptionFind";
+            this.txbOptionFind.Size = new System.Drawing.Size(120, 20);
+            this.txbOptionFind.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(393, 201);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Option";
+            // 
+            // cbCategoryFind
+            // 
+            this.cbCategoryFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoryFind.FormattingEnabled = true;
+            this.cbCategoryFind.Location = new System.Drawing.Point(77, 198);
+            this.cbCategoryFind.Name = "cbCategoryFind";
+            this.cbCategoryFind.Size = new System.Drawing.Size(121, 21);
+            this.cbCategoryFind.TabIndex = 23;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(574, 196);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Find";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(655, 195);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txbUnit
+            // 
+            this.txbUnit.Location = new System.Drawing.Point(77, 90);
+            this.txbUnit.Name = "txbUnit";
+            this.txbUnit.Size = new System.Drawing.Size(120, 20);
+            this.txbUnit.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Unit";
+            // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txbUnit);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cbCategoryFind);
+            this.Controls.Add(this.txbOptionFind);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txbNameFind);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnRemoveOption);
             this.Controls.Add(this.dgvMain);
             this.Controls.Add(this.pnlCount);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pnlUnit);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlOption);
             this.Controls.Add(this.pnlPrice);
             this.Controls.Add(this.btnAddOption);
@@ -325,8 +401,6 @@ namespace WindowsFormsApp1
             this.pnlPrice.ResumeLayout(false);
             this.pnlPrice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
-            this.pnlUnit.ResumeLayout(false);
-            this.pnlUnit.PerformLayout();
             this.pnlCount.ResumeLayout(false);
             this.pnlCount.PerformLayout();
             this.ResumeLayout(false);
@@ -348,9 +422,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.FlowLayoutPanel pnlPrice;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DataGridView dgvMain;
-        private System.Windows.Forms.FlowLayoutPanel pnlUnit;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel pnlCount;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
@@ -364,5 +435,15 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txbNameFind;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txbOptionFind;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbCategoryFind;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txbUnit;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -7,6 +7,7 @@
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+          <ScalarProperty Name="mailAddress" ColumnName="mailAddress" />
           <ScalarProperty Name="post" ColumnName="post" />
           <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
@@ -19,7 +20,6 @@
           <ScalarProperty Name="createdDay" ColumnName="createdDay" />
           <ScalarProperty Name="creator" ColumnName="creator" />
           <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -30,7 +30,6 @@
           <ScalarProperty Name="createdDay" ColumnName="createdDay" />
           <ScalarProperty Name="creator" ColumnName="creator" />
           <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -100,6 +99,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="amountCount" ColumnName="amountCount" />
           <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -109,7 +109,6 @@
         <MappingFragment StoreEntitySet="ItemClassify">
           <ScalarProperty Name="idItem" ColumnName="idItem" />
           <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="amountCount" ColumnName="amountCount" />
           <ScalarProperty Name="classify" ColumnName="classify" />
           <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>

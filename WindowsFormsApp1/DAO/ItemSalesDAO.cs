@@ -77,7 +77,6 @@ namespace WindowsFormsApp1
                     creator = "minhtoan",
                     createdDay = DateTime.Now,
                     status = Constant.Instance.billStatusSold,
-                    totalPrice = 0,
                 };
                 kms.Bills.Add(bill);
                 kms.SaveChanges();
@@ -102,13 +101,12 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void addItem(int idCategory, string name, 
-            FlowLayoutPanel pnlOption, FlowLayoutPanel pnlPrice, 
-            FlowLayoutPanel pnlUnit, FlowLayoutPanel pnlCount)
+        public void addItem(int idCategory, string name, string unit,
+            FlowLayoutPanel pnlOption, FlowLayoutPanel pnlPrice,
+            FlowLayoutPanel pnlCount)
         {
             TextBox txbOption;
             TextBox txbPrice;
-            TextBox txbUnit;
             TextBox txbCount;
             using (KMSEntities kms = new KMSEntities())
             {
@@ -117,6 +115,7 @@ namespace WindowsFormsApp1
                     name = name,
                     idType = idCategory,
                     status = Constant.Instance.itemStatusActive,
+                    amountCount = unit,
                 };
                 kms.Items.Add(item);
 
@@ -124,14 +123,12 @@ namespace WindowsFormsApp1
                 {
                     txbOption = pnlOption.Controls[i] as TextBox;
                     txbPrice = pnlPrice.Controls[i] as TextBox;
-                    txbUnit = pnlUnit.Controls[i] as TextBox;
                     txbCount = pnlCount.Controls[i] as TextBox;
 
                     ItemClassify itemClassify = new ItemClassify()
                     {
                         idItem = item.id,
                         amount = int.Parse(txbCount.Text.ToString()),
-                        amountCount = txbUnit.Text,
                         classify = txbOption.Text,
                         status = Constant.Instance.itemOptionStatusActive,
                     };
@@ -151,7 +148,45 @@ namespace WindowsFormsApp1
             }
         }
 
+        public void addOption(string name,
+            FlowLayoutPanel pnlOption, FlowLayoutPanel pnlPrice,
+            FlowLayoutPanel pnlCount)
+        {
+            TextBox txbOption;
+            TextBox txbPrice;
+            TextBox txbCount;
+            using (KMSEntities kms = new KMSEntities())
+            {
+                Item itemGet = kms.Items.Where(item => item.name == name).FirstOrDefault();
 
+                for (int i = 0; i < pnlOption.Controls.Count; i++)
+                {
+                    txbOption = pnlOption.Controls[i] as TextBox;
+                    txbPrice = pnlPrice.Controls[i] as TextBox;
+                    txbCount = pnlCount.Controls[i] as TextBox;
+
+                    ItemClassify itemClassify = new ItemClassify()
+                    {
+                        idItem = itemGet.id,
+                        amount = int.Parse(txbCount.Text.ToString()),
+                        classify = txbOption.Text,
+                        status = Constant.Instance.itemOptionStatusActive,
+                    };
+                    kms.ItemClassifies.Add(itemClassify);
+
+                    ItemPrice itemPrice = new ItemPrice()
+                    {
+                        id = itemGet.id,
+                        classify = itemClassify.classify,
+                        price = decimal.Parse(txbPrice.Text.ToString()),
+                        tax = 2,
+                        status = Constant.Instance.itemPriceStatusActive,
+                    };
+                    kms.ItemPrices.Add(itemPrice);
+                }
+                kms.SaveChanges();
+            }
+        }
         public List<string> getListNameItem()
         {
             using (KMSEntities kms = new KMSEntities())
@@ -174,6 +209,7 @@ namespace WindowsFormsApp1
                         category = type.nameType,
                         item = item.name,
                         idCategory = type.idType,
+                        unit = item.amountCount,
                     }).Join(kms.ItemClassifies,
                         item => item.id,
                         option => option.idItem,
@@ -183,8 +219,8 @@ namespace WindowsFormsApp1
                             item = item.item,
                             category = item.category,
                             option = option.classify,
-                            unit = option.amountCount,
                             count = option.amount,
+                            unit = item.unit,
                             idCategory = item.idCategory,
 
                         }).Join(kms.ItemPrices,
@@ -198,8 +234,8 @@ namespace WindowsFormsApp1
                                 Option = item.option,
                                 Price = (float)price.price,
                                 Count = (int)(item.count),
-                                Unit = item.unit,
                                 IdCategory = item.idCategory,
+                                Unit = item.unit,
                             }
                         ).ToList();
             }
@@ -216,14 +252,115 @@ namespace WindowsFormsApp1
 
                 itemEdit.name = name;
                 itemEdit.idType = idCategory;
+                itemEdit.amountCount = unit;
 
                 itemClassifyEdit.amount = count;
-                itemClassifyEdit.amountCount = unit;
 
                 itemPriceEdit.price = (decimal)price;
 
                 kms.SaveChanges();
             }
+        }
+
+
+
+        public List<string> getListOptionByIdBill(int idItem)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.ItemClassifies.Where(item => item.idItem == idItem).Select(item => item.classify).ToList();
+            }
+        }
+
+        public int getIdItemByName(string name)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.Items.Where(item => item.name == name).Select(item => item.id).FirstOrDefault();
+            }
+        }
+
+        public int getIdCategoryByName(string name)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.Items.Where(item => item.name == name).Select(item => item.idType).FirstOrDefault();
+            }
+        }
+
+
+        public List<FullItemDTO> getListItemFind(int idCategory, string nameFind, string optionFind)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.Items.Where(item => item.name.Contains(nameFind))
+                    .Join(
+                    kms.ItemTypes,
+                    item => item.idType,
+                    type => type.idType,
+                    (item, type) => new
+                    {
+                        id = item.id,
+                        category = type.nameType,
+                        item = item.name,
+                        idCategory = type.idType,
+                        unit = item.amountCount,
+                    }).Where(item => item.idCategory== idCategory || idCategory==-1)
+                    .Join(kms.ItemClassifies,
+                        item => item.id,
+                        option => option.idItem,
+                        (item, option) => new
+                        {
+                            id = item.id,
+                            item = item.item,
+                            category = item.category,
+                            option = option.classify,
+                            count = option.amount,
+                            idCategory = item.idCategory,
+                            unit = item.unit,
+
+
+                        }).Where(item => item.option.Contains(optionFind))
+                        .Join(kms.ItemPrices,
+                            item => new { id = item.id, option = item.option },
+                            price => new { id = price.id, option = price.classify },
+                            (item, price) => new FullItemDTO
+                            {
+                                Id = item.id,
+                                Name = item.item,
+                                Category = item.category,
+                                Option = item.option,
+                                Price = (float)price.price,
+                                Count = (int)(item.count),
+                                IdCategory = item.idCategory,
+                                Unit = item.unit,
+                            }
+                        ).ToList();
+            }
+        }
+
+        
+        public Acount getAccountByUsername(string username)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.Acounts.Where(acc => acc.username == username).FirstOrDefault();
+            }
+
+        }
+
+        public void changePassword(string username, string password)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                Acount acount = kms.Acounts.Where(acc => acc.username == username).FirstOrDefault();
+                if (acount != null)
+                {
+                    acount.password = password;
+                    kms.SaveChanges();
+                }
+            }
+
         }
 
     }

@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         private int timeWaint = 50;
         private int time;
         private bool flag = false;
+        Acount acount;
         int code;
         public ForgotPasswordForm()
         {
@@ -57,17 +58,26 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //check username ....
+            //check exist username ....
+            string username = txbUsername.Text;
+            acount = ItemSalesDAO.Instance.getAccountByUsername(username);
+            if (acount != null)
+            {
+                Random rand1 = new Random();
+                btnSendEmail.Enabled = false;
+                timer1.Start();
+                btnSendEmail.Text = time.ToString();
+                code = rand1.Next(1000, 10000);
+                flag = true;
+                sendEmail(acount.mailAddress, code);
+            }
+            else
+            {
+                MessageBox.Show("Username is not exist");
+            }
 
 
-
-            Random rand1 = new Random(); 
-            btnSendEmail.Enabled = false;
-            timer1.Start();
-            btnSendEmail.Text = time.ToString();
-            code = rand1.Next(1000, 10000);
-            flag = true;
-            sendEmail("nguyenvantiennn0910@gmail.com", code);
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -95,6 +105,12 @@ namespace WindowsFormsApp1
                 if (code == result && flag)
                 {
                     MessageBox.Show("Correct");
+
+                    //will open a change password form
+                    ChangePasswordForm passwordForm = new ChangePasswordForm(acount);
+                    passwordForm.ShowDialog();
+
+                    //close this form 
                 }
                 else
                 {

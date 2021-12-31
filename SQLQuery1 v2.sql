@@ -1,13 +1,21 @@
-﻿use master
-go
-drop database kms
-go
-create database KMS
-go
+﻿create database KMS
 use  KMS
-go
 
-go
+drop table Questionable
+drop table BillBuyDetail
+drop table BillBuy
+drop table BillDetail
+drop table Bill
+drop table ItemPrice
+drop table ItemClassify
+drop table item
+drop table ItemType
+drop table acount
+drop table employee
+drop table Supermarket
+drop table Cost
+
+
 create table Supermarket(
 	id nvarchar(10) primary key,
 	name nvarchar(50) not null,
@@ -38,6 +46,7 @@ create table Item (
 	id int identity primary key,
 	name nvarchar(50) not null,
 	idType int not null,
+	amountCount nvarchar(10) not null,
 	status nvarchar(20) default(N'Không hoạt động'), --Không hoạt động, Hoạt động, Đã xóa
 	
 	foreign key(idType) references ItemType(idType)
@@ -45,9 +54,8 @@ create table Item (
 
 create table ItemClassify(
 	idItem int not null,
-	amount int default(0),
-	amountCount nvarchar(10) not null,
-	classify nvarchar(30) not null,
+	amount int default(0),	
+	classify nvarchar(30) not null,  -- iphone mau hong
 	status nvarchar(20) default(N'Không hoạt động'),
 
 	primary key(idItem, classify),
@@ -58,7 +66,7 @@ create table ItemPrice(
 	id int ,
 	classify nvarchar(30) not null,
 	price decimal default(0),
-	tax decimal default(0),
+	tax decimal default(0),  --1 2
 	status nvarchar(30),					-- Hàng bán, Hàng tặng kèm
 
 	primary key(id,classify),
@@ -82,18 +90,18 @@ create table Acount(
 	username nvarchar(20) primary key,
 	password nvarchar(20) not null,
 	idEmployee int not null,
+	mailAddress nvarchar(50),
 	post int default(0),
 	status nvarchar(30) default(N'Không hoạt động') --Không hoạt động, Hoạt động, Đã xóa
 
-	foreign key ( idEmployee) references Employee(id)
+	foreign key (idEmployee) references Employee(id)
 )
 
 create table Bill (
 	id int identity primary key,
-	createdDay date default(getdate()),
+	createdDay datetime default(getdate()),
 	creator nvarchar(20) not null,
 	status nvarchar(30) default(N'Đã thanh toán'), --Chưa thanh toán, Đã thanh toán, Đã hủy
-	totalPrice decimal default(0),
 
 	foreign key (creator) references Acount(username)
 )
@@ -114,10 +122,9 @@ create table BillDetail(
 
 create table BillBuy (
 	id int identity primary key,
-	createdDay date default(getdate()),
+	createdDay datetime default(getdate()),
 	creator nvarchar(20) not null,
 	status nvarchar(10) default(N'Đang chờ'),		-- Đã nhập, Đã hủy, Thiếu hàng
-	totalPrice decimal default(0),
 
 	foreign key (creator) references Acount(username)
 )
@@ -297,41 +304,25 @@ insert into Employee(name, identityCardNumber, age, post, salary) values(N'Toàn
 insert into Employee(name, identityCardNumber, age, post, salary) values(N'Tiến', 2, 21, N'Nhân viên', 1000)
 insert into Employee(name, identityCardNumber, age, post, salary) values(N'VanTiennn', 3, 21, N'Nhân viên', 1000)
 
-insert into Acount(username,password, idEmployee) values(N'minhtoan', N'1',1)
-insert into Acount(username,password, idEmployee) values(N'vantiennn', N'1',2)
-insert into Acount(username,password, idEmployee) values(N'Nguyễn Ông Nội', N'1',3)
+insert into Acount(username,password, idEmployee, mailAddress) values(N'minhtoan', N'1',1, 'nguyenvantiennn0910@gmail.com')
+insert into Acount(username,password, idEmployee, mailAddress) values(N'vantiennn', N'1',2, 'nguyenvantiennncolab@gmail.com')
+insert into Acount(username,password, idEmployee, mailAddress) values(N'Nguyễn Ông Nội', N'1',3, 'nguyenvantiennnimage@gmail.com')
+ 
+
  
 insert into ItemType(nameType) values(N'Laptop')
 insert into ItemType(nameType) values(N'Máy tính bàn')
-insert into ItemType(nameType) values(N'Điện thoại')
 
-insert into Item( name, idType) values( N'Laptop', 1)
-insert into Item( name, idType) values( N'Mac book m1', 1)
-insert into Item( name, idType) values( N'Mac book m2', 1)
-insert into Item( name, idType) values( N'Mac book m3', 1)
-insert into Item( name, idType) values( N'Mac book m4', 1)
-insert into Item( name, idType) values( N'Máy tính bản samsung', 2)
-insert into Item( name, idType) values( N'Máy tính bàn xiaomi', 2)
+insert into Item( name, amountCount, idType) values( N'Laptop', N'Cái', 1)
+insert into Item( name, amountCount,idType) values( N'Máy tính bàn', 'Cái', 2)
 
-
-
-insert into ItemClassify(idItem, amountCount, classify) values(1,N'Cái', N'Xanh')
-insert into ItemClassify(idItem, amountCount, classify) values(1,N'Cái', N'Đỏ')
-insert into ItemClassify(idItem, amountCount, classify) values(2,N'Cái', N'Hồng')
-insert into ItemClassify(idItem, amountCount, classify) values(3,N'Cái', N'Xanh')
-insert into ItemClassify(idItem, amountCount, classify) values(4,N'Cái', N'Đỏ')
-insert into ItemClassify(idItem, amountCount, classify) values(5,N'Cái', N'Xanh')
-insert into ItemClassify(idItem, amountCount, classify) values(6,N'Cái', N'Đỏ')
-insert into ItemClassify(idItem, amountCount, classify) values(7,N'Cái', N'Đỏ')
-
+insert into ItemClassify(idItem, classify) values(1, N'Xanh')
+insert into ItemClassify(idItem, classify) values(1, N'Đỏ')
+insert into ItemClassify(idItem,  classify) values(2, N'Hồng')
 
 insert into ItemPrice(id, classify, price, tax) values (1, N'Xanh', 1000, 2)
 insert into ItemPrice(id, classify, price, tax) values (1, N'Đỏ', 1100, 1.5)
 insert into ItemPrice(id, classify, price, tax) values (2, N'Hồng', 500, 1.5)
-insert into ItemPrice(id, classify, price, tax) values (3, N'Xanh', 500, 1.5)
-insert into ItemPrice(id, classify, price, tax) values (4, N'Đỏ', 500, 1.5)
-insert into ItemPrice(id, classify, price, tax) values (5, N'Xanh', 500, 1.5)
-insert into ItemPrice(id, classify, price, tax) values (6, N'Đỏ', 500, 1.5)
 
 insert into BillBuy(creator) values(N'minhtoan')
 
@@ -355,32 +346,13 @@ insert into BillDetail(idBill, idItem, classify,amount, amountCount, singlePrice
 insert into BillDetail(idBill, idItem, classify,amount, amountCount, singlePrice) 
 	values(1, 2, N'Hồng', 5, N'Cái', 600)
 
-go
-use kms
 
-select * from Acount
-select * from Employee
 select * from Item
-select * from ItemType
-select * from itemClassify
-select * from ItemPrice		
+select * from ItemPrice
+select * from ItemClassify
 select * from Cost
 select * from BillBuyDetail
 select * from BillDetail
 select * from Questionable
 select * from Bill
-select * from BillDetail where idBill = 1
 go
-
-
-
-go
---report sales
-select bill.id, bill.createdDay as createdAt, bill.creator, billDetail.classify as 'option', billDetail.amount as 'count',
-	billDetail.amountCount as unit, billDetail.singlePrice, item.name, itemType.nameType as category
-from Bill as bill, BillDetail as billDetail, Item as item, ItemType as itemType 
-where bill.id = billDetail.idBill AND billDetail.idItem = item.id AND itemType.idType = item.idType AND bill.id=8
-
---report sales
-
-select sum(singlePrice * amount) from BillDetail where idBill=1 

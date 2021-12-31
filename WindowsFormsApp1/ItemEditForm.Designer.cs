@@ -30,6 +30,17 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.dgvMain = new System.Windows.Forms.DataGridView();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txbName = new System.Windows.Forms.TextBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
@@ -45,17 +56,14 @@ namespace WindowsFormsApp1
             this.txbUnit = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.idCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbCategoryFind = new System.Windows.Forms.ComboBox();
+            this.txbOptionFind = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txbNameFind = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +91,87 @@ namespace WindowsFormsApp1
             this.dgvMain.TabIndex = 14;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellClick);
             this.dgvMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellContentClick);
+            // 
+            // index
+            // 
+            this.index.FillWeight = 50F;
+            this.index.HeaderText = "index";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            this.index.Width = 50;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // category
+            // 
+            this.category.HeaderText = "category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 75;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // option
+            // 
+            this.option.FillWeight = 75F;
+            this.option.HeaderText = "option";
+            this.option.Name = "option";
+            this.option.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "price";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Width = 75;
+            // 
+            // count
+            // 
+            this.count.HeaderText = "count";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 50;
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "unit";
+            this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
+            this.unit.Width = 75;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            this.Edit.Width = 50;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 50;
+            // 
+            // idCategory
+            // 
+            this.idCategory.HeaderText = "idCategory";
+            this.idCategory.Name = "idCategory";
+            this.idCategory.ReadOnly = true;
+            this.idCategory.Visible = false;
             // 
             // label1
             // 
@@ -210,92 +299,89 @@ namespace WindowsFormsApp1
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // index
+            // button2
             // 
-            this.index.FillWeight = 50F;
-            this.index.HeaderText = "index";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            this.index.Width = 50;
+            this.button2.Location = new System.Drawing.Point(649, 205);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // id
+            // button1
             // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
+            this.button1.Location = new System.Drawing.Point(568, 206);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Find";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // category
+            // cbCategoryFind
             // 
-            this.category.HeaderText = "category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 75;
+            this.cbCategoryFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoryFind.FormattingEnabled = true;
+            this.cbCategoryFind.Location = new System.Drawing.Point(71, 208);
+            this.cbCategoryFind.Name = "cbCategoryFind";
+            this.cbCategoryFind.Size = new System.Drawing.Size(121, 21);
+            this.cbCategoryFind.TabIndex = 35;
             // 
-            // name
+            // txbOptionFind
             // 
-            this.name.HeaderText = "name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
+            this.txbOptionFind.Location = new System.Drawing.Point(428, 208);
+            this.txbOptionFind.Name = "txbOptionFind";
+            this.txbOptionFind.Size = new System.Drawing.Size(120, 20);
+            this.txbOptionFind.TabIndex = 34;
             // 
-            // option
+            // label9
             // 
-            this.option.FillWeight = 75F;
-            this.option.HeaderText = "option";
-            this.option.Name = "option";
-            this.option.ReadOnly = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(387, 211);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Option";
             // 
-            // price
+            // txbNameFind
             // 
-            this.price.HeaderText = "price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 75;
+            this.txbNameFind.Location = new System.Drawing.Point(253, 208);
+            this.txbNameFind.Name = "txbNameFind";
+            this.txbNameFind.Size = new System.Drawing.Size(120, 20);
+            this.txbNameFind.TabIndex = 32;
             // 
-            // count
+            // label8
             // 
-            this.count.HeaderText = "count";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 50;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(212, 211);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Name";
             // 
-            // unit
+            // label10
             // 
-            this.unit.HeaderText = "unit";
-            this.unit.Name = "unit";
-            this.unit.ReadOnly = true;
-            this.unit.Width = 75;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            this.Edit.Width = 50;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 50;
-            // 
-            // idCategory
-            // 
-            this.idCategory.HeaderText = "idCategory";
-            this.idCategory.Name = "idCategory";
-            this.idCategory.ReadOnly = true;
-            this.idCategory.Visible = false;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 211);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Category";
             // 
             // ItemEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cbCategoryFind);
+            this.Controls.Add(this.txbOptionFind);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txbNameFind);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txbUnit);
             this.Controls.Add(this.label7);
@@ -350,5 +436,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCategory;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbCategoryFind;
+        private System.Windows.Forms.TextBox txbOptionFind;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txbNameFind;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -24,7 +24,6 @@ namespace WindowsFormsApp1
         public Nullable<System.DateTime> createdDay { get; set; }
         public string creator { get; set; }
         public string status { get; set; }
-        public Nullable<decimal> totalPrice { get; set; }
     
         public virtual Acount Acount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

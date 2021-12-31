@@ -317,3 +317,4 @@ C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ja\DevE
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ru\DevExpress.Diagram.v21.2.Core.resources.dll
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SalesReportForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ForgotPasswordForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChangePasswordForm.resources

@@ -71,7 +71,6 @@ namespace WindowsFormsApp1
                 item.SubItems.Add(list[i].createdDay.ToString());
                 item.SubItems.Add(list[i].creator);
                 item.SubItems.Add(list[i].status);
-                item.SubItems.Add(list[i].totalPrice.ToString());
 
                 lvBill.Items.Add(item);
             }

@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
         {
             loadDgv();
             loadCategory();
+            loadCategoryFind();
         }
 
         private void dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -131,6 +132,16 @@ namespace WindowsFormsApp1
             return true;
         }
 
+        private void clear()
+        {
+            txbId.Text = "";
+            txbName.Text = "";
+            txbOption.Text = "";
+            txbPrice.Text = "";
+            txbCount.Text = "";
+            txbUnit.Text = "";
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (!checkInput()) return;
@@ -149,6 +160,62 @@ namespace WindowsFormsApp1
                         txbOption.Text, float.Parse(txbPrice.Text),
                         int.Parse(txbCount.Text), txbUnit.Text);
             loadDgv();
+            clear();
+        }
+
+        private void loadCategoryFind()
+        {
+            List<ItemType> listCategory = CategoryDAO.Instance.getListCategory();
+            ItemType item = new ItemType()
+            {
+                idType = -1,
+                nameType = "Tất cả"
+            };
+
+            listCategory.Insert(0, item);
+
+            cbCategoryFind.DataBindings.Clear();
+            cbCategoryFind.DataSource = listCategory;
+            cbCategoryFind.DisplayMember = "nameType";
+            cbCategoryFind.ValueMember = "idType";
+        }
+
+        private void loadDgvFind(List<FullItemDTO> fullItems)
+        {
+            dgvMain.Rows.Clear();
+            for (int i = 0; i < fullItems.Count; i++)
+            {
+                FullItemDTO item = fullItems[i];
+
+                var index = dgvMain.Rows.Add();
+                dgvMain.Rows[index].Cells["index"].Value = index + 1;
+                dgvMain.Rows[index].Cells["id"].Value = item.Id;
+                dgvMain.Rows[index].Cells["category"].Value = item.Category;
+                dgvMain.Rows[index].Cells["name"].Value = item.Name;
+                dgvMain.Rows[index].Cells["option"].Value = item.Option;
+                dgvMain.Rows[index].Cells["price"].Value = item.Price;
+                dgvMain.Rows[index].Cells["count"].Value = item.Count;
+                dgvMain.Rows[index].Cells["unit"].Value = item.Unit;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int idCategory = int.Parse(cbCategoryFind.SelectedValue.ToString());
+            string option = txbOptionFind.Text;
+            string name = txbNameFind.Text;
+
+            List<FullItemDTO> fullItems = ItemSalesDAO.Instance.getListItemFind(idCategory, name, option);
+
+            loadDgvFind(fullItems);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            loadDgv();
+            cbCategoryFind.SelectedValue = -1;
+            txbNameFind.Text = "";
+            txbOptionFind.Text = "";
         }
     }
 }
