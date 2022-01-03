@@ -36,6 +36,11 @@ namespace WindowsFormsApp1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (txbCategoryAdd.Text == "")
+            {
+                MessageBox.Show("Category is empty");
+                return;
+            }
             CategoryDAO.Instance.addCategory(txbCategoryAdd.Text);
             loadListCategory();
         }

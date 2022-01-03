@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         {
             MailMessage mailMessage = new MailMessage();
             mailMessage.To.Add(receiver);
-            mailMessage.From = new MailAddress("nguyenvantiennn0910@gmail.com");
+            mailMessage.From = new MailAddress("ng.van.sssien.201@gmail.com");
             mailMessage.Body = "Mã xác nhận: " + code.ToString() 
                 + " , bạn đang tiến hành đổi mật khẩu. Tuyệt đối không tiết lộ mã xác nhận cho người khác để đảm bảo an toàn cho tài khoản của bạn. " +
                 "Nếu như đây không phải thao tác từ bạn, hãy lập tức đổi mật khẩu.";
@@ -37,11 +37,11 @@ namespace WindowsFormsApp1
 
             using (SmtpClient client = new SmtpClient())
             {
-                client.EnableSsl = true;
+                client.EnableSsl = true;    
                 client.UseDefaultCredentials = true;
                 client.Credentials = new NetworkCredential("ng.van.tien.201@gmail.com", "0123456789vt");
-                client.Host = "smtp.gmail.com";
                 client.Port = 587;
+                client.Host = "smtp.gmail.com";
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
 
                 try

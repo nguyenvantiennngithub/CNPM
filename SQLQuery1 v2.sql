@@ -355,4 +355,5 @@ select * from BillBuyDetail
 select * from BillDetail
 select * from Questionable
 select * from Bill
+select * from Acount
 go
