@@ -127,6 +127,12 @@
     <Compile Include="BillBuyDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BillBuyDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillBuyDetailForm.Designer.cs">
+      <DependentUpon>BillBuyDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -135,6 +141,21 @@
     </Compile>
     <Compile Include="BillForm.Designer.cs">
       <DependentUpon>BillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyForm.Designer.cs">
+      <DependentUpon>BuyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyFormReportDataSet.cs">
+      <DependentUpon>BuyFormReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BuyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyReportForm.Designer.cs">
+      <DependentUpon>BuyReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CategoryForm.cs">
       <SubType>Form</SubType>
@@ -157,6 +178,8 @@
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\CostDAO.cs" />
     <Compile Include="DAO\ItemSalesDAO.cs" />
+    <Compile Include="DTO\BillBuyDetailDTO.cs" />
+    <Compile Include="DTO\BillBuyDTO.cs" />
     <Compile Include="DTO\CategoryGroupBy.cs" />
     <Compile Include="DTO\FullItemDTO.cs" />
     <Compile Include="DTO\ItemGroupBy.cs" />
@@ -193,6 +216,11 @@
     </Compile>
     <Compile Include="ItemType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuyFormReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuyFormReportDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -240,12 +268,27 @@
     <Compile Include="SalesReportForm.Designer.cs">
       <DependentUpon>SalesReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowBillBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowBillBuy.Designer.cs">
+      <DependentUpon>ShowBillBuy.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supermarket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BillBuyDetailForm.resx">
+      <DependentUpon>BillBuyDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyForm.resx">
+      <DependentUpon>BuyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyReportForm.resx">
+      <DependentUpon>BuyReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
@@ -273,6 +316,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="RevenueForm.resx">
       <DependentUpon>RevenueForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,10 +326,24 @@
     <EmbeddedResource Include="SalesReportForm.resx">
       <DependentUpon>SalesReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowBillBuy.resx">
+      <DependentUpon>ShowBillBuy.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="BuyFormReportDataSet.xsc">
+      <DependentUpon>BuyFormReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BuyFormReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BuyFormReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BuyFormReportDataSet.xss">
+      <DependentUpon>BuyFormReportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

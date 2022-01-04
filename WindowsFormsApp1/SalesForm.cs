@@ -153,10 +153,11 @@ namespace WindowsFormsApp1
                     salesReport.Show();
                 }
             }
-            else
-            {
+        }
 
-            }
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

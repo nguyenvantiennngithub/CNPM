@@ -33,6 +33,13 @@ namespace WindowsFormsApp1
             this.cbProduct = new System.Windows.Forms.ComboBox();
             this.cbOption = new System.Windows.Forms.ComboBox();
             this.dgvSales = new System.Windows.Forms.DataGridView();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.singlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,13 +48,6 @@ namespace WindowsFormsApp1
             this.txbTotalPrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.singlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@ namespace WindowsFormsApp1
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 21);
             this.cbCategory.TabIndex = 0;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             this.cbCategory.SelectedValueChanged += new System.EventHandler(this.cbCategory_SelectedValueChanged);
             // 
             // cbProduct
@@ -96,6 +97,48 @@ namespace WindowsFormsApp1
             this.dgvSales.ReadOnly = true;
             this.dgvSales.Size = new System.Drawing.Size(640, 283);
             this.dgvSales.TabIndex = 3;
+            // 
+            // index
+            // 
+            this.index.HeaderText = "index";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            // 
+            // displayName
+            // 
+            this.displayName.HeaderText = "displayName";
+            this.displayName.Name = "displayName";
+            this.displayName.ReadOnly = true;
+            // 
+            // option
+            // 
+            this.option.HeaderText = "option";
+            this.option.Name = "option";
+            this.option.ReadOnly = true;
+            // 
+            // singlePrice
+            // 
+            this.singlePrice.HeaderText = "singlePrice";
+            this.singlePrice.Name = "singlePrice";
+            this.singlePrice.ReadOnly = true;
+            // 
+            // count
+            // 
+            this.count.HeaderText = "count";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.HeaderText = "totalPrice";
+            this.totalPrice.Name = "totalPrice";
+            this.totalPrice.ReadOnly = true;
+            // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "idItem";
+            this.idItem.Name = "idItem";
+            this.idItem.ReadOnly = true;
             // 
             // label1
             // 
@@ -179,48 +222,6 @@ namespace WindowsFormsApp1
             this.btnSubmit.Text = "Payment";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // index
-            // 
-            this.index.HeaderText = "index";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            // 
-            // displayName
-            // 
-            this.displayName.HeaderText = "displayName";
-            this.displayName.Name = "displayName";
-            this.displayName.ReadOnly = true;
-            // 
-            // option
-            // 
-            this.option.HeaderText = "option";
-            this.option.Name = "option";
-            this.option.ReadOnly = true;
-            // 
-            // singlePrice
-            // 
-            this.singlePrice.HeaderText = "singlePrice";
-            this.singlePrice.Name = "singlePrice";
-            this.singlePrice.ReadOnly = true;
-            // 
-            // count
-            // 
-            this.count.HeaderText = "count";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "totalPrice";
-            this.totalPrice.Name = "totalPrice";
-            this.totalPrice.ReadOnly = true;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "idItem";
-            this.idItem.Name = "idItem";
-            this.idItem.ReadOnly = true;
             // 
             // SalesForm
             // 

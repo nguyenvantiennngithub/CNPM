@@ -318,3 +318,7 @@ C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ru\DevE
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SalesReportForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ForgotPasswordForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChangePasswordForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BuyForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BuyReportForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ShowBillBuy.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillBuyDetailForm.resources
