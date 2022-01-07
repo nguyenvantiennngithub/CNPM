@@ -58,7 +58,6 @@ C:\Users\dphum\OneDrive\Desktop\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Wind
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
-C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.RevenueForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.licenses
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
@@ -322,3 +321,7 @@ C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Windows
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BuyReportForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ShowBillBuy.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillBuyDetailForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillDetailForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChartBillDetailForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CostUpdatForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Revenue.resources

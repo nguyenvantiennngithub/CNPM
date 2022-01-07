@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         private void loadDgv()
         {
             List<BillBuyDetailDTO> data = ItemSalesDAO.Instance.GetBillBuyDetails(idBill);
-            dgvMain.Rows.Clear();``
+            dgvMain.Rows.Clear();
             foreach (BillBuyDetailDTO b in data)
             {
                 var index = dgvMain.Rows.Add();

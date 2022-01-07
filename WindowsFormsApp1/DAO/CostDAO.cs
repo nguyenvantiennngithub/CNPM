@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         {
 
             using (KMSEntities kms = new KMSEntities())
-            { 
+            {
                 return float.Parse(kms.Costs.Sum(p => p.total).ToString());
             }
         }
@@ -30,10 +30,10 @@ namespace WindowsFormsApp1
         {
             using (KMSEntities kms = new KMSEntities())
             {
-
-                float totalFund = float.Parse(kms.Costs
-                                            .Sum(p => p.totalFundCost).ToString());
-                return totalFund;
+                float a = float.Parse(kms.Costs
+                           .Sum(p => p.totalFundCost).ToString());
+                return a;
+ 
             }
         }
         public float getTotalIncome()
@@ -90,7 +90,7 @@ namespace WindowsFormsApp1
             using (KMSEntities kms = new KMSEntities())
             {
                 return float.Parse(kms.Costs.Where(p => p.month == month && p.year == year)
-                                            .Select(p => p.total).ToString());
+                                            .Select(p => p.total).FirstOrDefault().ToString());
             }
         }
 
@@ -99,7 +99,7 @@ namespace WindowsFormsApp1
             using (KMSEntities kms = new KMSEntities())
             {
                 return  float.Parse(kms.Costs.Where(p => p.month == month && p.year == year)
-                                            .Select(p => p.totalFundCost).ToString());
+                                            .Select(p => p.totalFundCost).FirstOrDefault().ToString());
             }
         }
 
@@ -109,11 +109,11 @@ namespace WindowsFormsApp1
             {
 
                 return float.Parse(kms.Costs.Where( p => p.month == month && p.year == year)
-                                        .Sum(p => (p.premiseCost 
+                                        .Select(p => (p.premiseCost 
                                          + p.electricityCost + p.waterCost + p.totalTaxCost) +
                                          (p.premiseCost + p.totalTaxCost
                                          + p.electricityCost + p.waterCost) * p.bankInterestExpensePercent / 100
-                                      ).ToString());
+                                      ).FirstOrDefault().ToString());
             }
         }
         
@@ -122,7 +122,7 @@ namespace WindowsFormsApp1
             using (KMSEntities kms = new KMSEntities())
             {
                 return float.Parse(kms.Costs.Where(p => p.month == month && p.year == year)
-                                            .Select(p => p.totalIncome).ToString());
+                                            .Select(p => p.totalIncome).FirstOrDefault().ToString());
             }
         }
 
@@ -196,11 +196,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        public List<Cost> GetListCostByMonth(int a, int b)
+        public Cost GetRecordCostByMonth(int a, int b)
         {
             using( KMSEntities kms = new KMSEntities())
             {
-                return kms.Costs.Where(p => p.month == a && p.year == b).ToList();
+                return kms.Costs.Where(p => p.month == a && p.year == b).First();
             }
         }
 
@@ -209,6 +209,28 @@ namespace WindowsFormsApp1
             using (KMSEntities kms = new KMSEntities())
             {
                 return kms.Costs.Where(p => p.year == b).ToList();
+            }
+        }
+
+        public List<Cost> GetListCostFromYearToYear( int a, int b)
+        {
+            using( KMSEntities kms = new KMSEntities())
+            {
+                return kms.Costs.Where(p => p.year >= a && p.year <= b).ToList();
+            }
+        }
+
+        public void UpdateCostByMonth( int month, int year, float electric, float water, float premise, float bankIntered)
+        {
+            using( KMSEntities kms = new KMSEntities())
+            {
+                Cost cost = kms.Costs.Where(p => p.month == month && p.year == year).First();
+                cost.electricityCost = (decimal)electric;
+                cost.waterCost = (decimal)water;
+                cost.premiseCost = (decimal)premise;
+                cost.bankInterestExpensePercent = (decimal)bankIntered;
+
+                kms.SaveChanges();
             }
         }
     }

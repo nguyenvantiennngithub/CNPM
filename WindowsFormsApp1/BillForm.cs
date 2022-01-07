@@ -14,6 +14,8 @@ namespace WindowsFormsApp1
     public partial class BillForm : Form
     {
         List<Bill> listBill = new List<Bill>();
+        List<Bill> listChange = new List<Bill>();
+        List<Bill> listSelected = new List<Bill>();
         public BillForm()
         {
             InitializeComponent();
@@ -26,12 +28,18 @@ namespace WindowsFormsApp1
         {
             List<string> listStatus = new List<string>();
             listStatus.Add("Tất cả");
-            listStatus.Add("Đã hủy");
+            listStatus.Add("Đã xóa");
             listStatus.Add("Đã thanh toán");
             listStatus.Add("Chưa thanh toán");
 
-            cbStatus.DataSource = listStatus;
             cbStatusFind.DataSource = listStatus;
+
+            List<string> listStatus2 = new List<string>();
+            listStatus2.Add("Đã xóa");
+            listStatus2.Add("Đã thanh toán");
+            listStatus2.Add("Chưa thanh toán");
+
+            cbStatus.DataSource = listStatus2;
 
             List<string> listAcount = new List<string>();
             listAcount.Add("Tất cả");
@@ -65,12 +73,13 @@ namespace WindowsFormsApp1
             lvBill.Items.Clear();
             for( int i = 0; i < list.Count(); i++)
             {
-                ListViewItem item = new ListViewItem();
+                ListViewItem item = new ListViewItem((i+1).ToString());
 
                 item.SubItems.Add(list[i].id.ToString());
                 item.SubItems.Add(list[i].createdDay.ToString());
                 item.SubItems.Add(list[i].creator);
                 item.SubItems.Add(list[i].status);
+                item.SubItems.Add(BillDetailDAO.Instance.GetTotalPriceByID(list[i].id).ToString());
 
                 lvBill.Items.Add(item);
             }
@@ -131,67 +140,116 @@ namespace WindowsFormsApp1
             listBill = BillDAO.Instance.GetAllBillList();
             LoadDataToListView(listBill);
             SetDefaultValueOfControl();
+            listSelected.Clear();
+            listChange.Clear();
             txbIDFind.Text = "";
             cbAcountFind.Text = "Tất cả";
-            cbStatus.Text = "Tất cả";
+            cbStatusFind.Text = "Tất cả";
+            txbID.Text = "";
+            txbAcount.Text = "";
+            txbDate.Text = "";
+            cbStatus.Text = "";
+            txbSumPrice.Text = ""; 
         }
 
         private void lvBill_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvBill.SelectedItems.Count > 0)
+            if (lvBill.SelectedItems.Count == 1)
             {
-                txbID.Text = lvBill.SelectedItems[0].SubItems[0].Text;
-                txbDate.Text = lvBill.SelectedItems[0].SubItems[1].Text;
-                txbAcount.Text = lvBill.SelectedItems[0].SubItems[2].Text;
-                cbStatus.Text = lvBill.SelectedItems[0].SubItems[3].Text;
-                txbSumPrice.Text = lvBill.SelectedItems[0].SubItems[4].Text;
-            }
+                txbID.Text = lvBill.SelectedItems[0].SubItems[1].Text;
+                txbDate.Text = lvBill.SelectedItems[0].SubItems[2].Text;
+                txbAcount.Text = lvBill.SelectedItems[0].SubItems[3].Text;
+                cbStatus.Text = lvBill.SelectedItems[0].SubItems[4].Text;
+                txbSumPrice.Text = lvBill.SelectedItems[0].SubItems[5].Text;
+                
 
+                listSelected.Add(listBill[int.Parse(lvBill.SelectedItems[0].SubItems[0].Text) - 1]);
+            }
+            else if (lvBill.SelectedItems.Count > 1)
+            {
+                txbID.Text = "";
+                txbDate.Text = "";
+                txbAcount.Text = "";
+                txbSumPrice.Text = "";
+
+                listSelected.Clear();
+                for (int i = 0; i < lvBill.SelectedItems.Count; i++)
+                {
+                    listSelected.Add(listBill[int.Parse(lvBill.SelectedItems[i].SubItems[0].Text)-1]);
+                }
+            }
+            else
+            {
+                listSelected.Clear();
+            }
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if(txbID.Text != null)
+            if (listSelected.Count > 0)
             {
-                for( int i = 0; i < listBill.Count(); i++)
+                for (int i = 0; i < listSelected.Count; i++)
                 {
-                    if( listBill[i].id == int.Parse(txbID.Text))
+                    if (listChange.Contains(listSelected[i]))
+                        listChange.Remove(listSelected[i]);
+
+                    Bill a = listBill.Find(x => x.id == listSelected[i].id);
+
+                    if (a.status.Equals(cbStatus.Text))
+                        listSelected.RemoveAt(i);
+                    else
                     {
-                        listBill[i].status = cbStatus.Text;
-                        break;
+                        a.status = cbStatus.Text;
+                        listSelected[i].status = cbStatus.Text;
+                        listChange.Add(listSelected[i]);
                     }
                 }
+                listSelected.Clear();
+                LoadDataToListView(listBill);
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if( txbID.Text != null)
+            if (listSelected.Count > 0)
             {
-                for( int i = 0; i < listBill.Count(); i++)
+                for (int i = 0; i < listSelected.Count; i++)
                 {
-                    if( listBill[i].id == int.Parse(txbID.Text))
-                    {
-                        listBill.RemoveAt(i);
-                        break;
-                    }
+                    if (listChange.Contains(listSelected[i]))
+                        listChange.Remove(listSelected[i]);
+
+                    listBill.Remove(listSelected[i]);
+                    listSelected[i].status = "Đã xóa";
+                    listChange.Add(listSelected[i]);
                 }
+                listSelected.Clear();
+                LoadDataToListView(listBill);
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            BillDAO.Instance.SetBillRecordByList(listBill);
+            if (listChange.Count > 0)
+            {
+                BillDAO.Instance.ChangeBillRecordByList(listChange);
+                listChange.Clear();
+                listSelected.Clear();
+            }
         }
 
         private void txbIDFind_TextChanged(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"[^\d]+");
-            if (regex.IsMatch(txbIDFind.Text))
+            if (txbIDFind.Text.Length > 0)
             {
-                txbIDFind.Text.Remove(txbIDFind.Text.Length - 1, txbIDFind.Text.Length - 1);
+                txbIDFind.Text = Regex.Replace(txbIDFind.Text, @"[^\d]", String.Empty);
                 txbIDFind.SelectionStart = txbIDFind.Text.Length;
             }
+        }
+
+        private void btnBillDetail_Click(object sender, EventArgs e)
+        {
+            BillDetailForm form = new BillDetailForm(int.Parse(txbID.Text));
+            form.ShowDialog();
         }
     }
 }

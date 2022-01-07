@@ -30,11 +30,12 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.lvBill = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.pnYearFind = new DevExpress.XtraEditors.PanelControl();
             this.panelControl22 = new DevExpress.XtraEditors.PanelControl();
@@ -81,6 +82,7 @@ namespace WindowsFormsApp1
             this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl24 = new DevExpress.XtraEditors.PanelControl();
+            this.btnBillDetail = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
@@ -162,12 +164,14 @@ namespace WindowsFormsApp1
             // lvBill
             // 
             this.lvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12});
             this.lvBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvBill.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvBill.FullRowSelect = true;
             this.lvBill.GridLines = true;
             this.lvBill.HideSelection = false;
@@ -179,34 +183,39 @@ namespace WindowsFormsApp1
             this.lvBill.View = System.Windows.Forms.View.Details;
             this.lvBill.SelectedIndexChanged += new System.EventHandler(this.lvBill_SelectedIndexChanged);
             // 
-            // columnHeader1
+            // columnHeader7
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 140;
+            this.columnHeader7.Text = "";
             // 
-            // columnHeader2
+            // columnHeader8
             // 
-            this.columnHeader2.Text = "Ngày lập";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 188;
+            this.columnHeader8.Text = "ID";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader8.Width = 136;
             // 
-            // columnHeader3
+            // columnHeader9
             // 
-            this.columnHeader3.Text = "Tài khoản lập";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 230;
+            this.columnHeader9.Text = "Tài khoản lập";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader9.Width = 206;
             // 
-            // columnHeader4
+            // columnHeader10
             // 
-            this.columnHeader4.Text = "Trạng thái";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 306;
+            this.columnHeader10.Text = "Ngày lập";
+            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader10.Width = 270;
             // 
-            // columnHeader5
+            // columnHeader11
             // 
-            this.columnHeader5.Text = "Tổng tiền";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 198;
+            this.columnHeader11.Text = "Trạng thái";
+            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader11.Width = 200;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Tổng tiền";
+            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader12.Width = 182;
             // 
             // tablePanel1
             // 
@@ -275,7 +284,7 @@ namespace WindowsFormsApp1
             // 
             // cbFindToYear
             // 
-            this.cbFindToYear.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbFindToYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindToYear.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFindToYear.FormattingEnabled = true;
             this.cbFindToYear.Location = new System.Drawing.Point(137, 57);
@@ -285,7 +294,7 @@ namespace WindowsFormsApp1
             // 
             // cbFindFromYear
             // 
-            this.cbFindFromYear.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbFindFromYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindFromYear.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFindFromYear.FormattingEnabled = true;
             this.cbFindFromYear.Location = new System.Drawing.Point(137, 15);
@@ -464,6 +473,7 @@ namespace WindowsFormsApp1
             // 
             // cbStatusFind
             // 
+            this.cbStatusFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatusFind.FormattingEnabled = true;
             this.cbStatusFind.Location = new System.Drawing.Point(76, 33);
             this.cbStatusFind.Name = "cbStatusFind";
@@ -722,6 +732,7 @@ namespace WindowsFormsApp1
             // 
             // panelControl24
             // 
+            this.panelControl24.Controls.Add(this.btnBillDetail);
             this.panelControl24.Controls.Add(this.btnDelete);
             this.panelControl24.Controls.Add(this.btnSave);
             this.panelControl24.Controls.Add(this.btnConfirm);
@@ -741,11 +752,22 @@ namespace WindowsFormsApp1
             this.panelControl24.Size = new System.Drawing.Size(352, 306);
             this.panelControl24.TabIndex = 1;
             // 
+            // btnBillDetail
+            // 
+            this.btnBillDetail.Appearance.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBillDetail.Appearance.Options.UseFont = true;
+            this.btnBillDetail.Location = new System.Drawing.Point(23, 340);
+            this.btnBillDetail.Name = "btnBillDetail";
+            this.btnBillDetail.Size = new System.Drawing.Size(321, 48);
+            this.btnBillDetail.TabIndex = 13;
+            this.btnBillDetail.Text = "Xem chi tiết";
+            this.btnBillDetail.Click += new System.EventHandler(this.btnBillDetail_Click);
+            // 
             // btnDelete
             // 
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(149, 359);
+            this.btnDelete.Location = new System.Drawing.Point(149, 425);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(81, 41);
             this.btnDelete.TabIndex = 12;
@@ -756,7 +778,7 @@ namespace WindowsFormsApp1
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(256, 359);
+            this.btnSave.Location = new System.Drawing.Point(256, 425);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 41);
             this.btnSave.TabIndex = 11;
@@ -767,7 +789,7 @@ namespace WindowsFormsApp1
             // 
             this.btnConfirm.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Appearance.Options.UseFont = true;
-            this.btnConfirm.Location = new System.Drawing.Point(23, 359);
+            this.btnConfirm.Location = new System.Drawing.Point(23, 425);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(104, 41);
             this.btnConfirm.TabIndex = 10;
@@ -776,6 +798,8 @@ namespace WindowsFormsApp1
             // 
             // cbStatus
             // 
+            this.cbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(205, 224);
             this.cbStatus.Name = "cbStatus";
@@ -1027,11 +1051,6 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.ListView lvBill;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private DevExpress.XtraEditors.PanelControl pnYearFind;
         private DevExpress.XtraEditors.PanelControl panelControl22;
@@ -1098,5 +1117,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.RadioButton radiobtnDate;
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.SimpleButton btnFind;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private DevExpress.XtraEditors.SimpleButton btnBillDetail;
     }
 }
