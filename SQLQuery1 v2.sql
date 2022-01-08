@@ -300,14 +300,15 @@ go
 
 insert into Cost(month, year, bankInterestExpensePercent) values(12,2021,1.5)
 
-insert into Employee(name, identityCardNumber, age, post, salary) values(N'Toàn', 1, 21, N'Nhân viên', 1000)
-insert into Employee(name, identityCardNumber, age, post, salary) values(N'Tiến', 2, 21, N'Nhân viên', 1000)
-insert into Employee(name, identityCardNumber, age, post, salary) values(N'VanTiennn', 3, 21, N'Nhân viên', 1000)
+insert into Employee(name, identityCardNumber, post, salary) values(N'Toàn', 111111111, 21, N'Nhân viên', 1000)
+insert into Employee(name, identityCardNumber, post, salary) values(N'Tiến', 222222222, 21, N'Nhân viên', 1000)
+insert into Employee(name, identityCardNumber, post, salary) values(N'VanTiennn', 3333333333, 21, N'Nhân viên', 1000)
 
 insert into Acount(username,password, idEmployee, mailAddress) values(N'minhtoan', N'1',1, 'nguyenvantiennn0910@gmail.com')
 insert into Acount(username,password, idEmployee, mailAddress) values(N'vantiennn', N'1',2, 'nguyenvantiennncolab@gmail.com')
 insert into Acount(username,password, idEmployee, mailAddress) values(N'Nguyễn Ông Nội', N'1',3, 'nguyenvantiennnimage@gmail.com')
- 
+insert into Acount(username,password, idEmployee, mailAddress) values(N'SauBanh', N'1',3, 'trydothing@gmail.com')
+
 
  
 insert into ItemType(nameType) values(N'Laptop')
@@ -355,4 +356,8 @@ select * from BillBuyDetail
 select * from BillDetail
 select * from Questionable
 select * from Bill
+
+select * from Employee
+Select * from Employee where birthDay = N'1995-04-05' 
+
 go

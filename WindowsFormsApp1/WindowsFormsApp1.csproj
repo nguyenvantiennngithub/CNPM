@@ -161,6 +161,12 @@
     <Compile Include="DTO\FullItemDTO.cs" />
     <Compile Include="DTO\ItemGroupBy.cs" />
     <Compile Include="DTO\OptionCategory.cs" />
+    <Compile Include="Employe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employe.Designer.cs">
+      <DependentUpon>Employe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employe.resx">
+      <DependentUpon>Employe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
