@@ -1,4 +1,5 @@
-﻿create database KMS
+﻿use master
+create database KMS
 use  KMS
 
 drop table Questionable
@@ -114,10 +115,9 @@ create table BillDetail(
 	amountCount nvarchar(30) not null,
 	status nvarchar(20) default(N'Đã bán'),		--Đã bán, Lỗi
 	singlePrice decimal not null,	
-
 	foreign key (idBill) references Bill(id),
 	foreign key (idItem, classify) references ItemClassify(idItem, classify),
-	primary key (idBill,idItem,classify,status)
+	primary key (idBill,idItem,classify)
 )
 
 create table BillBuy (
@@ -299,6 +299,7 @@ go
 
 
 insert into Cost(month, year, bankInterestExpensePercent) values(12,2021,1.5)
+insert into Cost(month, year, bankInterestExpensePercent) values(1,2022,1.5)
 
 insert into Employee(name, identityCardNumber, age, post, salary) values(N'Toàn', 1, 21, N'Nhân viên', 1000)
 insert into Employee(name, identityCardNumber, age, post, salary) values(N'Tiến', 2, 21, N'Nhân viên', 1000)

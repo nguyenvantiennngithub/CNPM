@@ -55,10 +55,10 @@ namespace WindowsFormsApp1
             this.createdAt,
             this.showReport,
             this.showDetail});
-            this.dgvMain.Location = new System.Drawing.Point(63, 142);
+            this.dgvMain.Location = new System.Drawing.Point(91, 79);
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.ReadOnly = true;
-            this.dgvMain.Size = new System.Drawing.Size(692, 270);
+            this.dgvMain.Size = new System.Drawing.Size(694, 459);
             this.dgvMain.TabIndex = 0;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellClick);
             // 
@@ -125,8 +125,9 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(885, 594);
             this.Controls.Add(this.dgvMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ShowBillBuy";
             this.Text = "ShowBillBuy";
             this.Load += new System.EventHandler(this.ShowBillBuy_Load);

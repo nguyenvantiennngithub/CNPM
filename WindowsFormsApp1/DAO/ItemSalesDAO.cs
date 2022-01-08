@@ -71,6 +71,7 @@ namespace WindowsFormsApp1
         }
         public int Payment(DataGridViewRowCollection rows)
         {
+
             using (KMSEntities kms = new KMSEntities())
             {
                 Bill bill = new Bill() {
@@ -79,19 +80,21 @@ namespace WindowsFormsApp1
                     status = Constant.Instance.billStatusSold,
                 };
                 kms.Bills.Add(bill);
-                kms.SaveChanges();
-
+                
                 for (int i = 0; i < rows.Count; i++)
                 {
-                    Item itemFind = kms.Items.Where(item => item.id == int.Parse(rows[i].Cells["idItem"].Value.ToString())).FirstOrDefault();
+                    int IdItem = int.Parse(rows[i].Cells["idItem"].Value.ToString());
+                    Item itemFind = kms.Items.Where(item => item.id == IdItem).FirstOrDefault();
+                    int amount = int.Parse(rows[i].Cells["count"].Value.ToString());
+                    decimal singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString());
                     BillDetail billDetail = new BillDetail()
                     {
                         idBill = bill.id,
-                        idItem = int.Parse(rows[i].Cells["idItem"].Value.ToString()),
+                        idItem = IdItem,
                         classify = rows[i].Cells["option"].Value.ToString(),
-                        amount = int.Parse(rows[i].Cells["count"].Value.ToString()),
+                        amount = amount,
                         status = Constant.Instance.billStatusSold,
-                        singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString()),
+                        singlePrice = singlePrice,
                         amountCount = itemFind.amountCount,
                     };
                     kms.BillDetails.Add(billDetail);
@@ -134,6 +137,7 @@ namespace WindowsFormsApp1
                         note = rows[i].Cells["note"].Value.ToString(),
                         singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString()),
                     };
+
                     kms.BillBuyDetails.Add(billDetail);
                 }
 

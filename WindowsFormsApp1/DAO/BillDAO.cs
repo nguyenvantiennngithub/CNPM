@@ -42,22 +42,32 @@ namespace WindowsFormsApp1
         {
             using (KMSEntities kms = new KMSEntities())
             {
-                if( status.Equals("Tất cả") && acount.Equals("Tất cả"))
-                    return kms.Bills.Where(p => p.id.ToString().Contains(id.ToString())                                         
-                                           && p.createdDay.Equals(date)).ToList();
+                 
+
+                if (status.Equals("Tất cả") && acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                           && p.createdDay.Value.Day == date.Day 
+                                           && p.createdDay.Value.Month == date.Month 
+                                           && p.createdDay.Value.Year == date.Year).ToList();
                 else if (status.Equals("Tất cả"))
-                    return kms.Bills.Where(p => p.id.ToString().Contains(id.ToString())
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
                                             && p.creator.Contains(acount)
-                                            && p.createdDay.Equals(date)).ToList();
-                else if(acount.Equals("Tất cả"))
-                    return kms.Bills.Where(p => p.id.ToString().Contains(id.ToString())
+                                            && p.createdDay.Value.Day == date.Day
+                                           && p.createdDay.Value.Month == date.Month
+                                           && p.createdDay.Value.Year == date.Year).ToList();
+                else if (acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
                                             && p.status.Equals(status)
-                                            && p.createdDay.Equals(date)).ToList();
+                                            && p.createdDay.Value.Day == date.Day 
+                                           && p.createdDay.Value.Month == date.Month 
+                                           && p.createdDay.Value.Year == date.Year).ToList();
                 else
-                    return kms.Bills.Where(p => p.id.ToString().Contains(id.ToString())
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
                                             && p.status.Equals(status)
                                             && p.creator.Contains(acount)
-                                            && p.createdDay.Equals(date)).ToList();
+                                            && p.createdDay.Value.Day == date.Day 
+                                           && p.createdDay.Value.Month == date.Month 
+                                           && p.createdDay.Value.Year == date.Year).ToList();
             }
         }
 

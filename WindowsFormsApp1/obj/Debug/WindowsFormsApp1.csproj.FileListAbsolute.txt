@@ -325,3 +325,6 @@ C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Windows
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChartBillDetailForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CostUpdatForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Revenue.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormUse.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Guna.UI2.dll
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.LoginForm.resources

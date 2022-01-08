@@ -248,8 +248,11 @@ namespace WindowsFormsApp1
 
         private void btnBillDetail_Click(object sender, EventArgs e)
         {
-            BillDetailForm form = new BillDetailForm(int.Parse(txbID.Text));
-            form.ShowDialog();
+            if (listSelected.Count == 1 || txbID.Text.ToString() != "")
+            {
+                BillDetailForm form = new BillDetailForm(int.Parse(txbID.Text.ToString()));
+                form.ShowDialog();
+            }
         }
     }
 }

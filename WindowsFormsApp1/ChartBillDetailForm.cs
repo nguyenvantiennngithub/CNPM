@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
             cbItemName.DataSource = ItemDAO.Instance.GetListItemName();
         }
         
-        private void btnYearConfirm_Click(object sender, EventArgs e)
+        private void btnYearConfirm_Click_1(object sender, EventArgs e)
         {
             chartDetail.Series["chartDetailSeries"].Points.Clear();
             int year = int.Parse(cbYear.Text);
@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btnFromYearToYear_Click(object sender, EventArgs e)
+        private void btnFromYearToYear_Click_1(object sender, EventArgs e)
         {
             chartDetail.Series["chartDetailSeries"].Points.Clear();
             int fromYear = int.Parse(cbFromYear.Text);
@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btnItemYear_Click(object sender, EventArgs e)
+        private void btnItemYear_Click_1(object sender, EventArgs e)
         {
             chartDetail.Series["chartDetailSeries"].Points.Clear();
 
@@ -78,17 +78,15 @@ namespace WindowsFormsApp1
             int id = ItemDAO.Instance.GetItemIDByName(cbItemName.Text);
 
             lbTitle.Text = "Số lượng bán của " + cbItemName.Text + " năm " + year.ToString();
-            
+
             chartDetail.Series["chartDetailSeries"].LegendText = "Số lượng";
 
             List<int> list = BillDetailDAO.Instance.GetAmountSaleByYearOfItem(year, id);
-            for (int i = 0; i< list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 chartDetail.Series["chartDetailSeries"]
-                        .Points.AddXY("Tháng " + (i+1).ToString(), list[i]);
+                        .Points.AddXY("Tháng " + (i + 1).ToString(), list[i]);
             }
         }
-
-  
     }
 }

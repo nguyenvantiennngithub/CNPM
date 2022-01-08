@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace GiaoDien
+namespace WindowsFormsApp1
 {
     public partial class FormUse : Form
     {
@@ -45,15 +45,17 @@ namespace GiaoDien
         private void HideAllllSubMenu()
         {
             panelMenuAcount.Visible = false;
-            panelMenuEmployee.Visible = false;
+            pnlRevenue.Visible = false;
             panelbill.Visible = false;
+            pnlItem.Visible = false;
         }
 
         private void ibtnPayment_Click(object sender, EventArgs e)
         {
             HideAllllSubMenu();
             if (activeForm != null)
-                activeForm.Close();
+                activeForm.Close();            
+            OpenChildForm(new SalesForm(), sender);
             lblTitle.Text = "THANH TOÁN";
         }
 
@@ -73,9 +75,7 @@ namespace GiaoDien
 
         private void ibtnEmployee_Click(object sender, EventArgs e)
         {
-            bool check = panelMenuEmployee.Visible;
-            HideAllllSubMenu();
-            panelMenuEmployee.Visible = !check;
+           
         }
 
         private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
@@ -86,44 +86,44 @@ namespace GiaoDien
 
         private void ibtnAcountPrivate_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.AcountPrivateForm(this), sender);
+           // OpenChildForm(new AcountPrivateForm(), sender);
             lblTitle.Text = "TÀI KHOẢN CÁ NHÂN";
         }
 
         private void ibtnAcountAdd_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.AcountAddForm(), sender);
+            //OpenChildForm(new Forms.AcountAddForm(), sender);
             lblTitle.Text = "THÊM TÀI KHOẢN";
         }
 
         private void ibtnRevenue_Click(object sender, EventArgs e)
         {
             HideAllllSubMenu();
-            OpenChildForm(new Forms.RevenueForm(), sender);
+            //OpenChildForm(new Forms.RevenueForm(), sender);
             lblTitle.Text = "DOANH THU";
         }
 
         private void ibtnEmployeeList_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.AcountDeleteForm(), sender);
+            ////OpenChildForm(new Forms.AcountDeleteForm(), sender);
             lblTitle.Text = "DANH SÁCH NHÂN VIÊN";
         }
 
         private void ibtnEmployeeAdd_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.Form3(), sender);
+            ////OpenChildForm(new Forms.Form3(), sender);
             lblTitle.Text = "THÊM";
         }
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.Form1(), sender);
+            OpenChildForm(new ShowBillBuy(), sender);
             lblTitle.Text = "HOÁ ĐƠN NHẬP";
         }
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.Form2(), sender);
+            OpenChildForm(new BillForm(), sender);
             lblTitle.Text = "HOÁ ĐƠN XUẤT";
         }
 
@@ -135,6 +135,75 @@ namespace GiaoDien
         private void guna2TileButton3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MenuVertical_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnRevenue_Click(object sender, EventArgs e)
+        {
+            bool check = pnlRevenue.Visible;
+            HideAllllSubMenu();
+            pnlRevenue.Visible = !check;
+        }
+
+        private void btnRevenueIn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Revenue(), sender);
+            lblTitle.Text = "THÊM";
+        }
+
+        private void btnRenevueOut_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CostUpdatForm(), sender);
+            lblTitle.Text = "THÊM";
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Thien");
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnItem_Click(object sender, EventArgs e)
+        {
+            bool check = pnlItem.Visible;
+            HideAllllSubMenu();
+            pnlItem.Visible = !check;
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CategoryForm(), sender);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ItemForm(), sender);
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ItemEditForm(), sender);
+        }
+
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ChartBillDetailForm(), sender);
+
+        }
+
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BuyForm(), sender);
+
         }
     }
 }

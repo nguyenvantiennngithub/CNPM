@@ -1,4 +1,4 @@
-﻿namespace GiaoDien
+﻿namespace WindowsFormsApp1
 {
     partial class LoginForm
     {
@@ -79,7 +79,7 @@
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Image = global::GiaoDien.Properties.Resources.electronics_shop;
+            this.guna2PictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.electronics_shop;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(51, 223);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -114,7 +114,7 @@
             this.lberror.AutoSize = true;
             this.lberror.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lberror.ForeColor = System.Drawing.Color.Red;
-            this.lberror.Image = global::GiaoDien.Properties.Resources.warn213;
+            this.lberror.Image = global::WindowsFormsApp1.Properties.Resources.warn213;
             this.lberror.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lberror.Location = new System.Drawing.Point(95, 400);
             this.lberror.Name = "lberror";
@@ -146,7 +146,7 @@
             // btnhide
             // 
             this.btnhide.BackColor = System.Drawing.Color.White;
-            this.btnhide.Image = global::GiaoDien.Properties.Resources.blind;
+            this.btnhide.Image = global::WindowsFormsApp1.Properties.Resources.blind;
             this.btnhide.ImageRotate = 0F;
             this.btnhide.Location = new System.Drawing.Point(305, 339);
             this.btnhide.Name = "btnhide";
@@ -160,7 +160,7 @@
             // btnshow
             // 
             this.btnshow.BackColor = System.Drawing.Color.White;
-            this.btnshow.Image = global::GiaoDien.Properties.Resources.show__1_;
+            this.btnshow.Image = global::WindowsFormsApp1.Properties.Resources.show__1_;
             this.btnshow.ImageRotate = 0F;
             this.btnshow.Location = new System.Drawing.Point(305, 339);
             this.btnshow.Name = "btnshow";
@@ -173,7 +173,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::GiaoDien.Properties.Resources._lock;
+            this.pictureBox2.Image = global::WindowsFormsApp1.Properties.Resources._lock;
             this.pictureBox2.Location = new System.Drawing.Point(43, 336);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(44, 44);
@@ -183,7 +183,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GiaoDien.Properties.Resources.user__3_;
+            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.user__3_;
             this.pictureBox1.Location = new System.Drawing.Point(43, 265);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 44);
@@ -193,7 +193,7 @@
             // 
             // guna2CircleButton1
             // 
-            this.guna2CircleButton1.BackgroundImage = global::GiaoDien.Properties.Resources.remove;
+            this.guna2CircleButton1.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.remove;
             this.guna2CircleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
             this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
@@ -278,7 +278,7 @@
             // 
             // guna2CirclePictureBox1
             // 
-            this.guna2CirclePictureBox1.Image = global::GiaoDien.Properties.Resources.user__1_;
+            this.guna2CirclePictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.user__1_;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(116, 26);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";

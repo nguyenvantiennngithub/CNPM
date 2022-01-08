@@ -31,7 +31,8 @@ namespace WindowsFormsApp1
         {
             using( KMSEntities kms = new KMSEntities())
             {
-                Bill bill = kms.Bills.Where(p => p.id == list[0].idBill).First();
+                int id = (int)list[0].idBill;
+                Bill bill = kms.Bills.Where(p => p.id == id).First();
                 int month = bill.createdDay.Value.Month;
                 int year = bill.createdDay.Value.Year;
                 foreach (BillDetail item in list)
@@ -42,6 +43,9 @@ namespace WindowsFormsApp1
                     billdetail.status = "Đã xóa";
 
                     Cost cost = kms.Costs.Where(p => p.month==month && p.year==year).FirstOrDefault();
+                    Console.WriteLine(cost.total);
+                    Console.WriteLine(billdetail.singlePrice);
+                    Console.WriteLine(billdetail.amount);
                     cost.total = cost.total - billdetail.singlePrice * billdetail.amount;
                 }
                 kms.SaveChanges();

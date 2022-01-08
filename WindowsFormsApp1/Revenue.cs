@@ -397,6 +397,11 @@ namespace WindowsFormsApp1
         {
             pnListView.Visible = !pnListView.Visible;
         }
+
+        private void lbTotalTaxNum_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

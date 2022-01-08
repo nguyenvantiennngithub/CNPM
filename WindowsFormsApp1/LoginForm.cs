@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
 
-namespace GiaoDien
+namespace WindowsFormsApp1
 {
     public partial class LoginForm : Form
     {

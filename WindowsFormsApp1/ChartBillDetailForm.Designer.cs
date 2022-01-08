@@ -29,39 +29,39 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lbTitle = new System.Windows.Forms.Label();
             this.chartDetail = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.cbYear = new System.Windows.Forms.ComboBox();
-            this.btnYearConfirm = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnFromYearToYear = new DevExpress.XtraEditors.SimpleButton();
-            this.cbToYear = new System.Windows.Forms.ComboBox();
-            this.cbFromYear = new System.Windows.Forms.ComboBox();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbYearItem = new System.Windows.Forms.ComboBox();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.btnItemYear = new DevExpress.XtraEditors.SimpleButton();
             this.cbItemName = new System.Windows.Forms.ComboBox();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnFromYearToYear = new DevExpress.XtraEditors.SimpleButton();
+            this.cbToYear = new System.Windows.Forms.ComboBox();
+            this.cbFromYear = new System.Windows.Forms.ComboBox();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cbYear = new System.Windows.Forms.ComboBox();
+            this.btnYearConfirm = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chartDetail)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbTitle
@@ -77,22 +77,22 @@ namespace WindowsFormsApp1
             // 
             // chartDetail
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartDetail.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chartDetail.ChartAreas.Add(chartArea2);
             this.chartDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartDetail.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chartDetail.Legends.Add(legend2);
             this.chartDetail.Location = new System.Drawing.Point(0, 0);
             this.chartDetail.Name = "chartDetail";
-            series1.BorderColor = System.Drawing.Color.Red;
-            series1.BorderWidth = 10;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 10;
-            series1.Name = "chartDetailSeries";
-            this.chartDetail.Series.Add(series1);
-            this.chartDetail.Size = new System.Drawing.Size(1064, 961);
+            series2.BorderColor = System.Drawing.Color.Red;
+            series2.BorderWidth = 10;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.MarkerSize = 10;
+            series2.Name = "chartDetailSeries";
+            this.chartDetail.Series.Add(series2);
+            this.chartDetail.Size = new System.Drawing.Size(1064, 781);
             this.chartDetail.TabIndex = 0;
             this.chartDetail.Text = "chart1";
             // 
@@ -104,133 +104,8 @@ namespace WindowsFormsApp1
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(1064, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(359, 1061);
+            this.panel1.Size = new System.Drawing.Size(359, 881);
             this.panel1.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.cbYear);
-            this.panel5.Controls.Add(this.btnYearConfirm);
-            this.panel5.Controls.Add(this.labelControl1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(359, 214);
-            this.panel5.TabIndex = 1;
-            // 
-            // cbYear
-            // 
-            this.cbYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(189, 64);
-            this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(121, 26);
-            this.cbYear.TabIndex = 2;
-            // 
-            // btnYearConfirm
-            // 
-            this.btnYearConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYearConfirm.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYearConfirm.Appearance.Options.UseFont = true;
-            this.btnYearConfirm.Location = new System.Drawing.Point(235, 151);
-            this.btnYearConfirm.Name = "btnYearConfirm";
-            this.btnYearConfirm.Size = new System.Drawing.Size(109, 43);
-            this.btnYearConfirm.TabIndex = 1;
-            this.btnYearConfirm.Text = "Xác nhận";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(27, 63);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 24);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Năm: ";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnFromYearToYear);
-            this.panel3.Controls.Add(this.cbToYear);
-            this.panel3.Controls.Add(this.cbFromYear);
-            this.panel3.Controls.Add(this.labelControl3);
-            this.panel3.Controls.Add(this.labelControl2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 214);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(359, 226);
-            this.panel3.TabIndex = 2;
-            // 
-            // btnFromYearToYear
-            // 
-            this.btnFromYearToYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFromYearToYear.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFromYearToYear.Appearance.Options.UseFont = true;
-            this.btnFromYearToYear.Location = new System.Drawing.Point(235, 163);
-            this.btnFromYearToYear.Name = "btnFromYearToYear";
-            this.btnFromYearToYear.Size = new System.Drawing.Size(109, 43);
-            this.btnFromYearToYear.TabIndex = 5;
-            this.btnFromYearToYear.Text = "Xác nhận";
-            // 
-            // cbToYear
-            // 
-            this.cbToYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbToYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbToYear.FormattingEnabled = true;
-            this.cbToYear.Location = new System.Drawing.Point(189, 111);
-            this.cbToYear.Name = "cbToYear";
-            this.cbToYear.Size = new System.Drawing.Size(121, 26);
-            this.cbToYear.TabIndex = 4;
-            // 
-            // cbFromYear
-            // 
-            this.cbFromYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFromYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFromYear.FormattingEnabled = true;
-            this.cbFromYear.Location = new System.Drawing.Point(189, 42);
-            this.cbFromYear.Name = "cbFromYear";
-            this.cbFromYear.Size = new System.Drawing.Size(121, 26);
-            this.cbFromYear.TabIndex = 3;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(27, 108);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(96, 24);
-            this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "Đến năm: ";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(27, 42);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(86, 24);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Từ năm: ";
             // 
             // panel4
             // 
@@ -282,6 +157,7 @@ namespace WindowsFormsApp1
             this.btnItemYear.Size = new System.Drawing.Size(109, 43);
             this.btnItemYear.TabIndex = 6;
             this.btnItemYear.Text = "Xác nhận";
+            this.btnItemYear.Click += new System.EventHandler(this.btnItemYear_Click_1);
             // 
             // cbItemName
             // 
@@ -308,6 +184,133 @@ namespace WindowsFormsApp1
             this.labelControl4.TabIndex = 2;
             this.labelControl4.Text = "Tên sản phẩm: ";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnFromYearToYear);
+            this.panel3.Controls.Add(this.cbToYear);
+            this.panel3.Controls.Add(this.cbFromYear);
+            this.panel3.Controls.Add(this.labelControl3);
+            this.panel3.Controls.Add(this.labelControl2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 214);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(359, 226);
+            this.panel3.TabIndex = 2;
+            // 
+            // btnFromYearToYear
+            // 
+            this.btnFromYearToYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFromYearToYear.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFromYearToYear.Appearance.Options.UseFont = true;
+            this.btnFromYearToYear.Location = new System.Drawing.Point(235, 163);
+            this.btnFromYearToYear.Name = "btnFromYearToYear";
+            this.btnFromYearToYear.Size = new System.Drawing.Size(109, 43);
+            this.btnFromYearToYear.TabIndex = 5;
+            this.btnFromYearToYear.Text = "Xác nhận";
+            this.btnFromYearToYear.Click += new System.EventHandler(this.btnFromYearToYear_Click_1);
+            // 
+            // cbToYear
+            // 
+            this.cbToYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbToYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbToYear.FormattingEnabled = true;
+            this.cbToYear.Location = new System.Drawing.Point(189, 111);
+            this.cbToYear.Name = "cbToYear";
+            this.cbToYear.Size = new System.Drawing.Size(121, 26);
+            this.cbToYear.TabIndex = 4;
+            // 
+            // cbFromYear
+            // 
+            this.cbFromYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFromYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFromYear.FormattingEnabled = true;
+            this.cbFromYear.Location = new System.Drawing.Point(189, 42);
+            this.cbFromYear.Name = "cbFromYear";
+            this.cbFromYear.Size = new System.Drawing.Size(121, 26);
+            this.cbFromYear.TabIndex = 3;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(27, 108);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(96, 24);
+            this.labelControl3.TabIndex = 2;
+            this.labelControl3.Text = "Đến năm: ";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(27, 42);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(86, 24);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Từ năm: ";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.cbYear);
+            this.panel5.Controls.Add(this.btnYearConfirm);
+            this.panel5.Controls.Add(this.labelControl1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(359, 214);
+            this.panel5.TabIndex = 1;
+            // 
+            // cbYear
+            // 
+            this.cbYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbYear.FormattingEnabled = true;
+            this.cbYear.Location = new System.Drawing.Point(189, 64);
+            this.cbYear.Name = "cbYear";
+            this.cbYear.Size = new System.Drawing.Size(121, 26);
+            this.cbYear.TabIndex = 2;
+            // 
+            // btnYearConfirm
+            // 
+            this.btnYearConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnYearConfirm.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYearConfirm.Appearance.Options.UseFont = true;
+            this.btnYearConfirm.Location = new System.Drawing.Point(235, 151);
+            this.btnYearConfirm.Name = "btnYearConfirm";
+            this.btnYearConfirm.Size = new System.Drawing.Size(109, 43);
+            this.btnYearConfirm.TabIndex = 1;
+            this.btnYearConfirm.Text = "Xác nhận";
+            this.btnYearConfirm.Click += new System.EventHandler(this.btnYearConfirm_Click_1);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(27, 63);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(55, 24);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Năm: ";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel7);
@@ -315,8 +318,17 @@ namespace WindowsFormsApp1
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1064, 1061);
+            this.panel2.Size = new System.Drawing.Size(1064, 881);
             this.panel2.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.chartDetail);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 100);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1064, 781);
+            this.panel7.TabIndex = 1;
             // 
             // panel6
             // 
@@ -327,35 +339,26 @@ namespace WindowsFormsApp1
             this.panel6.Size = new System.Drawing.Size(1064, 100);
             this.panel6.TabIndex = 0;
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.chartDetail);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 100);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1064, 961);
-            this.panel7.TabIndex = 1;
-            // 
             // ChartBillDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1423, 1061);
+            this.ClientSize = new System.Drawing.Size(1423, 881);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ChartBillDetailForm";
             this.Text = "ChartBillDetailForm";
             ((System.ComponentModel.ISupportInitialize)(this.chartDetail)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
