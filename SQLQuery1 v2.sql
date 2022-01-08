@@ -1,4 +1,5 @@
-﻿create database KMS
+﻿use master
+create database KMS
 use  KMS
 
 drop table Questionable
@@ -114,10 +115,9 @@ create table BillDetail(
 	amountCount nvarchar(30) not null,
 	status nvarchar(20) default(N'Đã bán'),		--Đã bán, Lỗi
 	singlePrice decimal not null,	
-
 	foreign key (idBill) references Bill(id),
 	foreign key (idItem, classify) references ItemClassify(idItem, classify),
-	primary key (idBill,idItem,classify,status)
+	primary key (idBill,idItem,classify)
 )
 
 create table BillBuy (
@@ -299,6 +299,7 @@ go
 
 
 insert into Cost(month, year, bankInterestExpensePercent) values(12,2021,1.5)
+insert into Cost(month, year, bankInterestExpensePercent) values(1,2022,1.5)
 
 insert into Employee(name, identityCardNumber, post, salary) values(N'Toàn', 111111111, 21, N'Nhân viên', 1000)
 insert into Employee(name, identityCardNumber, post, salary) values(N'Tiến', 222222222, 21, N'Nhân viên', 1000)
@@ -347,17 +348,27 @@ insert into BillDetail(idBill, idItem, classify,amount, amountCount, singlePrice
 insert into BillDetail(idBill, idItem, classify,amount, amountCount, singlePrice) 
 	values(1, 2, N'Hồng', 5, N'Cái', 600)
 
-
 select * from Item
 select * from ItemPrice
 select * from ItemClassify
 select * from Cost
 select * from BillBuyDetail
 select * from BillDetail
+select * from BillBuyDetail
 select * from Questionable
 select * from Bill
+<<<<<<< HEAD
 
 select * from Employee
 Select * from Employee where birthDay = N'1995-04-05' 
 
 go
+=======
+select * from Acount
+go
+--displayname item, classify, amount, remainAmount, amountCount, status, note, singlePrice
+
+select * i.name, bd.classify, bd.amount, bd.remainAmount, bd.singlePrice, bd.status, bd.note, bd.amountCount
+from BillBuy as b, BillBuyDetail as bd, Item as i, ItemType it,
+where b.id=bd.idBillBuy AND bd.idItem = i.id 
+>>>>>>> master

@@ -58,7 +58,6 @@ C:\Users\dphum\OneDrive\Desktop\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Wind
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
-C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.RevenueForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.licenses
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
@@ -318,6 +317,7 @@ C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ru\DevE
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SalesReportForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ForgotPasswordForm.resources
 C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChangePasswordForm.resources
+<<<<<<< HEAD
 C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -553,3 +553,16 @@ C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsF
 C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Employe.resources
+=======
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BuyForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BuyReportForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ShowBillBuy.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillBuyDetailForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BillDetailForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChartBillDetailForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CostUpdatForm.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Revenue.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormUse.resources
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Guna.UI2.dll
+C:\Users\nguye\Desktop\CNPMT\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.LoginForm.resources
+>>>>>>> master

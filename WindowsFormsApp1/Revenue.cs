@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class RevenueForm : Form
+    public partial class Revenue : Form
     {
-        public RevenueForm()
+        public Revenue()
         {
             InitializeComponent();
-
             LoadDataComboBox();
             pnListView.Visible = false;
             radiobtnAll.Checked = true;
@@ -23,8 +22,8 @@ namespace WindowsFormsApp1
             cbYear.Text = DateTime.Now.Year.ToString();
 
             LoadAllTime();
-        }
 
+        }
         public void NoRecordFound()
         {
             lbTotalFundNum.Text = "0";
@@ -39,7 +38,7 @@ namespace WindowsFormsApp1
 
         public void CheckNextRecordByYear(int b)
         {
-            if (CostDAO.Instance.CheckRecordByYear(b + 1)) 
+            if (CostDAO.Instance.CheckRecordByYear(b + 1))
             {
                 btnNext.Enabled = true;
             }
@@ -47,7 +46,7 @@ namespace WindowsFormsApp1
 
         public void CheckPreviousRecordByYear(int b)
         {
-            if (CostDAO.Instance.CheckRecordByYear(b - 1)) 
+            if (CostDAO.Instance.CheckRecordByYear(b - 1))
             {
                 btnLast.Enabled = true;
             }
@@ -83,12 +82,12 @@ namespace WindowsFormsApp1
         {
             for (int i = 0; i <= 12; i++)
             {
-                cbMonth.Properties.Items.Add(i.ToString());
+                cbMonth.Items.Add(i.ToString());
             }
 
             for (int i = CostDAO.Instance.GetFirstYear(); i <= CostDAO.Instance.GetLastYear(); i++)
             {
-                cbYear.Properties.Items.Add(i.ToString());
+                cbYear.Items.Add(i.ToString());
             }
         }
 
@@ -103,6 +102,27 @@ namespace WindowsFormsApp1
             lbCurrentDateTime.Text = "Tổng toàn bộ các thời gian hoạt động";
             btnNext.Enabled = false;
             btnLast.Enabled = false;
+        }
+
+        private void radiobtnMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radiobtnMonth.Checked)
+            {
+                cbMonth.Enabled = true;
+                cbYear.Enabled = true;
+
+
+                int a = int.Parse(cbMonth.Text);
+                int b = int.Parse(cbYear.Text);
+                lbTotalFundNum.Text = CostDAO.Instance.GetTotalFundByMonth(a, b).ToString();
+                lbTotalFeeNum.Text = CostDAO.Instance.GetTotalFeeByMonth(a, b).ToString();
+                lbTotalTaxNum.Text = CostDAO.Instance.GetTotalFeeByMonth(a, b).ToString();
+                lbTotalNum.Text = CostDAO.Instance.GetTotalByMonth(a, b).ToString();
+                lbTotalIncomeNum.Text = CostDAO.Instance.GetTotalIncomeByMonth(a, b).ToString();
+
+                lbCurrentDateTime.Text = "Tháng " + a.ToString() + " năm " + b.ToString();
+
+            }
         }
 
         private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,55 +152,6 @@ namespace WindowsFormsApp1
                     CheckNextRecordByMonth(a, b);
                     CheckPreviousRecordByMonth(a, b);
                 }
-            }
-        }
-
-        private void radiobtnYear_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radiobtnYear.Checked)
-            {
-                cbYear.Enabled = true;
-                cbMonth.Enabled = false;
-
-                int b = int.Parse(cbYear.Text);
-                lbTotalFundNum.Text = CostDAO.Instance.GetTotalFundByYear(b).ToString();
-                lbTotalFeeNum.Text = CostDAO.Instance.GetTotalFeeByYear(b).ToString();
-                lbTotalTaxNum.Text = CostDAO.Instance.GetTotalTaxByYear(b).ToString();
-                lbTotalNum.Text = CostDAO.Instance.GetTotalByYear(b).ToString();
-                lbTotalIncomeNum.Text = CostDAO.Instance.GetTotalIncomeByYear(b).ToString();
-
-                lbCurrentDateTime.Text = "Năm " + b.ToString();
-
-            }
-        }
-
-        private void radiobtnMonth_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radiobtnMonth.Checked)
-            {
-                cbMonth.Enabled = true;
-                cbYear.Enabled = false;
-
-                int a = int.Parse(cbMonth.Text);
-                int b = int.Parse(cbYear.Text);
-                lbTotalFundNum.Text = CostDAO.Instance.GetTotalFundByMonth(a, b).ToString();
-                lbTotalFeeNum.Text = CostDAO.Instance.GetTotalFeeByMonth(a, b).ToString();
-                lbTotalTaxNum.Text = CostDAO.Instance.GetTotalFeeByMonth(a, b).ToString();
-                lbTotalNum.Text = CostDAO.Instance.GetTotalByMonth(a, b).ToString();
-                lbTotalIncomeNum.Text = CostDAO.Instance.GetTotalIncomeByMonth(a, b).ToString();
-
-                lbCurrentDateTime.Text = "Tháng " + a.ToString() + " năm " + b.ToString();
-
-            }
-        }
-
-        private void radiobtnAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radiobtnAll.Checked)
-            {
-                cbMonth.Enabled = false;
-                cbYear.Enabled = false;
-                LoadAllTime();
             }
         }
 
@@ -236,6 +207,35 @@ namespace WindowsFormsApp1
                     CheckNextRecordByYear(b);
                     CheckPreviousRecordByYear(b);
                 }
+            }
+        }
+
+        private void radiobtnYear_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radiobtnYear.Checked)
+            {
+                cbYear.Enabled = true;
+                cbMonth.Enabled = false;
+
+                int b = int.Parse(cbYear.Text);
+                lbTotalFundNum.Text = CostDAO.Instance.GetTotalFundByYear(b).ToString();
+                lbTotalFeeNum.Text = CostDAO.Instance.GetTotalFeeByYear(b).ToString();
+                lbTotalTaxNum.Text = CostDAO.Instance.GetTotalTaxByYear(b).ToString();
+                lbTotalNum.Text = CostDAO.Instance.GetTotalByYear(b).ToString();
+                lbTotalIncomeNum.Text = CostDAO.Instance.GetTotalIncomeByYear(b).ToString();
+
+                lbCurrentDateTime.Text = "Năm " + b.ToString();
+
+            }
+        }
+
+        private void radiobtnAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radiobtnAll.Checked)
+            {
+                cbMonth.Enabled = false;
+                cbYear.Enabled = false;
+                LoadAllTime();
             }
         }
 
@@ -314,7 +314,6 @@ namespace WindowsFormsApp1
                 CheckPreviousRecordByYear(b + 1);
             }
         }
-
         public void LoadDataToListViewByMonth(int a, int b)
         {
             lvCost.Clear();
@@ -329,34 +328,32 @@ namespace WindowsFormsApp1
             lvCost.Columns.Add("Doanh thu");
             lvCost.Columns.Add("Lợi nhuận");
 
-            List<Cost> list = CostDAO.Instance.GetListCostByMonth(a, b);
-            for (int i = 0; i < list.Count(); i++)
-            {
-                ListViewItem item = new ListViewItem();
+            Cost list = CostDAO.Instance.GetRecordCostByMonth(a, b);
+            ListViewItem item = new ListViewItem();
 
-                float electricity = float.Parse(list[i].electricityCost.ToString());
-                float water = float.Parse(list[i].waterCost.ToString());
-                float premise = float.Parse(list[i].premiseCost.ToString());
-                float totalFund = float.Parse(list[i].totalFundCost.ToString());
-                float tax = float.Parse(list[i].totalTaxCost.ToString());
+            float electricity = float.Parse(list.electricityCost.ToString());
+            float water = float.Parse(list.waterCost.ToString());
+            float premise = float.Parse(list.premiseCost.ToString());
+            float totalFund = float.Parse(list.totalFundCost.ToString());
+            float tax = float.Parse(list.totalTaxCost.ToString());
 
-                item.SubItems.Add(list[i].month.ToString());
-                item.SubItems.Add(list[i].year.ToString());
-                item.SubItems.Add(premise.ToString());
-                item.SubItems.Add(electricity.ToString());
-                item.SubItems.Add(water.ToString());
-                item.SubItems.Add(totalFund.ToString());
-                item.SubItems.Add((float.Parse(list[i].bankInterestExpensePercent.ToString())
-                                    * (water + electricity + premise + totalFund + tax)).ToString());
-                item.SubItems.Add(list[i].total.ToString());
-                item.SubItems.Add(list[i].totalIncome.ToString());
+            item.SubItems.Add(list.month.ToString());
+            item.SubItems.Add(list.year.ToString());
+            item.SubItems.Add(premise.ToString());
+            item.SubItems.Add(electricity.ToString());
+            item.SubItems.Add(water.ToString());
+            item.SubItems.Add(totalFund.ToString());
+            item.SubItems.Add((float.Parse(list.bankInterestExpensePercent.ToString())
+                                * (water + electricity + premise + totalFund + tax)).ToString());
+            item.SubItems.Add(list.total.ToString());
+            item.SubItems.Add(list.totalIncome.ToString());
 
-                lvCost.Items.Add(item);
+            lvCost.Items.Add(item);
 
-            }
+
         }
 
-        public void LoadDataToListViewByYear( int b)
+        public void LoadDataToListViewByYear(int b)
         {
             lvCost.Clear();
             lvCost.Columns.Add("Năm");
@@ -400,5 +397,11 @@ namespace WindowsFormsApp1
         {
             pnListView.Visible = !pnListView.Visible;
         }
+
+        private void lbTotalTaxNum_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

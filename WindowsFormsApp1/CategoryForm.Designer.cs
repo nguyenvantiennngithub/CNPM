@@ -30,19 +30,19 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.dgvCategory = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbCategoryAdd = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.txbCategoryEdit = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txbCategoryAdd = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txbId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.txbCategoryEdit = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,37 +57,39 @@ namespace WindowsFormsApp1
             this.index,
             this.id,
             this.category});
-            this.dgvCategory.Location = new System.Drawing.Point(12, 228);
+            this.dgvCategory.Location = new System.Drawing.Point(93, 317);
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.ReadOnly = true;
-            this.dgvCategory.Size = new System.Drawing.Size(344, 210);
+            this.dgvCategory.Size = new System.Drawing.Size(347, 210);
             this.dgvCategory.TabIndex = 0;
+            // 
+            // index
+            // 
+            this.index.HeaderText = "index";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.HeaderText = "category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.txbCategoryAdd);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(93, 101);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(344, 75);
+            this.panel1.Size = new System.Drawing.Size(347, 75);
             this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Category";
-            // 
-            // txbCategoryAdd
-            // 
-            this.txbCategoryAdd.Location = new System.Drawing.Point(84, 29);
-            this.txbCategoryAdd.Name = "txbCategoryAdd";
-            this.txbCategoryAdd.Size = new System.Drawing.Size(100, 20);
-            this.txbCategoryAdd.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -99,6 +101,22 @@ namespace WindowsFormsApp1
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // txbCategoryAdd
+            // 
+            this.txbCategoryAdd.Location = new System.Drawing.Point(84, 29);
+            this.txbCategoryAdd.Name = "txbCategoryAdd";
+            this.txbCategoryAdd.Size = new System.Drawing.Size(100, 20);
+            this.txbCategoryAdd.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Category";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txbId);
@@ -106,10 +124,26 @@ namespace WindowsFormsApp1
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.txbCategoryEdit);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 93);
+            this.panel2.Location = new System.Drawing.Point(93, 182);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(344, 129);
+            this.panel2.Size = new System.Drawing.Size(347, 129);
             this.panel2.TabIndex = 3;
+            // 
+            // txbId
+            // 
+            this.txbId.Location = new System.Drawing.Point(84, 27);
+            this.txbId.Name = "txbId";
+            this.txbId.Size = new System.Drawing.Size(100, 20);
+            this.txbId.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Id";
             // 
             // btnEdit
             // 
@@ -137,48 +171,15 @@ namespace WindowsFormsApp1
             this.label2.TabIndex = 0;
             this.label2.Text = "Category";
             // 
-            // index
-            // 
-            this.index.HeaderText = "index";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.HeaderText = "category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // txbId
-            // 
-            this.txbId.Location = new System.Drawing.Point(84, 27);
-            this.txbId.Name = "txbId";
-            this.txbId.Size = new System.Drawing.Size(100, 20);
-            this.txbId.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Id";
-            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(885, 594);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCategory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
             this.Load += new System.EventHandler(this.CategoryForm_Load);

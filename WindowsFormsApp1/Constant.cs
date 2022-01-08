@@ -23,5 +23,8 @@ namespace WindowsFormsApp1
         public string itemStatusActive = "Hoạt động";
         public string itemOptionStatusActive = "Hoạt động";
         public string itemPriceStatusActive = "Hàng bán";
+        public string billBuyStatusSold = "Đã nhập";
+        public string billBuyDetailStatusSold = "Đã nhập";
+        public string billBuyDetailStatusMiss= "Thiếu hàng";
     }
 }

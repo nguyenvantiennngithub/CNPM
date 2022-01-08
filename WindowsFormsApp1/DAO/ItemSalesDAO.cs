@@ -71,6 +71,7 @@ namespace WindowsFormsApp1
         }
         public int Payment(DataGridViewRowCollection rows)
         {
+
             using (KMSEntities kms = new KMSEntities())
             {
                 Bill bill = new Bill() {
@@ -79,21 +80,65 @@ namespace WindowsFormsApp1
                     status = Constant.Instance.billStatusSold,
                 };
                 kms.Bills.Add(bill);
+                
+                for (int i = 0; i < rows.Count; i++)
+                {
+                    int IdItem = int.Parse(rows[i].Cells["idItem"].Value.ToString());
+                    Item itemFind = kms.Items.Where(item => item.id == IdItem).FirstOrDefault();
+                    int amount = int.Parse(rows[i].Cells["count"].Value.ToString());
+                    decimal singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString());
+                    BillDetail billDetail = new BillDetail()
+                    {
+                        idBill = bill.id,
+                        idItem = IdItem,
+                        classify = rows[i].Cells["option"].Value.ToString(),
+                        amount = amount,
+                        status = Constant.Instance.billStatusSold,
+                        singlePrice = singlePrice,
+                        amountCount = itemFind.amountCount,
+                    };
+                    kms.BillDetails.Add(billDetail);
+                }
+
+                kms.SaveChanges();
+                return bill.id;
+            }
+        }
+
+        public int import(DataGridViewRowCollection rows)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                BillBuy bill = new BillBuy()
+                {
+                    creator = "minhtoan",
+                    createdDay = DateTime.Now,
+                    status = Constant.Instance.billBuyStatusSold,
+                };
+                kms.BillBuys.Add(bill);
                 kms.SaveChanges();
 
                 for (int i = 0; i < rows.Count; i++)
                 {
-                    BillDetail billDetail = new BillDetail()
+                    int idItem = int.Parse(rows[i].Cells["idItem"].Value.ToString());
+                    int count = int.Parse(rows[i].Cells["count"].Value.ToString());
+                    int miss = int.Parse(rows[i].Cells["miss"].Value.ToString());
+                    Item itemFind = kms.Items.Where(item => item.id == idItem).FirstOrDefault();
+
+                    BillBuyDetail billDetail = new BillBuyDetail()
                     {
-                        idBill = bill.id,
-                        idItem = int.Parse(rows[i].Cells["idItem"].Value.ToString()),
+                        idBillBuy = bill.id,
+                        idItem = idItem,
                         classify = rows[i].Cells["option"].Value.ToString(),
-                        amount = int.Parse(rows[i].Cells["count"].Value.ToString()),
-                        status = Constant.Instance.billStatusSold,
+                        amount = count,
+                        remainAmount = count - miss,
+                        amountCount = itemFind.amountCount,
+                        status = (miss == 0) ? Constant.Instance.billBuyDetailStatusSold : Constant.Instance.billBuyDetailStatusMiss,
+                        note = rows[i].Cells["note"].Value.ToString(),
                         singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString()),
-                        amountCount = "Cái",
                     };
-                    kms.BillDetails.Add(billDetail);
+
+                    kms.BillBuyDetails.Add(billDetail);
                 }
 
                 kms.SaveChanges();
@@ -360,8 +405,73 @@ namespace WindowsFormsApp1
                     kms.SaveChanges();
                 }
             }
-
+        }
+        public List<BillBuyDTO> getListBillBuy()
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.BillBuys.Join(
+                    kms.BillBuyDetails,
+                    b => b.id,
+                    bd => bd.idBillBuy,
+                    (b, bd) => new
+                    {
+                        id = b.id,
+                        singlePrice = bd.singlePrice,
+                        count = bd.amount,
+                        status = b.status,
+                        creator = b.creator,
+                        createdAt = b.createdDay,
+                    }
+                ).GroupBy(b => new { b.id, b.status, b.creator, b.createdAt })
+                .Select(b => new BillBuyDTO()
+                {
+                    Id = b.Key.id,
+                    Status = b.Key.status,
+                    Creator = b.Key.creator,
+                    CreatedAt = (DateTime)b.Key.createdAt,
+                    TotalBill = (float)(b.Sum(bb => bb.singlePrice * bb.count)),
+                }).ToList();
+            }
         }
 
+
+        public List<BillBuyDetailDTO> GetBillBuyDetails(int id)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.BillBuyDetails.Where(bd => bd.idBillBuy == id)
+                    .Join(
+                        kms.Items,
+                        bd => bd.idItem,
+                        i => i.id,
+                        (bd, i) => new BillBuyDetailDTO()
+                        {
+                            IdItem = i.id,
+                            Item = i.name,
+                            Option = bd.classify,
+                            Count = bd.amount,
+                            SinglePrice = (float)bd.singlePrice,
+                            Status = bd.status,
+                            Miss = bd.remainAmount,
+                            Unit = bd.amountCount,
+                            Note = bd.note
+                        }
+                    ).ToList();
+            }
+        }
+
+        public void editBillBuyDetail(int idBill, string option, int idItem, int count, float singlePrice, int miss, string note)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                BillBuyDetail bill = kms.BillBuyDetails.Where(bd => bd.idBillBuy == idBill && bd.classify==option && bd.idItem==idItem).FirstOrDefault();
+                bill.amount = count;
+                bill.singlePrice = (decimal)singlePrice;
+                bill.remainAmount = miss;
+                bill.note = note;
+                kms.SaveChanges();
+            }
+        }
     }
 }

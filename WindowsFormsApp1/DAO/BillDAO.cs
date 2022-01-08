@@ -23,7 +23,16 @@ namespace WindowsFormsApp1
         {
             using (KMSEntities kms = new KMSEntities())
             {
-                return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                if(status.Equals("Tất cả") && acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)).ToList();
+                else if(status.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                           && p.creator.Contains(acount)).ToList();
+                else if(acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                           && p.status.Equals(status)).ToList();
+                else
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
                                             && p.status.Equals(status)
                                             && p.creator.Contains(acount)).ToList();
             }
@@ -33,10 +42,32 @@ namespace WindowsFormsApp1
         {
             using (KMSEntities kms = new KMSEntities())
             {
-                return kms.Bills.Where(p => p.id.ToString().Contains(id.ToString())
+                 
+
+                if (status.Equals("Tất cả") && acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                           && p.createdDay.Value.Day == date.Day 
+                                           && p.createdDay.Value.Month == date.Month 
+                                           && p.createdDay.Value.Year == date.Year).ToList();
+                else if (status.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                            && p.creator.Contains(acount)
+                                            && p.createdDay.Value.Day == date.Day
+                                           && p.createdDay.Value.Month == date.Month
+                                           && p.createdDay.Value.Year == date.Year).ToList();
+                else if (acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                            && p.status.Equals(status)
+                                            && p.createdDay.Value.Day == date.Day 
+                                           && p.createdDay.Value.Month == date.Month 
+                                           && p.createdDay.Value.Year == date.Year).ToList();
+                else
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
                                             && p.status.Equals(status)
                                             && p.creator.Contains(acount)
-                                            && p.createdDay.Equals(date)).ToList();
+                                            && p.createdDay.Value.Day == date.Day 
+                                           && p.createdDay.Value.Month == date.Month 
+                                           && p.createdDay.Value.Year == date.Year).ToList();
             }
         }
 
@@ -45,13 +76,35 @@ namespace WindowsFormsApp1
         {
             using (KMSEntities kms = new KMSEntities())
             {
-                return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                if( status.Equals("Tất cả") && acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)                                           
+                                            && p.createdDay.Value.Month >= monthFrom
+                                            && p.createdDay.Value.Month <= monthTo
+                                            && p.createdDay.Value.Year >= yearFrom
+                                            && p.createdDay.Value.Year <= yearTo).ToList();
+                else if(status.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)                                            
+                                            && p.creator.Contains(acount)
+                                            && p.createdDay.Value.Month >= monthFrom
+                                            && p.createdDay.Value.Month <= monthTo
+                                            && p.createdDay.Value.Year >= yearFrom
+                                            && p.createdDay.Value.Year <= yearTo).ToList();
+                else if(acount.Equals("Tất cả"))
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
+                                            && p.status.Equals(status)
+                                            && p.createdDay.Value.Month >= monthFrom
+                                            && p.createdDay.Value.Month <= monthTo
+                                            && p.createdDay.Value.Year >= yearFrom
+                                            && p.createdDay.Value.Year <= yearTo).ToList();
+                else
+                    return kms.Bills.Where(p => p.id.ToString().Contains(id)
                                             && p.status.Equals(status)
                                             && p.creator.Contains(acount)
                                             && p.createdDay.Value.Month >= monthFrom
                                             && p.createdDay.Value.Month <= monthTo
                                             && p.createdDay.Value.Year >= yearFrom
                                             && p.createdDay.Value.Year <= yearTo).ToList();
+
             }
 
         }
@@ -64,12 +117,20 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void SetBillRecordByList( List<Bill> list)
+        public void ChangeBillRecordByList( List<Bill> list)
         {
             using (KMSEntities kms = new KMSEntities())
             {
-                kms.Bills.RemoveRange(kms.Bills);
-                kms.Bills.AddRange(list);
+                foreach( Bill item in list)
+                {
+                    Bill bill = kms.Bills.Where(p => p.id == item.id).First();
+                    bill.status = item.status;
+
+                    if (bill.status.Equals("Đã xóa"))
+                    {
+                        BillDetailDAO.Instance.ChangeBillDetailStatusToDeledtedByBill(bill);
+                    }
+                }
                 kms.SaveChanges();
             }
         }

@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         {
             // TODO: This line of code loads data into the 'SalesReportDateSet.TotalPrice' table. You can move, or remove it, as needed.
             this.TotalPriceTableAdapter.Fill(this.SalesReportDateSet.TotalPrice, idBill);
-            MessageBox.Show(idBill.ToString());
             // TODO: This line of code loads data into the 'SalesReportDateSet.Bill' table. You can move, or remove it, as needed.
             this.SalesReportDateSet.EnforceConstraints = false;
             this.BillTableAdapter.Fill(this.SalesReportDateSet.Bill, idBill);
