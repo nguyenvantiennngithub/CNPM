@@ -38,16 +38,6 @@ namespace WindowsFormsApp1
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
-            this.cbOption = new System.Windows.Forms.ComboBox();
-            this.cbProduct = new System.Windows.Forms.ComboBox();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txbPrice = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txbNote = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txbMiss = new System.Windows.Forms.TextBox();
             this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.displayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +48,17 @@ namespace WindowsFormsApp1
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbOption = new System.Windows.Forms.ComboBox();
+            this.cbProduct = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txbPrice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txbNote = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txbMiss = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@ namespace WindowsFormsApp1
             // btnSubmit
             // 
             this.btnSubmit.Enabled = false;
-            this.btnSubmit.Location = new System.Drawing.Point(713, 107);
+            this.btnSubmit.Location = new System.Drawing.Point(702, 155);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 23;
@@ -76,7 +77,7 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(625, 81);
+            this.label4.Location = new System.Drawing.Point(614, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 22;
@@ -85,7 +86,7 @@ namespace WindowsFormsApp1
             // txbTotalPrice
             // 
             this.txbTotalPrice.Enabled = false;
-            this.txbTotalPrice.Location = new System.Drawing.Point(688, 78);
+            this.txbTotalPrice.Location = new System.Drawing.Point(677, 126);
             this.txbTotalPrice.Name = "txbTotalPrice";
             this.txbTotalPrice.Size = new System.Drawing.Size(100, 20);
             this.txbTotalPrice.TabIndex = 21;
@@ -93,7 +94,7 @@ namespace WindowsFormsApp1
             // 
             // numCount
             // 
-            this.numCount.Location = new System.Drawing.Point(296, 81);
+            this.numCount.Location = new System.Drawing.Point(296, 127);
             this.numCount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -115,7 +116,7 @@ namespace WindowsFormsApp1
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(342, 107);
+            this.btnAdd.Location = new System.Drawing.Point(342, 153);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 19;
@@ -126,7 +127,7 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 89);
+            this.label3.Location = new System.Drawing.Point(54, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 18;
@@ -135,7 +136,7 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 61);
+            this.label2.Location = new System.Drawing.Point(48, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 17;
@@ -144,7 +145,7 @@ namespace WindowsFormsApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 34);
+            this.label1.Location = new System.Drawing.Point(43, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 16;
@@ -166,17 +167,82 @@ namespace WindowsFormsApp1
             this.note,
             this.category,
             this.idItem});
-            this.dgvSales.Location = new System.Drawing.Point(35, 155);
+            this.dgvSales.Location = new System.Drawing.Point(35, 191);
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.ReadOnly = true;
-            this.dgvSales.Size = new System.Drawing.Size(742, 283);
+            this.dgvSales.Size = new System.Drawing.Size(742, 247);
             this.dgvSales.TabIndex = 15;
+            // 
+            // index
+            // 
+            this.index.HeaderText = "Index";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            this.index.Width = 50;
+            // 
+            // displayName
+            // 
+            this.displayName.HeaderText = "Display Name";
+            this.displayName.Name = "displayName";
+            this.displayName.ReadOnly = true;
+            // 
+            // option
+            // 
+            this.option.HeaderText = "Option";
+            this.option.Name = "option";
+            this.option.ReadOnly = true;
+            this.option.Width = 50;
+            // 
+            // singlePrice
+            // 
+            this.singlePrice.HeaderText = "Single Price";
+            this.singlePrice.Name = "singlePrice";
+            this.singlePrice.ReadOnly = true;
+            this.singlePrice.Width = 50;
+            // 
+            // count
+            // 
+            this.count.HeaderText = "Count";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 50;
+            // 
+            // miss
+            // 
+            this.miss.HeaderText = "Missing Count";
+            this.miss.Name = "miss";
+            this.miss.ReadOnly = true;
+            this.miss.Width = 50;
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.HeaderText = "Total Price";
+            this.totalPrice.Name = "totalPrice";
+            this.totalPrice.ReadOnly = true;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "Note";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "Id Item";
+            this.idItem.Name = "idItem";
+            this.idItem.ReadOnly = true;
             // 
             // cbOption
             // 
             this.cbOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOption.FormattingEnabled = true;
-            this.cbOption.Location = new System.Drawing.Point(98, 80);
+            this.cbOption.Location = new System.Drawing.Point(98, 126);
             this.cbOption.Name = "cbOption";
             this.cbOption.Size = new System.Drawing.Size(121, 21);
             this.cbOption.TabIndex = 14;
@@ -186,7 +252,7 @@ namespace WindowsFormsApp1
             // 
             this.cbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProduct.FormattingEnabled = true;
-            this.cbProduct.Location = new System.Drawing.Point(98, 53);
+            this.cbProduct.Location = new System.Drawing.Point(98, 99);
             this.cbProduct.Name = "cbProduct";
             this.cbProduct.Size = new System.Drawing.Size(121, 21);
             this.cbProduct.TabIndex = 13;
@@ -196,7 +262,7 @@ namespace WindowsFormsApp1
             // 
             this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(98, 26);
+            this.cbCategory.Location = new System.Drawing.Point(98, 72);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 21);
             this.cbCategory.TabIndex = 12;
@@ -205,7 +271,7 @@ namespace WindowsFormsApp1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 29);
+            this.label5.Location = new System.Drawing.Point(259, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 25;
@@ -213,7 +279,7 @@ namespace WindowsFormsApp1
             // 
             // txbPrice
             // 
-            this.txbPrice.Location = new System.Drawing.Point(296, 26);
+            this.txbPrice.Location = new System.Drawing.Point(296, 72);
             this.txbPrice.Name = "txbPrice";
             this.txbPrice.Size = new System.Drawing.Size(121, 20);
             this.txbPrice.TabIndex = 24;
@@ -222,7 +288,7 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(233, 55);
+            this.label6.Location = new System.Drawing.Point(259, 102);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 27;
@@ -230,7 +296,7 @@ namespace WindowsFormsApp1
             // 
             // txbNote
             // 
-            this.txbNote.Location = new System.Drawing.Point(296, 52);
+            this.txbNote.Location = new System.Drawing.Point(296, 98);
             this.txbNote.Name = "txbNote";
             this.txbNote.Size = new System.Drawing.Size(121, 20);
             this.txbNote.TabIndex = 26;
@@ -238,7 +304,7 @@ namespace WindowsFormsApp1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(233, 84);
+            this.label7.Location = new System.Drawing.Point(255, 129);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 28;
@@ -247,90 +313,36 @@ namespace WindowsFormsApp1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 112);
+            this.label8.Location = new System.Drawing.Point(19, 159);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.Size = new System.Drawing.Size(73, 13);
             this.label8.TabIndex = 30;
-            this.label8.Text = "miss count";
+            this.label8.Text = "Missing Count";
             // 
             // txbMiss
             // 
-            this.txbMiss.Location = new System.Drawing.Point(98, 110);
+            this.txbMiss.Location = new System.Drawing.Point(98, 156);
             this.txbMiss.Name = "txbMiss";
             this.txbMiss.Size = new System.Drawing.Size(121, 20);
             this.txbMiss.TabIndex = 29;
             this.txbMiss.Text = "0";
             // 
-            // index
+            // label9
             // 
-            this.index.HeaderText = "index";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            this.index.Width = 50;
-            // 
-            // displayName
-            // 
-            this.displayName.HeaderText = "displayName";
-            this.displayName.Name = "displayName";
-            this.displayName.ReadOnly = true;
-            // 
-            // option
-            // 
-            this.option.HeaderText = "option";
-            this.option.Name = "option";
-            this.option.ReadOnly = true;
-            this.option.Width = 50;
-            // 
-            // singlePrice
-            // 
-            this.singlePrice.HeaderText = "singlePrice";
-            this.singlePrice.Name = "singlePrice";
-            this.singlePrice.ReadOnly = true;
-            this.singlePrice.Width = 50;
-            // 
-            // count
-            // 
-            this.count.HeaderText = "count";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 50;
-            // 
-            // miss
-            // 
-            this.miss.HeaderText = "miss";
-            this.miss.Name = "miss";
-            this.miss.ReadOnly = true;
-            this.miss.Width = 50;
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "totalPrice";
-            this.totalPrice.Name = "totalPrice";
-            this.totalPrice.ReadOnly = true;
-            // 
-            // note
-            // 
-            this.note.HeaderText = "note";
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.HeaderText = "category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "idItem";
-            this.idItem.Name = "idItem";
-            this.idItem.ReadOnly = true;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(346, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 25);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Sales Form";
             // 
             // BuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txbMiss);
             this.Controls.Add(this.label7);
@@ -351,6 +363,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.cbProduct);
             this.Controls.Add(this.cbCategory);
             this.Name = "BuyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BuyForm";
             this.Load += new System.EventHandler(this.BuyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).EndInit();
@@ -391,5 +404,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
+        private System.Windows.Forms.Label label9;
     }
 }

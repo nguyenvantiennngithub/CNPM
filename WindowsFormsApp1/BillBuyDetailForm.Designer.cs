@@ -30,6 +30,17 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.dgvMain = new System.Windows.Forms.DataGridView();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.singlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.miss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txbId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,17 +60,6 @@ namespace WindowsFormsApp1
             this.txbNote = new System.Windows.Forms.TextBox();
             this.txbCount = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.option = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.singlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.miss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbCount)).BeginInit();
@@ -82,26 +82,102 @@ namespace WindowsFormsApp1
             this.miss,
             this.unit,
             this.note});
-            this.dgvMain.Location = new System.Drawing.Point(12, 278);
+            this.dgvMain.Location = new System.Drawing.Point(12, 232);
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.ReadOnly = true;
-            this.dgvMain.Size = new System.Drawing.Size(776, 150);
+            this.dgvMain.Size = new System.Drawing.Size(776, 196);
             this.dgvMain.TabIndex = 0;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellClick);
+            // 
+            // index
+            // 
+            this.index.HeaderText = "Index";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            this.index.Width = 50;
+            // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "Id Item";
+            this.idItem.Name = "idItem";
+            this.idItem.ReadOnly = true;
+            this.idItem.Width = 50;
+            // 
+            // item
+            // 
+            this.item.HeaderText = "Name Item";
+            this.item.Name = "item";
+            this.item.ReadOnly = true;
+            // 
+            // option
+            // 
+            this.option.HeaderText = "Option";
+            this.option.Name = "option";
+            this.option.ReadOnly = true;
+            this.option.Width = 50;
+            // 
+            // count
+            // 
+            this.count.HeaderText = "Count";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 50;
+            // 
+            // singlePrice
+            // 
+            this.singlePrice.HeaderText = "Single Price";
+            this.singlePrice.Name = "singlePrice";
+            this.singlePrice.ReadOnly = true;
+            this.singlePrice.Width = 50;
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.HeaderText = "Total Price";
+            this.totalPrice.Name = "totalPrice";
+            this.totalPrice.ReadOnly = true;
+            this.totalPrice.Width = 50;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
+            // miss
+            // 
+            this.miss.HeaderText = "Missing Count";
+            this.miss.Name = "miss";
+            this.miss.ReadOnly = true;
+            this.miss.Width = 50;
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "Unit";
+            this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
+            this.unit.Width = 50;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "Note";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(388, 31);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(258, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(268, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "Form Edit Bill Buy Detail";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txbId
             // 
             this.txbId.Enabled = false;
-            this.txbId.Location = new System.Drawing.Point(75, 74);
+            this.txbId.Location = new System.Drawing.Point(98, 74);
             this.txbId.Name = "txbId";
             this.txbId.Size = new System.Drawing.Size(100, 20);
             this.txbId.TabIndex = 2;
@@ -109,25 +185,25 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 77);
+            this.label2.Location = new System.Drawing.Point(69, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 13);
+            this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "id";
+            this.label2.Text = "Id: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 103);
+            this.label3.Location = new System.Drawing.Point(227, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "option";
+            this.label3.Text = "Option: ";
             // 
             // txbOption
             // 
             this.txbOption.Enabled = false;
-            this.txbOption.Location = new System.Drawing.Point(75, 100);
+            this.txbOption.Location = new System.Drawing.Point(278, 100);
             this.txbOption.Name = "txbOption";
             this.txbOption.Size = new System.Drawing.Size(100, 20);
             this.txbOption.TabIndex = 4;
@@ -135,24 +211,24 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 129);
+            this.label4.Location = new System.Drawing.Point(47, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "count";
+            this.label4.Text = "Count: ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 155);
+            this.label5.Location = new System.Drawing.Point(23, 155);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "singlePrice";
+            this.label5.Text = "Single Price: ";
             // 
             // txbSinglePrice
             // 
-            this.txbSinglePrice.Location = new System.Drawing.Point(75, 152);
+            this.txbSinglePrice.Location = new System.Drawing.Point(98, 152);
             this.txbSinglePrice.Name = "txbSinglePrice";
             this.txbSinglePrice.Size = new System.Drawing.Size(100, 20);
             this.txbSinglePrice.TabIndex = 8;
@@ -160,16 +236,16 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 181);
+            this.label6.Location = new System.Drawing.Point(23, 181);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "totalPrice";
+            this.label6.Text = "Total Price: ";
             // 
             // txbTotalPrice
             // 
             this.txbTotalPrice.Enabled = false;
-            this.txbTotalPrice.Location = new System.Drawing.Point(75, 178);
+            this.txbTotalPrice.Location = new System.Drawing.Point(98, 178);
             this.txbTotalPrice.Name = "txbTotalPrice";
             this.txbTotalPrice.Size = new System.Drawing.Size(100, 20);
             this.txbTotalPrice.TabIndex = 10;
@@ -177,16 +253,16 @@ namespace WindowsFormsApp1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(213, 77);
+            this.label7.Location = new System.Drawing.Point(229, 77);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "status";
+            this.label7.Text = "Status: ";
             // 
             // txbStatus
             // 
             this.txbStatus.Enabled = false;
-            this.txbStatus.Location = new System.Drawing.Point(254, 74);
+            this.txbStatus.Location = new System.Drawing.Point(278, 74);
             this.txbStatus.Name = "txbStatus";
             this.txbStatus.Size = new System.Drawing.Size(100, 20);
             this.txbStatus.TabIndex = 12;
@@ -194,15 +270,15 @@ namespace WindowsFormsApp1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(213, 103);
+            this.label8.Location = new System.Drawing.Point(13, 105);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 15;
-            this.label8.Text = "miss";
+            this.label8.Text = "Missing Count: ";
             // 
             // txbMiss
             // 
-            this.txbMiss.Location = new System.Drawing.Point(254, 100);
+            this.txbMiss.Location = new System.Drawing.Point(98, 102);
             this.txbMiss.Name = "txbMiss";
             this.txbMiss.Size = new System.Drawing.Size(100, 20);
             this.txbMiss.TabIndex = 14;
@@ -210,30 +286,30 @@ namespace WindowsFormsApp1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(213, 132);
+            this.label9.Location = new System.Drawing.Point(240, 132);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 13);
+            this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 17;
-            this.label9.Text = "unit";
+            this.label9.Text = "Unit: ";
             // 
             // txbUnit
             // 
             this.txbUnit.Enabled = false;
-            this.txbUnit.Location = new System.Drawing.Point(254, 129);
+            this.txbUnit.Location = new System.Drawing.Point(278, 129);
             this.txbUnit.Name = "txbUnit";
             this.txbUnit.Size = new System.Drawing.Size(100, 20);
             this.txbUnit.TabIndex = 16;
             // 
             // txbNote
             // 
-            this.txbNote.Location = new System.Drawing.Point(254, 155);
+            this.txbNote.Location = new System.Drawing.Point(278, 155);
             this.txbNote.Name = "txbNote";
             this.txbNote.Size = new System.Drawing.Size(100, 20);
             this.txbNote.TabIndex = 18;
             // 
             // txbCount
             // 
-            this.txbCount.Location = new System.Drawing.Point(75, 128);
+            this.txbCount.Location = new System.Drawing.Point(98, 128);
             this.txbCount.Name = "txbCount";
             this.txbCount.Size = new System.Drawing.Size(100, 20);
             this.txbCount.TabIndex = 19;
@@ -241,89 +317,15 @@ namespace WindowsFormsApp1
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(213, 158);
+            this.label10.Location = new System.Drawing.Point(236, 159);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.Size = new System.Drawing.Size(36, 13);
             this.label10.TabIndex = 20;
-            this.label10.Text = "note";
-            // 
-            // index
-            // 
-            this.index.HeaderText = "index";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            this.index.Width = 50;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "idItem";
-            this.idItem.Name = "idItem";
-            this.idItem.ReadOnly = true;
-            this.idItem.Width = 50;
-            // 
-            // item
-            // 
-            this.item.HeaderText = "item";
-            this.item.Name = "item";
-            this.item.ReadOnly = true;
-            // 
-            // option
-            // 
-            this.option.HeaderText = "option";
-            this.option.Name = "option";
-            this.option.ReadOnly = true;
-            this.option.Width = 50;
-            // 
-            // count
-            // 
-            this.count.HeaderText = "count";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 50;
-            // 
-            // singlePrice
-            // 
-            this.singlePrice.HeaderText = "singlePrice";
-            this.singlePrice.Name = "singlePrice";
-            this.singlePrice.ReadOnly = true;
-            this.singlePrice.Width = 50;
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "totalPrice";
-            this.totalPrice.Name = "totalPrice";
-            this.totalPrice.ReadOnly = true;
-            this.totalPrice.Width = 50;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            // 
-            // miss
-            // 
-            this.miss.HeaderText = "miss";
-            this.miss.Name = "miss";
-            this.miss.ReadOnly = true;
-            this.miss.Width = 50;
-            // 
-            // unit
-            // 
-            this.unit.HeaderText = "unit";
-            this.unit.Name = "unit";
-            this.unit.ReadOnly = true;
-            this.unit.Width = 50;
-            // 
-            // note
-            // 
-            this.note.HeaderText = "note";
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
+            this.label10.Text = "Note: ";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(278, 182);
+            this.btnSubmit.Location = new System.Drawing.Point(303, 181);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 21;
@@ -358,6 +360,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvMain);
             this.Name = "BillBuyDetailForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BillBuyDetailForm";
             this.Load += new System.EventHandler(this.BillBuyDetailForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
@@ -389,6 +392,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox txbNote;
         private System.Windows.Forms.NumericUpDown txbCount;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DataGridViewTextBoxColumn index;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn item;
@@ -400,6 +404,5 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn miss;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
-        private System.Windows.Forms.Button btnSubmit;
     }
 }

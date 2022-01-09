@@ -90,6 +90,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "BuyReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BuyReportForm";
             this.Load += new System.EventHandler(this.BuyReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AcountBindingSource)).EndInit();

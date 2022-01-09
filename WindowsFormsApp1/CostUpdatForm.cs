@@ -27,6 +27,11 @@ namespace WindowsFormsApp1
             txbWaterFeeChange.Text = "";
             txbPremiseFeechange.Text = "";
             txbBankInterestChange.Text = "";
+
+            txbElectricFee.Text = "";
+            txbWaterFee.Text = "";
+            txbPremiseFee.Text = "";
+            txbBankInterest.Text = "";
         }
 
 
@@ -64,11 +69,11 @@ namespace WindowsFormsApp1
             Regex regex = new Regex("^[0-9]+([.]([0-9]+)?)?$");
             if (!regex.IsMatch(a.Text))
             {
-                if (a.Text.Length >0) 
-                { 
+                if (a.Text.Length > 0)
+                {
                     a.Text = a.Text.Remove(a.Text.Length - 1);
-                    a.SelectionStart = a.Text.Length; 
-                }        
+                    a.SelectionStart = a.Text.Length;
+                }
             }
         }
 
@@ -85,7 +90,7 @@ namespace WindowsFormsApp1
                 }
             }
             if (a.Text.Length > 0)
-            {                             
+            {
                 if (int.Parse(a.Text) < 1 || int.Parse(a.Text) > 12)
                 {
                     a.Text = a.Text.Remove(a.Text.Length - 1);
@@ -123,16 +128,22 @@ namespace WindowsFormsApp1
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            if (txbMonth.Text == "")
+            {
+                MessageBox.Show("Chưa chọn Tháng, Năm");
+                return;
+            }
             int month = int.Parse(txbMonth.Text);
             int year = int.Parse(txbYear.Text);
 
-            lbTitle.Text = "Tháng " + month.ToString() + " năm " + year.ToString();
 
-            if( !CostDAO.Instance.CheckRecordByMonth(month, year))
+            if (!CostDAO.Instance.CheckRecordByMonth(month, year))
             {
                 MessageBox.Show("Không có dữ liệu tìm thấy!");
                 return;
             }
+
+            lbTitle.Text = "Tháng " + month.ToString() + " năm " + year.ToString();
 
             cost = CostDAO.Instance.GetRecordCostByMonth(month, year);
 
@@ -140,13 +151,23 @@ namespace WindowsFormsApp1
             txbWaterFeeChange.Text = cost.waterCost.ToString();
             txbPremiseFeechange.Text = cost.premiseCost.ToString();
             txbBankInterestChange.Text = cost.bankInterestExpensePercent.ToString();
+
+            txbElectricFee.Text = cost.electricityCost.ToString();
+            txbWaterFee.Text = cost.waterCost.ToString();
+            txbPremiseFee.Text = cost.premiseCost.ToString();
+            txbBankInterest.Text = cost.bankInterestExpensePercent.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(cost == null)
+            if (txbElectricFeeChange.Text == "" || txbWaterFeeChange.Text == "" || txbPremiseFeechange.Text == "" || txbBankInterestChange.Text == "")
             {
-                MessageBox.Show("Vui lòng chọn tháng, năm trước khi lưu");
+                MessageBox.Show("Text box cant empty");
+                return;
+            }    
+            if (cost == null)
+            {
+                MessageBox.Show("Vui lòng chọn tháng, năm trước!");
                 return;
             }
             else
@@ -159,9 +180,10 @@ namespace WindowsFormsApp1
                 CostDAO.Instance.UpdateCostByMonth(cost.month, cost.year, electric, water, premise, bankIntered);
 
                 lbTitle.Text = "Hãy chọn tháng, năm!";
+                ResetTextBox();
                 MessageBox.Show("Cập nhật dữ liệu thành công");
             }
-                
+
         }
 
         private void panelControl2_Paint(object sender, PaintEventArgs e)

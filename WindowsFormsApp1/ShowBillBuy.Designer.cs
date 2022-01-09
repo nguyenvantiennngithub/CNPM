@@ -38,6 +38,7 @@ namespace WindowsFormsApp1
             this.createdAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showReport = new System.Windows.Forms.DataGridViewButtonColumn();
             this.showDetail = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,75 +65,88 @@ namespace WindowsFormsApp1
             // 
             // index
             // 
-            this.index.HeaderText = "index";
+            this.index.HeaderText = "Index";
             this.index.Name = "index";
             this.index.ReadOnly = true;
             this.index.Width = 50;
             // 
             // id
             // 
-            this.id.HeaderText = "id";
+            this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Width = 50;
             // 
             // totalBill
             // 
-            this.totalBill.HeaderText = "totalBill";
+            this.totalBill.HeaderText = "Total Bill";
             this.totalBill.Name = "totalBill";
             this.totalBill.ReadOnly = true;
             this.totalBill.Width = 50;
             // 
             // status
             // 
-            this.status.HeaderText = "status";
+            this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.ReadOnly = true;
             // 
             // creator
             // 
-            this.creator.HeaderText = "creator";
+            this.creator.HeaderText = "Creator";
             this.creator.Name = "creator";
             this.creator.ReadOnly = true;
             // 
             // createdAt
             // 
-            this.createdAt.HeaderText = "createdAt";
+            this.createdAt.HeaderText = "Created At";
             this.createdAt.Name = "createdAt";
             this.createdAt.ReadOnly = true;
             // 
             // showReport
             // 
-            this.showReport.HeaderText = "showReport";
+            this.showReport.HeaderText = "Show Report";
             this.showReport.Name = "showReport";
             this.showReport.ReadOnly = true;
             this.showReport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.showReport.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.showReport.Text = "showReport";
+            this.showReport.Text = "Show Report";
             this.showReport.UseColumnTextForButtonValue = true;
             // 
             // showDetail
             // 
-            this.showDetail.HeaderText = "showDetail";
+            this.showDetail.HeaderText = "Show Detail";
             this.showDetail.Name = "showDetail";
             this.showDetail.ReadOnly = true;
             this.showDetail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.showDetail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.showDetail.Text = "showDetail";
+            this.showDetail.Text = "Show Detail";
             this.showDetail.UseColumnTextForButtonValue = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(363, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(204, 25);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "Show Bill  Buy Form";
             // 
             // ShowBillBuy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 594);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ShowBillBuy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowBillBuy";
             this.Load += new System.EventHandler(this.ShowBillBuy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -147,5 +161,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn createdAt;
         private System.Windows.Forms.DataGridViewButtonColumn showReport;
         private System.Windows.Forms.DataGridViewButtonColumn showDetail;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.acount = acount;
+            txbPassword.PasswordChar = '*';
+            txbPassword2.PasswordChar = '*';
         }
 
         private void button1_Click(object sender, EventArgs e)

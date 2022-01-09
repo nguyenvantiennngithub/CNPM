@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
             this.btnEdit = new System.Windows.Forms.Button();
             this.txbCategoryEdit = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,7 +58,7 @@ namespace WindowsFormsApp1
             this.index,
             this.id,
             this.category});
-            this.dgvCategory.Location = new System.Drawing.Point(93, 317);
+            this.dgvCategory.Location = new System.Drawing.Point(267, 330);
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.ReadOnly = true;
             this.dgvCategory.Size = new System.Drawing.Size(347, 210);
@@ -86,7 +87,7 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.txbCategoryAdd);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(93, 101);
+            this.panel1.Location = new System.Drawing.Point(267, 103);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(347, 75);
             this.panel1.TabIndex = 1;
@@ -124,7 +125,7 @@ namespace WindowsFormsApp1
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.txbCategoryEdit);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(93, 182);
+            this.panel2.Location = new System.Drawing.Point(267, 184);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(347, 129);
             this.panel2.TabIndex = 3;
@@ -147,7 +148,7 @@ namespace WindowsFormsApp1
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(209, 51);
+            this.btnEdit.Location = new System.Drawing.Point(209, 50);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
@@ -171,11 +172,22 @@ namespace WindowsFormsApp1
             this.label2.TabIndex = 0;
             this.label2.Text = "Category";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(359, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(154, 25);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Category Form";
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 594);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCategory);
@@ -189,6 +201,7 @@ namespace WindowsFormsApp1
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -208,5 +221,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txbCategoryEdit;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
     }
 }

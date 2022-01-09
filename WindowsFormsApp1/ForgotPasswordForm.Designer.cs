@@ -37,11 +37,13 @@ namespace WindowsFormsApp1
             this.btnVerify = new System.Windows.Forms.Button();
             this.Ente = new System.Windows.Forms.Label();
             this.txbUsername = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbCountDown = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSendEmail
             // 
-            this.btnSendEmail.Location = new System.Drawing.Point(421, 181);
+            this.btnSendEmail.Location = new System.Drawing.Point(213, 109);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(75, 23);
             this.btnSendEmail.TabIndex = 0;
@@ -56,7 +58,7 @@ namespace WindowsFormsApp1
             // 
             // txbCode
             // 
-            this.txbCode.Location = new System.Drawing.Point(291, 274);
+            this.txbCode.Location = new System.Drawing.Point(107, 177);
             this.txbCode.Name = "txbCode";
             this.txbCode.Size = new System.Drawing.Size(100, 20);
             this.txbCode.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace WindowsFormsApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(226, 277);
+            this.label1.Location = new System.Drawing.Point(42, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 2;
@@ -72,7 +74,7 @@ namespace WindowsFormsApp1
             // 
             // btnVerify
             // 
-            this.btnVerify.Location = new System.Drawing.Point(397, 271);
+            this.btnVerify.Location = new System.Drawing.Point(213, 174);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(75, 23);
             this.btnVerify.TabIndex = 3;
@@ -83,7 +85,7 @@ namespace WindowsFormsApp1
             // Ente
             // 
             this.Ente.AutoSize = true;
-            this.Ente.Location = new System.Drawing.Point(226, 184);
+            this.Ente.Location = new System.Drawing.Point(18, 112);
             this.Ente.Name = "Ente";
             this.Ente.Size = new System.Drawing.Size(81, 13);
             this.Ente.TabIndex = 5;
@@ -91,16 +93,38 @@ namespace WindowsFormsApp1
             // 
             // txbUsername
             // 
-            this.txbUsername.Location = new System.Drawing.Point(315, 181);
+            this.txbUsername.Location = new System.Drawing.Point(107, 109);
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(100, 20);
             this.txbUsername.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(40, 40);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(242, 25);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Change Password Form";
+            // 
+            // lbCountDown
+            // 
+            this.lbCountDown.AutoSize = true;
+            this.lbCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCountDown.ForeColor = System.Drawing.Color.Red;
+            this.lbCountDown.Location = new System.Drawing.Point(231, 135);
+            this.lbCountDown.Name = "lbCountDown";
+            this.lbCountDown.Size = new System.Drawing.Size(0, 20);
+            this.lbCountDown.TabIndex = 35;
             // 
             // ForgotPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(319, 220);
+            this.Controls.Add(this.lbCountDown);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.Ente);
             this.Controls.Add(this.txbUsername);
             this.Controls.Add(this.btnVerify);
@@ -108,6 +132,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.txbCode);
             this.Controls.Add(this.btnSendEmail);
             this.Name = "ForgotPasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPasswordForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +148,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnVerify;
         private System.Windows.Forms.Label Ente;
         private System.Windows.Forms.TextBox txbUsername;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbCountDown;
     }
 }

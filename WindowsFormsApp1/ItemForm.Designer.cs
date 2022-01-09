@@ -64,6 +64,7 @@ namespace WindowsFormsApp1
             this.button2 = new System.Windows.Forms.Button();
             this.txbUnit = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.pnlOption.SuspendLayout();
             this.pnlPrice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
@@ -73,7 +74,7 @@ namespace WindowsFormsApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 66);
+            this.label1.Location = new System.Drawing.Point(48, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -81,7 +82,7 @@ namespace WindowsFormsApp1
             // 
             // txbName
             // 
-            this.txbName.Location = new System.Drawing.Point(126, 63);
+            this.txbName.Location = new System.Drawing.Point(89, 122);
             this.txbName.Name = "txbName";
             this.txbName.Size = new System.Drawing.Size(120, 20);
             this.txbName.TabIndex = 1;
@@ -90,7 +91,7 @@ namespace WindowsFormsApp1
             // 
             this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(126, 36);
+            this.cbCategory.Location = new System.Drawing.Point(89, 95);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 21);
             this.cbCategory.TabIndex = 2;
@@ -99,7 +100,7 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 39);
+            this.label2.Location = new System.Drawing.Point(34, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 3;
@@ -108,7 +109,7 @@ namespace WindowsFormsApp1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(371, 20);
+            this.label5.Location = new System.Drawing.Point(263, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 8;
@@ -117,7 +118,7 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(558, 17);
+            this.label6.Location = new System.Drawing.Point(380, 79);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 9;
@@ -125,7 +126,7 @@ namespace WindowsFormsApp1
             // 
             // btnAddOption
             // 
-            this.btnAddOption.Location = new System.Drawing.Point(74, 115);
+            this.btnAddOption.Location = new System.Drawing.Point(37, 174);
             this.btnAddOption.Name = "btnAddOption";
             this.btnAddOption.Size = new System.Drawing.Size(75, 23);
             this.btnAddOption.TabIndex = 10;
@@ -136,7 +137,7 @@ namespace WindowsFormsApp1
             // pnlOption
             // 
             this.pnlOption.Controls.Add(this.textBox3);
-            this.pnlOption.Location = new System.Drawing.Point(341, 39);
+            this.pnlOption.Location = new System.Drawing.Point(233, 98);
             this.pnlOption.Name = "pnlOption";
             this.pnlOption.Size = new System.Drawing.Size(106, 128);
             this.pnlOption.TabIndex = 11;
@@ -151,7 +152,7 @@ namespace WindowsFormsApp1
             // pnlPrice
             // 
             this.pnlPrice.Controls.Add(this.textBox4);
-            this.pnlPrice.Location = new System.Drawing.Point(516, 36);
+            this.pnlPrice.Location = new System.Drawing.Point(345, 98);
             this.pnlPrice.Name = "pnlPrice";
             this.pnlPrice.Size = new System.Drawing.Size(106, 128);
             this.pnlPrice.TabIndex = 12;
@@ -237,7 +238,7 @@ namespace WindowsFormsApp1
             // pnlCount
             // 
             this.pnlCount.Controls.Add(this.textBox2);
-            this.pnlCount.Location = new System.Drawing.Point(692, 36);
+            this.pnlCount.Location = new System.Drawing.Point(460, 101);
             this.pnlCount.Name = "pnlCount";
             this.pnlCount.Size = new System.Drawing.Size(106, 128);
             this.pnlCount.TabIndex = 14;
@@ -252,7 +253,7 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(739, 17);
+            this.label4.Location = new System.Drawing.Point(494, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 13;
@@ -260,7 +261,7 @@ namespace WindowsFormsApp1
             // 
             // btnRemoveOption
             // 
-            this.btnRemoveOption.Location = new System.Drawing.Point(155, 115);
+            this.btnRemoveOption.Location = new System.Drawing.Point(118, 174);
             this.btnRemoveOption.Name = "btnRemoveOption";
             this.btnRemoveOption.Size = new System.Drawing.Size(91, 23);
             this.btnRemoveOption.TabIndex = 15;
@@ -270,7 +271,7 @@ namespace WindowsFormsApp1
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(155, 144);
+            this.btnSubmit.Location = new System.Drawing.Point(118, 203);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(91, 23);
             this.btnSubmit.TabIndex = 16;
@@ -281,7 +282,7 @@ namespace WindowsFormsApp1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 217);
+            this.label7.Location = new System.Drawing.Point(622, 82);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 17;
@@ -289,7 +290,7 @@ namespace WindowsFormsApp1
             // 
             // txbNameFind
             // 
-            this.txbNameFind.Location = new System.Drawing.Point(275, 214);
+            this.txbNameFind.Location = new System.Drawing.Point(677, 109);
             this.txbNameFind.Name = "txbNameFind";
             this.txbNameFind.Size = new System.Drawing.Size(120, 20);
             this.txbNameFind.TabIndex = 20;
@@ -297,7 +298,7 @@ namespace WindowsFormsApp1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(234, 217);
+            this.label8.Location = new System.Drawing.Point(636, 112);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 19;
@@ -305,7 +306,7 @@ namespace WindowsFormsApp1
             // 
             // txbOptionFind
             // 
-            this.txbOptionFind.Location = new System.Drawing.Point(450, 214);
+            this.txbOptionFind.Location = new System.Drawing.Point(677, 135);
             this.txbOptionFind.Name = "txbOptionFind";
             this.txbOptionFind.Size = new System.Drawing.Size(120, 20);
             this.txbOptionFind.TabIndex = 22;
@@ -313,7 +314,7 @@ namespace WindowsFormsApp1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(409, 217);
+            this.label9.Location = new System.Drawing.Point(636, 138);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 13);
             this.label9.TabIndex = 21;
@@ -323,14 +324,14 @@ namespace WindowsFormsApp1
             // 
             this.cbCategoryFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoryFind.FormattingEnabled = true;
-            this.cbCategoryFind.Location = new System.Drawing.Point(93, 214);
+            this.cbCategoryFind.Location = new System.Drawing.Point(677, 79);
             this.cbCategoryFind.Name = "cbCategoryFind";
             this.cbCategoryFind.Size = new System.Drawing.Size(121, 21);
             this.cbCategoryFind.TabIndex = 23;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(613, 212);
+            this.button1.Location = new System.Drawing.Point(723, 182);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 24;
@@ -340,7 +341,7 @@ namespace WindowsFormsApp1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(723, 212);
+            this.button2.Location = new System.Drawing.Point(642, 182);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 25;
@@ -350,7 +351,7 @@ namespace WindowsFormsApp1
             // 
             // txbUnit
             // 
-            this.txbUnit.Location = new System.Drawing.Point(126, 89);
+            this.txbUnit.Location = new System.Drawing.Point(89, 148);
             this.txbUnit.Name = "txbUnit";
             this.txbUnit.Size = new System.Drawing.Size(120, 20);
             this.txbUnit.TabIndex = 27;
@@ -358,17 +359,28 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 92);
+            this.label3.Location = new System.Drawing.Point(57, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 26;
             this.label3.Text = "Unit";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(344, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(242, 25);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Change Password Form";
             // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 555);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txbUnit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -446,5 +458,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txbUnit;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -36,9 +36,6 @@ namespace WindowsFormsApp1
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.pnLabel = new DevExpress.XtraEditors.PanelControl();
             this.lvBillDetail = new System.Windows.Forms.ListView();
-            this.lbTotalPrice = new System.Windows.Forms.Label();
-            this.lbID = new System.Windows.Forms.Label();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,6 +43,9 @@ namespace WindowsFormsApp1
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbTotalPrice = new System.Windows.Forms.Label();
+            this.lbID = new System.Windows.Forms.Label();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -141,34 +141,6 @@ namespace WindowsFormsApp1
             this.lvBillDetail.UseCompatibleStateImageBehavior = false;
             this.lvBillDetail.View = System.Windows.Forms.View.Details;
             // 
-            // lbTotalPrice
-            // 
-            this.lbTotalPrice.AutoSize = true;
-            this.lbTotalPrice.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalPrice.Location = new System.Drawing.Point(257, 35);
-            this.lbTotalPrice.Name = "lbTotalPrice";
-            this.lbTotalPrice.Size = new System.Drawing.Size(65, 24);
-            this.lbTotalPrice.TabIndex = 1;
-            this.lbTotalPrice.Text = "label2";
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(35, 35);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(65, 24);
-            this.lbID.TabIndex = 0;
-            this.lbID.Text = "label1";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(606, 168);
-            this.panelControl2.TabIndex = 0;
-            // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "STT";
@@ -207,6 +179,34 @@ namespace WindowsFormsApp1
             this.columnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader15.Width = 88;
             // 
+            // lbTotalPrice
+            // 
+            this.lbTotalPrice.AutoSize = true;
+            this.lbTotalPrice.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalPrice.Location = new System.Drawing.Point(257, 35);
+            this.lbTotalPrice.Name = "lbTotalPrice";
+            this.lbTotalPrice.Size = new System.Drawing.Size(65, 24);
+            this.lbTotalPrice.TabIndex = 1;
+            this.lbTotalPrice.Text = "label2";
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Location = new System.Drawing.Point(35, 35);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(65, 24);
+            this.lbID.TabIndex = 0;
+            this.lbID.Text = "label1";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(606, 168);
+            this.panelControl2.TabIndex = 0;
+            // 
             // BillDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +214,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(610, 674);
             this.Controls.Add(this.panelControl1);
             this.Name = "BillDetailForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
