@@ -86,6 +86,35 @@ namespace WindowsFormsApp1
             }
         }
 
+       
+
+        public List<int> GetAmountSaleFromYearToYearOfItem( int fromYear, int toYear, int idItem)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                List<int> list = new List<int>();
+
+                for (int i = fromYear; i <= toYear; i++)
+                {
+                    list.Add(0);
+                }
+                List<Bill> listBill = kms.Bills.Where(p => p.createdDay.Value.Year >= fromYear
+                                                        && p.createdDay.Value.Year >= toYear)
+                                                .ToList();
+
+                foreach (Bill item in listBill)
+                {
+                    int amount = kms.BillDetails.Where(p => p.idBill == item.id
+                                                                    && p.idItem.Equals(idItem)
+                                                                    && p.status != "Đã xóa")
+                                                            .Sum(p => p.amount);
+                    list[item.createdDay.Value.Year-fromYear] = list[item.createdDay.Value.Year-fromYear] + amount;
+
+
+                }
+                return list;
+            }
+        }
         public List<int> GetAmountSaleByYearOfItem(int year, int idItem)
         {
             using (KMSEntities kms = new KMSEntities())
@@ -98,15 +127,13 @@ namespace WindowsFormsApp1
                 }
                 List<Bill> listBill = kms.Bills.Where(p => p.createdDay.Value.Year == year)
                                                .ToList();
-
-                List<BillDetail> listBillDetail = new List<BillDetail>();
-
                 foreach (Bill item in listBill)
                 {
-                    int amount = kms.BillDetails.Where(p => p.idBill == item.id
-                                                                  && p.idItem.Equals(idItem)
-                                                                  && p.status != "Đã xóa")
-                                                            .Sum(p => p.amount);
+                    int amount = 0;
+                    amount = kms.BillDetails.Where(p => p.idBill == item.id
+                                                                  && p.idItem == idItem
+                                                                  && p.status != "Đã xóa").Select(p => p.amount).DefaultIfEmpty(0)
+                                                            .Sum(p => p);
                     list[item.createdDay.Value.Month - 1] = list[item.createdDay.Value.Month - 1] + amount;
 
 
@@ -115,32 +142,49 @@ namespace WindowsFormsApp1
             }
         }
 
-            public List<int> GetAmountSaleFromYearToYearOfItem( int fromYear, int toYear, int idItem)
+        public List<float> GetAmountSaleFromYearToYear(int fromYear, int toYear)
+        {
+            using (KMSEntities kms = new KMSEntities())
             {
-                using (KMSEntities kms = new KMSEntities())
+                List<float> list = new List<float>();
+
+                for (int i = fromYear; i <= toYear; i++)
                 {
-                    List<int> list = new List<int>();
-
-                    for (int i = fromYear; i <= toYear; i++)
-                    {
-                        list.Add(0);
-                    }
-                    List<Bill> listBill = kms.Bills.Where(p => p.createdDay.Value.Year >= fromYear
-                                                            && p.createdDay.Value.Year >= toYear)
-                                                   .ToList();
-
-                    foreach (Bill item in listBill)
-                    {
-                        int amount = kms.BillDetails.Where(p => p.idBill == item.id
-                                                                      && p.idItem.Equals(idItem)
-                                                                      && p.status != "Đã xóa")
-                                                                .Sum(p => p.amount);
-                        list[item.createdDay.Value.Year-fromYear] = list[item.createdDay.Value.Year-fromYear] + amount;
-
-
-                    }
-                    return list;
+                    list.Add(0);
                 }
+                List<Bill> listBill = kms.Bills.Where(p => p.createdDay.Value.Year >= fromYear
+                                                        && p.createdDay.Value.Year >= toYear)
+                                               .ToList();
+                foreach (Bill item in listBill)
+                {
+                    float tong = kms.BillDetails.Where(p => p.idBill == item.id)
+                                                    .Sum(p => (float)p.amount * (float)p.singlePrice);
+                    list[item.createdDay.Value.Year - fromYear] = list[item.createdDay.Value.Year - fromYear] + tong;
+                }
+                return list;
             }
+        }
+
+        public List<float> GetAmountSaleYearr(int year)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                List<float> list = new List<float>();
+
+                for (int i = 0; i < 12; i++)
+                {
+                    list.Add(0);
+                }
+                List<Bill> listBill = kms.Bills.Where(p => p.createdDay.Value.Year == year).ToList();
+
+                foreach (Bill item in listBill)
+                {
+                    float tong = kms.BillDetails.Where(p => p.idBill == item.id)
+                                                    .Sum(p => (float)p.amount * (float)p.singlePrice);
+                    list[item.createdDay.Value.Month - 1] = list[item.createdDay.Value.Month - 1] + tong;
+                }
+                return list;
+            }
+        }
     }   
 }

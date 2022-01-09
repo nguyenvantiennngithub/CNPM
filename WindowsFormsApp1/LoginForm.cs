@@ -97,18 +97,22 @@ namespace WindowsFormsApp1
         }  
         
         private void btnLogin_Click(object sender, EventArgs e)
-        {            
-            if (txbuser.Text != "Tên đăng nhập")
+        {
+            if (txbuser.Text == "" || txbpass.Text == "")
             {
-                if (txbpass.Text != "Mật khẩu")
-                {
-                    FormUse formUse = new FormUse();
-                    this.Hide();
-                    formUse.Show();
-                }
-                else msgError("    Hãy nhập mật khẩu");
+                msgError("        Vui lòng nhập đủ thông tin");
+                return;
             }
-            else msgError("    Hãy nhập tên đăng nhập");
+            Acount acc = ItemSalesDAO.Instance.login(txbuser.Text, txbpass.Text);
+            if (acc == null)
+            {
+                msgError("        Sai tài khoảng hoặc mật khẩu");
+            }else
+            {
+                FormUse formUse = new FormUse();
+                this.Hide();
+                formUse.Show();
+            }
         }
 
         private void msgError(string msg)
@@ -118,6 +122,10 @@ namespace WindowsFormsApp1
 
         }
 
-        
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPasswordForm forgotPasswordForm = new ForgotPasswordForm();
+            forgotPasswordForm.ShowDialog();
+        }
     }
 }

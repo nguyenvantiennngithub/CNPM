@@ -32,26 +32,17 @@ namespace WindowsFormsApp1
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.label1 = new System.Windows.Forms.Label();
             this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SalesReportDateSet = new WindowsFormsApp1.SalesReportDateSet();
+            this.TotalPriceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.BillTableAdapter = new WindowsFormsApp1.SalesReportDateSetTableAdapters.BillTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.TotalPriceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TotalPriceTableAdapter = new WindowsFormsApp1.SalesReportDateSetTableAdapters.TotalPriceTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesReportDateSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TotalPriceBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(327, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Hóa đơn thanh toán";
             // 
             // BillBindingSource
             // 
@@ -62,6 +53,20 @@ namespace WindowsFormsApp1
             // 
             this.SalesReportDateSet.DataSetName = "SalesReportDateSet";
             this.SalesReportDateSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TotalPriceBindingSource
+            // 
+            this.TotalPriceBindingSource.DataMember = "TotalPrice";
+            this.TotalPriceBindingSource.DataSource = this.SalesReportDateSet;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(327, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Hóa đơn thanh toán";
             // 
             // BillTableAdapter
             // 
@@ -83,11 +88,6 @@ namespace WindowsFormsApp1
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 2;
             // 
-            // TotalPriceBindingSource
-            // 
-            this.TotalPriceBindingSource.DataMember = "TotalPrice";
-            this.TotalPriceBindingSource.DataSource = this.SalesReportDateSet;
-            // 
             // TotalPriceTableAdapter
             // 
             this.TotalPriceTableAdapter.ClearBeforeFill = true;
@@ -100,6 +100,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.label1);
             this.Name = "SalesReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SalesReportForm";
             this.Load += new System.EventHandler(this.SalesReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).EndInit();

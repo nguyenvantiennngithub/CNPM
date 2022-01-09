@@ -281,7 +281,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -560,8 +559,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ItemDataSet</DataSetName>
-        <Top>2.155in</Top>
-        <Left>0.66667in</Left>
+        <Top>2.63417in</Top>
+        <Left>0.51533in</Left>
         <Height>0.5in</Height>
         <Width>7in</Width>
         <Style>
@@ -578,7 +577,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!Column1.Value, "TotalPrice")</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -587,7 +588,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.73833in</Top>
-        <Left>1.43056in</Left>
+        <Left>1.52922in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>1</ZIndex>
@@ -609,7 +610,9 @@
             <TextRuns>
               <TextRun>
                 <Value>Total Bill: </Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -617,9 +620,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
         <Top>1.73833in</Top>
-        <Left>0.70833in</Left>
+        <Left>0.51533in</Left>
         <Height>0.25in</Height>
-        <Width>0.70833in</Width>
+        <Width>0.75in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -638,18 +641,22 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Hóa đơn thanh toán</Value>
-                <Style />
+                <Value>Hóa Đơn Thanh Toán Mua Hàng</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox24</rd:DefaultName>
-        <Top>0.36333in</Top>
-        <Left>4.66667in</Left>
+        <Top>0.18625in</Top>
+        <Left>2.51533in</Left>
         <Height>0.25in</Height>
-        <Width>1.48958in</Width>
+        <Width>3.77083in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -669,7 +676,9 @@
             <TextRuns>
               <TextRun>
                 <Value>Created At: </Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -677,9 +686,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
         <Top>0.78in</Top>
-        <Left>0.66667in</Left>
+        <Left>0.51533in</Left>
         <Height>0.25in</Height>
-        <Width>0.75in</Width>
+        <Width>0.95833in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -699,7 +708,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!createdAt.Value, "ItemDataSet")</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -709,7 +720,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox26</rd:DefaultName>
         <Top>0.78in</Top>
-        <Left>1.43056in</Left>
+        <Left>1.52922in</Left>
         <Height>0.25in</Height>
         <Width>2.14583in</Width>
         <ZIndex>5</ZIndex>
@@ -731,7 +742,9 @@
             <TextRuns>
               <TextRun>
                 <Value>Creator:  </Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -739,9 +752,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
         <Top>1.09944in</Top>
-        <Left>0.84375in</Left>
+        <Left>0.51533in</Left>
         <Height>0.25in</Height>
-        <Width>0.57292in</Width>
+        <Width>0.75in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -761,7 +774,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!creator.Value, "ItemDataSet")</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -771,7 +786,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox26</rd:DefaultName>
         <Top>1.09944in</Top>
-        <Left>1.43056in</Left>
+        <Left>1.52922in</Left>
         <Height>0.25in</Height>
         <Width>2.14583in</Width>
         <ZIndex>7</ZIndex>
@@ -793,7 +808,9 @@
             <TextRuns>
               <TextRun>
                 <Value>Id Bill:</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -801,9 +818,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
         <Top>1.41889in</Top>
-        <Left>0.96875in</Left>
+        <Left>0.51533in</Left>
         <Height>0.25in</Height>
-        <Width>0.44792in</Width>
+        <Width>0.75in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -823,7 +840,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!id.Value, "ItemDataSet")</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -833,7 +852,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox26</rd:DefaultName>
         <Top>1.41889in</Top>
-        <Left>1.43056in</Left>
+        <Left>1.52922in</Left>
         <Height>0.25in</Height>
         <Width>2.14583in</Width>
         <ZIndex>9</ZIndex>
@@ -848,10 +867,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.73833in</Height>
+    <Height>3.70241in</Height>
     <Style />
   </Body>
-  <Width>10.47792in</Width>
+  <Width>7.87974in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

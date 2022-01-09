@@ -163,7 +163,8 @@ namespace WindowsFormsApp1
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Thien");
+            OpenChildForm(new Employe(), sender);
+
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

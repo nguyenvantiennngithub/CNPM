@@ -34,7 +34,6 @@
       <PropertyRef Name="idBillBuy" />
       <PropertyRef Name="idItem" />
       <PropertyRef Name="classify" />
-      <PropertyRef Name="status" />
     </Key>
     <Property Name="idBillBuy" Type="int" Nullable="false" />
     <Property Name="idItem" Type="int" Nullable="false" />
@@ -42,7 +41,7 @@
     <Property Name="amount" Type="int" Nullable="false" />
     <Property Name="remainAmount" Type="int" Nullable="false" />
     <Property Name="amountCount" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" />
     <Property Name="note" Type="nvarchar" MaxLength="20" />
     <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
@@ -51,14 +50,13 @@
       <PropertyRef Name="idBill" />
       <PropertyRef Name="idItem" />
       <PropertyRef Name="classify" />
-      <PropertyRef Name="status" />
     </Key>
     <Property Name="idBill" Type="int" Nullable="false" />
     <Property Name="idItem" Type="int" Nullable="false" />
     <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="amount" Type="int" Nullable="false" />
     <Property Name="amountCount" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" />
     <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="Cost">

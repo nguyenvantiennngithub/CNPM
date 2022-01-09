@@ -34,27 +34,28 @@ namespace WindowsFormsApp1
             this.txbPassword2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(183, 173);
+            this.label1.Location = new System.Drawing.Point(105, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "password";
+            this.label1.Text = "Password";
             // 
             // txbPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(241, 170);
+            this.txbPassword.Location = new System.Drawing.Point(163, 143);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.Size = new System.Drawing.Size(100, 20);
             this.txbPassword.TabIndex = 1;
             // 
             // txbPassword2
             // 
-            this.txbPassword2.Location = new System.Drawing.Point(241, 203);
+            this.txbPassword2.Location = new System.Drawing.Point(163, 176);
             this.txbPassword2.Name = "txbPassword2";
             this.txbPassword2.Size = new System.Drawing.Size(100, 20);
             this.txbPassword2.TabIndex = 3;
@@ -62,15 +63,15 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(146, 203);
+            this.label2.Location = new System.Drawing.Point(68, 176);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "password confirm";
+            this.label2.Text = "Password Confirm";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(266, 262);
+            this.button1.Location = new System.Drawing.Point(188, 202);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -78,17 +79,29 @@ namespace WindowsFormsApp1
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(89, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(242, 25);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Change Password Form";
+            // 
             // ChangePasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(405, 334);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txbPassword2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.label1);
             this.Name = "ChangePasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePasswordForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -102,5 +115,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox txbPassword2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
     }
 }

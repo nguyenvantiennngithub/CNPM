@@ -94,7 +94,10 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if (listDelete.Count == 0)
+            {
+                return;
+            }
              BillDetailDAO.Instance.ChangeBillDetailStatusToDeleted(listDelete);
         }
     }

@@ -346,16 +346,18 @@
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
+
+
     <EmbeddedResource Include="Employe.resx">
       <DependentUpon>Employe.cs</DependentUpon>
-=======
+
+
     <EmbeddedResource Include="ChartBillDetailForm.resx">
       <DependentUpon>ChartBillDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CostUpdatForm.resx">
       <DependentUpon>CostUpdatForm.cs</DependentUpon>
->>>>>>> master
+
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>

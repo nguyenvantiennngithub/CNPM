@@ -45,28 +45,35 @@ namespace WindowsFormsApp1
             chartDetail.Series["chartDetailSeries"].Points.Clear();
             int year = int.Parse(cbYear.Text);
             lbTitle.Text = "Lợi nhuận năm " + year.ToString();
-            List<Cost> list = CostDAO.Instance.GetListCostByYear(year);
+            List<float> list = BillDetailDAO.Instance.GetAmountSaleYearr(year);
             chartDetail.Series["chartDetailSeries"].LegendText = "Lợi nhuận";
-            foreach (Cost item in list)
+            for (int i = 0; i < list.Count; i++)
             {
                 chartDetail.Series["chartDetailSeries"]
-                        .Points.AddXY("Tháng " + item.month.ToString(), item.totalIncome.ToString());
+                        .Points.AddXY("Tháng " + (i + 1).ToString(), list[i]);
             }
         }
 
         private void btnFromYearToYear_Click_1(object sender, EventArgs e)
         {
-            chartDetail.Series["chartDetailSeries"].Points.Clear();
             int fromYear = int.Parse(cbFromYear.Text);
             int toYear = int.Parse(cbToYear.Text);
+
+            if (fromYear > toYear)
+            {
+                MessageBox.Show("Giá trị nhập không phù hợp");
+                return;
+            }
+            chartDetail.Series["chartDetailSeries"].Points.Clear();
+
             lbTitle.Text = "Lợi nhuận từ năm " + fromYear.ToString()
                             + " đến năm " + toYear.ToString();
-            List<Cost> list = CostDAO.Instance.GetListCostFromYearToYear(fromYear, toYear);
+            List<float> list = BillDetailDAO.Instance.GetAmountSaleFromYearToYear(fromYear, toYear);
             chartDetail.Series["chartDetailSeries"].LegendText = "Lợi nhuận";
-            foreach (Cost item in list)
+            for (int i = 0; i < list.Count; i++)
             {
                 chartDetail.Series["chartDetailSeries"]
-                        .Points.AddXY("Năm " + item.year.ToString(), item.totalIncome.ToString());
+                        .Points.AddXY("Năm " + (i + 1).ToString(), list[i]);
             }
         }
 

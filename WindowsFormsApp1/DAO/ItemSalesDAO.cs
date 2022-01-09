@@ -123,6 +123,7 @@ namespace WindowsFormsApp1
                     int idItem = int.Parse(rows[i].Cells["idItem"].Value.ToString());
                     int count = int.Parse(rows[i].Cells["count"].Value.ToString());
                     int miss = int.Parse(rows[i].Cells["miss"].Value.ToString());
+                    decimal singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString());
                     Item itemFind = kms.Items.Where(item => item.id == idItem).FirstOrDefault();
 
                     BillBuyDetail billDetail = new BillBuyDetail()
@@ -135,7 +136,7 @@ namespace WindowsFormsApp1
                         amountCount = itemFind.amountCount,
                         status = (miss == 0) ? Constant.Instance.billBuyDetailStatusSold : Constant.Instance.billBuyDetailStatusMiss,
                         note = rows[i].Cells["note"].Value.ToString(),
-                        singlePrice = decimal.Parse(rows[i].Cells["singlePrice"].Value.ToString()),
+                        singlePrice = singlePrice,
                     };
 
                     kms.BillBuyDetails.Add(billDetail);
@@ -471,6 +472,13 @@ namespace WindowsFormsApp1
                 bill.remainAmount = miss;
                 bill.note = note;
                 kms.SaveChanges();
+            }
+        }
+        public Acount login(string username, string password)
+        {
+            using (KMSEntities kms = new KMSEntities())
+            {
+                return kms.Acounts.Where(a => a.username == username && a.password == password).FirstOrDefault();
             }
         }
     }

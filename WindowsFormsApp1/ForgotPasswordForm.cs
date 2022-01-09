@@ -76,8 +76,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Username is not exist");
             }
 
-
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -88,12 +86,14 @@ namespace WindowsFormsApp1
                 timer1.Stop();
                 btnSendEmail.Enabled = true;
                 btnSendEmail.Text = "Resend";
+                lbCountDown.Text = "0";
                 time = timeWaint;
                 flag = false;
             }
             else
             {
                 btnSendEmail.Text = time.ToString();
+                lbCountDown.Text = time.ToString();
             }
         }
 
@@ -111,6 +111,7 @@ namespace WindowsFormsApp1
                     passwordForm.ShowDialog();
 
                     //close this form 
+                    this.Close();
                 }
                 else
                 {

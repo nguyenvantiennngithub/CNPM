@@ -39,7 +39,6 @@
             <PropertyRef Name="idBillBuy" />
             <PropertyRef Name="idItem" />
             <PropertyRef Name="classify" />
-            <PropertyRef Name="status" />
           </Key>
           <Property Name="idBillBuy" Type="int" Nullable="false" />
           <Property Name="idItem" Type="int" Nullable="false" />
@@ -47,7 +46,7 @@
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="remainAmount" Type="int" Nullable="false" />
           <Property Name="amountCount" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" />
           <Property Name="note" Type="nvarchar" MaxLength="20" />
           <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
@@ -56,14 +55,13 @@
             <PropertyRef Name="idBill" />
             <PropertyRef Name="idItem" />
             <PropertyRef Name="classify" />
-            <PropertyRef Name="status" />
           </Key>
           <Property Name="idBill" Type="int" Nullable="false" />
           <Property Name="idItem" Type="int" Nullable="false" />
           <Property Name="classify" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="amountCount" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" />
           <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Cost">
@@ -422,7 +420,6 @@
             <PropertyRef Name="idBillBuy" />
             <PropertyRef Name="idItem" />
             <PropertyRef Name="classify" />
-            <PropertyRef Name="status" />
           </Key>
           <Property Name="idBillBuy" Type="Int32" Nullable="false" />
           <Property Name="idItem" Type="Int32" Nullable="false" />
@@ -430,7 +427,7 @@
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="remainAmount" Type="Int32" Nullable="false" />
           <Property Name="amountCount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="note" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="singlePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="BillBuy" Relationship="Self.FK__BillBuyDe__idBil__2B0A656D" FromRole="BillBuyDetail" ToRole="BillBuy" />
@@ -441,14 +438,13 @@
             <PropertyRef Name="idBill" />
             <PropertyRef Name="idItem" />
             <PropertyRef Name="classify" />
-            <PropertyRef Name="status" />
           </Key>
           <Property Name="idBill" Type="Int32" Nullable="false" />
           <Property Name="idItem" Type="Int32" Nullable="false" />
           <Property Name="classify" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="amountCount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="singlePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Bill" Relationship="Self.FK__BillDetai__idBil__2180FB33" FromRole="BillDetail" ToRole="Bill" />
           <NavigationProperty Name="ItemClassify" Relationship="Self.FK__BillDetail__22751F6C" FromRole="BillDetail" ToRole="ItemClassify" />
