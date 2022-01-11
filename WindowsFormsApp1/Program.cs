@@ -16,11 +16,8 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-            Application.Run(new Employe());
-=======
             Application.Run(new LoginForm());
->>>>>>> master
+
         }
     }
 }

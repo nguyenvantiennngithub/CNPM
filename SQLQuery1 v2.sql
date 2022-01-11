@@ -93,6 +93,7 @@ create table Acount(
 	idEmployee int not null,
 	mailAddress nvarchar(50),
 	post int default(0),
+	img nvarchar(100),
 	status nvarchar(30) default(N'Không hoạt động') --Không hoạt động, Hoạt động, Đã xóa
 
 	foreign key (idEmployee) references Employee(id)
@@ -301,14 +302,15 @@ go
 insert into Cost(month, year, bankInterestExpensePercent) values(12,2021,1.5)
 insert into Cost(month, year, bankInterestExpensePercent) values(1,2022,1.5)
 
-insert into Employee(name, identityCardNumber, post, salary) values(N'Toàn', 111111111, 21, N'Nhân viên', 1000)
-insert into Employee(name, identityCardNumber, post, salary) values(N'Tiến', 222222222, 21, N'Nhân viên', 1000)
-insert into Employee(name, identityCardNumber, post, salary) values(N'VanTiennn', 3333333333, 21, N'Nhân viên', 1000)
+
+insert into Employee(name, identityCardNumber, age, post, salary) values(N'Toàn', 111111111, 21, N'Nhân viên', 1000)
+insert into Employee(name, identityCardNumber, age, post, salary) values(N'Tiến', 222222222, 21, N'Nhân viên', 1000)
+insert into Employee(name, identityCardNumber, age, post, salary) values(N'VanTiennn', 33333333, 21, N'Nhân viên', 1000)
 
 insert into Acount(username,password, idEmployee, mailAddress) values(N'minhtoan', N'1',1, 'nguyenvantiennn0910@gmail.com')
 insert into Acount(username,password, idEmployee, mailAddress) values(N'vantiennn', N'1',2, 'nguyenvantiennncolab@gmail.com')
-insert into Acount(username,password, idEmployee, mailAddress) values(N'Nguyễn Ông Nội', N'1',3, 'nguyenvantiennnimage@gmail.com')
-insert into Acount(username,password, idEmployee, mailAddress) values(N'SauBanh', N'1',3, 'trydothing@gmail.com')
+insert into Acount(username,password, idEmployee, mailAddress) values(N'Nguyễn Ông Nội', N'1',2, 'nguyenvantiennnimage@gmail.com')
+insert into Acount(username,password, idEmployee, mailAddress) values(N'SauBanh', N'1',2 , 'trydothing@gmail.com')
 
 
  
@@ -331,9 +333,7 @@ insert into BillBuy(creator) values(N'minhtoan')
 insert into BillBuyDetail(idBillBuy, idItem, classify, amount, remainAmount, amountCount, singlePrice) 
 	values(1,1, N'Xanh', 5, 5, N'Cái', 500)
 
-	UPDATE BIllBUYDETAIL
-		SET	remainAmount = 2
-		WHERE idBIllBUy = 1 and idItem = 1 and classify = N'Đỏ'
+	
 insert into BillBuyDetail(idBillBuy, idItem, classify, amount, remainAmount, amountCount, singlePrice) 
 	values(1,1, N'Đỏ', 3, 3, N'Cái', 500)
 insert into BillBuyDetail(idBillBuy, idItem, classify, amount, remainAmount, amountCount, singlePrice) 
@@ -348,6 +348,7 @@ insert into BillDetail(idBill, idItem, classify,amount, amountCount, singlePrice
 insert into BillDetail(idBill, idItem, classify,amount, amountCount, singlePrice) 
 	values(1, 2, N'Hồng', 5, N'Cái', 600)
 
+
 select * from Item
 select * from ItemPrice
 select * from ItemClassify
@@ -357,13 +358,12 @@ select * from BillDetail
 select * from BillBuyDetail
 select * from Questionable
 select * from Bill
-<<<<<<< HEAD
-
+select * from Acount
 select * from Employee
 Select * from Employee where birthDay = N'1995-04-05' 
 
 go
-=======
+
 select * from Acount
 go
 --displayname item, classify, amount, remainAmount, amountCount, status, note, singlePrice
@@ -371,4 +371,4 @@ go
 select * i.name, bd.classify, bd.amount, bd.remainAmount, bd.singlePrice, bd.status, bd.note, bd.amountCount
 from BillBuy as b, BillBuyDetail as bd, Item as i, ItemType it,
 where b.id=bd.idBillBuy AND bd.idItem = i.id 
->>>>>>> master
+

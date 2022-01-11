@@ -124,8 +124,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountPrivate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountPrivate.Designer.cs">
+      <DependentUpon>AccountPrivate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Acount.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AddAcount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAcount.Designer.cs">
+      <DependentUpon>AddAcount.cs</DependentUpon>
     </Compile>
     <Compile Include="Bill.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -205,8 +217,10 @@
     <Compile Include="DAO\BillDetailDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\CostDAO.cs" />
+    <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\ItemDAO.cs" />
     <Compile Include="DAO\ItemSalesDAO.cs" />
+    <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\BillBuyDetailDTO.cs" />
     <Compile Include="DTO\BillBuyDTO.cs" />
     <Compile Include="DTO\CategoryGroupBy.cs" />
@@ -325,6 +339,12 @@
     <Compile Include="Supermarket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountPrivate.resx">
+      <DependentUpon>AccountPrivate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAcount.resx">
+      <DependentUpon>AddAcount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillBuyDetailForm.resx">
       <DependentUpon>BillBuyDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,18 +366,14 @@
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-
-
     <EmbeddedResource Include="Employe.resx">
       <DependentUpon>Employe.cs</DependentUpon>
-
-
+    </EmbeddedResource>
     <EmbeddedResource Include="ChartBillDetailForm.resx">
       <DependentUpon>ChartBillDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CostUpdatForm.resx">
       <DependentUpon>CostUpdatForm.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
@@ -467,6 +483,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\user %283%291.png" />
+    <None Include="Resources\gmail.png" />
+    <None Include="Resources\share.png" />
+    <None Include="Resources\minimize %281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -481,6 +501,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="image\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

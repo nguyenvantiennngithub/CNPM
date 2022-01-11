@@ -9,6 +9,7 @@
     <Property Name="idEmployee" Type="int" Nullable="false" />
     <Property Name="mailAddress" Type="nvarchar" MaxLength="50" />
     <Property Name="post" Type="int" />
+    <Property Name="img" Type="nvarchar" MaxLength="100" />
     <Property Name="status" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Bill">
@@ -34,6 +35,7 @@
       <PropertyRef Name="idBillBuy" />
       <PropertyRef Name="idItem" />
       <PropertyRef Name="classify" />
+      <PropertyRef Name="status" />
     </Key>
     <Property Name="idBillBuy" Type="int" Nullable="false" />
     <Property Name="idItem" Type="int" Nullable="false" />
@@ -41,7 +43,7 @@
     <Property Name="amount" Type="int" Nullable="false" />
     <Property Name="remainAmount" Type="int" Nullable="false" />
     <Property Name="amountCount" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="status" Type="nvarchar" MaxLength="20" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="note" Type="nvarchar" MaxLength="20" />
     <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
@@ -153,7 +155,7 @@
     <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="website" Type="nvarchar" MaxLength="20" />
   </EntityType>
-  <Association Name="FK__Acount__status__18EBB532">
+  <Association Name="FK__Acount__status__245D67DE">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="Acount" Type="Self.Acount" Multiplicity="*" />
     <ReferentialConstraint>
@@ -165,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Bill__creator__1DB06A4F">
+  <Association Name="FK__Bill__creator__29221CFB">
     <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
     <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
     <ReferentialConstraint>
@@ -177,7 +179,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BillBuy__creator__2739D489">
+  <Association Name="FK__BillBuy__creator__32AB8735">
     <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
     <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="*" />
     <ReferentialConstraint>
@@ -189,7 +191,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BillBuyDe__idBil__2B0A656D">
+  <Association Name="FK__BillBuyDe__idBil__367C1819">
     <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="1" />
     <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -201,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BillBuyDetail__2BFE89A6">
+  <Association Name="FK__BillBuyDetail__37703C52">
     <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
     <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -215,7 +217,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BillDetai__idBil__2180FB33">
+  <Association Name="FK__BillDetai__idBil__2CF2ADDF">
     <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
     <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -227,7 +229,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BillDetail__22751F6C">
+  <Association Name="FK__BillDetail__2DE6D218">
     <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
     <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -241,7 +243,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Item__idType__05D8E0BE">
+  <Association Name="FK__Item__idType__114A936A">
     <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
     <End Role="Item" Type="Self.Item" Multiplicity="*" />
     <ReferentialConstraint>
@@ -253,7 +255,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ItemClass__idIte__0A9D95DB">
+  <Association Name="FK__ItemClass__idIte__160F4887">
     <End Role="Item" Type="Self.Item" Multiplicity="1" />
     <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="*" />
     <ReferentialConstraint>
@@ -265,7 +267,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ItemPrice__0F624AF8">
+  <Association Name="FK__ItemPrice__1AD3FDA4">
     <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
     <End Role="ItemPrice" Type="Self.ItemPrice" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -279,7 +281,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Questiona__idBil__30C33EC3">
+  <Association Name="FK__Questiona__idBil__3C34F16F">
     <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
     <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
     <ReferentialConstraint>
@@ -291,7 +293,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Questionable__31B762FC">
+  <Association Name="FK__Questionable__3D2915A8">
     <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
     <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
     <ReferentialConstraint>
@@ -319,51 +321,51 @@
     <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Questionable" EntityType="Self.Questionable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supermarket" EntityType="Self.Supermarket" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Acount__status__18EBB532" Association="Self.FK__Acount__status__18EBB532">
+    <AssociationSet Name="FK__Acount__status__245D67DE" Association="Self.FK__Acount__status__245D67DE">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Acount" EntitySet="Acount" />
     </AssociationSet>
-    <AssociationSet Name="FK__Bill__creator__1DB06A4F" Association="Self.FK__Bill__creator__1DB06A4F">
+    <AssociationSet Name="FK__Bill__creator__29221CFB" Association="Self.FK__Bill__creator__29221CFB">
       <End Role="Acount" EntitySet="Acount" />
       <End Role="Bill" EntitySet="Bill" />
     </AssociationSet>
-    <AssociationSet Name="FK__BillBuy__creator__2739D489" Association="Self.FK__BillBuy__creator__2739D489">
+    <AssociationSet Name="FK__BillBuy__creator__32AB8735" Association="Self.FK__BillBuy__creator__32AB8735">
       <End Role="Acount" EntitySet="Acount" />
       <End Role="BillBuy" EntitySet="BillBuy" />
     </AssociationSet>
-    <AssociationSet Name="FK__BillBuyDe__idBil__2B0A656D" Association="Self.FK__BillBuyDe__idBil__2B0A656D">
+    <AssociationSet Name="FK__BillBuyDe__idBil__367C1819" Association="Self.FK__BillBuyDe__idBil__367C1819">
       <End Role="BillBuy" EntitySet="BillBuy" />
       <End Role="BillBuyDetail" EntitySet="BillBuyDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK__BillBuyDetail__2BFE89A6" Association="Self.FK__BillBuyDetail__2BFE89A6">
+    <AssociationSet Name="FK__BillBuyDetail__37703C52" Association="Self.FK__BillBuyDetail__37703C52">
       <End Role="ItemClassify" EntitySet="ItemClassify" />
       <End Role="BillBuyDetail" EntitySet="BillBuyDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK__BillDetai__idBil__2180FB33" Association="Self.FK__BillDetai__idBil__2180FB33">
+    <AssociationSet Name="FK__BillDetai__idBil__2CF2ADDF" Association="Self.FK__BillDetai__idBil__2CF2ADDF">
       <End Role="Bill" EntitySet="Bill" />
       <End Role="BillDetail" EntitySet="BillDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK__BillDetail__22751F6C" Association="Self.FK__BillDetail__22751F6C">
+    <AssociationSet Name="FK__BillDetail__2DE6D218" Association="Self.FK__BillDetail__2DE6D218">
       <End Role="ItemClassify" EntitySet="ItemClassify" />
       <End Role="BillDetail" EntitySet="BillDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK__Item__idType__05D8E0BE" Association="Self.FK__Item__idType__05D8E0BE">
+    <AssociationSet Name="FK__Item__idType__114A936A" Association="Self.FK__Item__idType__114A936A">
       <End Role="ItemType" EntitySet="ItemType" />
       <End Role="Item" EntitySet="Item" />
     </AssociationSet>
-    <AssociationSet Name="FK__ItemClass__idIte__0A9D95DB" Association="Self.FK__ItemClass__idIte__0A9D95DB">
+    <AssociationSet Name="FK__ItemClass__idIte__160F4887" Association="Self.FK__ItemClass__idIte__160F4887">
       <End Role="Item" EntitySet="Item" />
       <End Role="ItemClassify" EntitySet="ItemClassify" />
     </AssociationSet>
-    <AssociationSet Name="FK__ItemPrice__0F624AF8" Association="Self.FK__ItemPrice__0F624AF8">
+    <AssociationSet Name="FK__ItemPrice__1AD3FDA4" Association="Self.FK__ItemPrice__1AD3FDA4">
       <End Role="ItemClassify" EntitySet="ItemClassify" />
       <End Role="ItemPrice" EntitySet="ItemPrice" />
     </AssociationSet>
-    <AssociationSet Name="FK__Questiona__idBil__30C33EC3" Association="Self.FK__Questiona__idBil__30C33EC3">
+    <AssociationSet Name="FK__Questiona__idBil__3C34F16F" Association="Self.FK__Questiona__idBil__3C34F16F">
       <End Role="Bill" EntitySet="Bill" />
       <End Role="Questionable" EntitySet="Questionable" />
     </AssociationSet>
-    <AssociationSet Name="FK__Questionable__31B762FC" Association="Self.FK__Questionable__31B762FC">
+    <AssociationSet Name="FK__Questionable__3D2915A8" Association="Self.FK__Questionable__3D2915A8">
       <End Role="ItemClassify" EntitySet="ItemClassify" />
       <End Role="Questionable" EntitySet="Questionable" />
     </AssociationSet>

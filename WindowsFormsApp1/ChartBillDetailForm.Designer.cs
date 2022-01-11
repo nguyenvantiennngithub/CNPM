@@ -69,8 +69,9 @@ namespace WindowsFormsApp1
             this.lbTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTitle.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.Location = new System.Drawing.Point(0, 0);
+            this.lbTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(1064, 100);
+            this.lbTitle.Size = new System.Drawing.Size(683, 123);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "label1";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,6 +84,7 @@ namespace WindowsFormsApp1
             legend1.Name = "Legend1";
             this.chartDetail.Legends.Add(legend1);
             this.chartDetail.Location = new System.Drawing.Point(0, 0);
+            this.chartDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartDetail.Name = "chartDetail";
             series1.BorderColor = System.Drawing.Color.Red;
             series1.BorderWidth = 10;
@@ -92,7 +94,7 @@ namespace WindowsFormsApp1
             series1.MarkerSize = 10;
             series1.Name = "chartDetailSeries";
             this.chartDetail.Series.Add(series1);
-            this.chartDetail.Size = new System.Drawing.Size(1064, 781);
+            this.chartDetail.Size = new System.Drawing.Size(683, 566);
             this.chartDetail.TabIndex = 0;
             this.chartDetail.Text = "chart1";
             // 
@@ -102,9 +104,10 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1064, 0);
+            this.panel1.Location = new System.Drawing.Point(683, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(359, 881);
+            this.panel1.Size = new System.Drawing.Size(479, 689);
             this.panel1.TabIndex = 1;
             // 
             // panel4
@@ -115,9 +118,10 @@ namespace WindowsFormsApp1
             this.panel4.Controls.Add(this.cbItemName);
             this.panel4.Controls.Add(this.labelControl4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 329);
+            this.panel4.Location = new System.Drawing.Point(0, 405);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(359, 181);
+            this.panel4.Size = new System.Drawing.Size(479, 223);
             this.panel4.TabIndex = 3;
             // 
             // cbYearItem
@@ -127,9 +131,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbYearItem.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYearItem.FormattingEnabled = true;
-            this.cbYearItem.Location = new System.Drawing.Point(189, 87);
+            this.cbYearItem.Location = new System.Drawing.Point(252, 107);
+            this.cbYearItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbYearItem.Name = "cbYearItem";
-            this.cbYearItem.Size = new System.Drawing.Size(121, 26);
+            this.cbYearItem.Size = new System.Drawing.Size(160, 31);
             this.cbYearItem.TabIndex = 8;
             // 
             // labelControl5
@@ -139,9 +144,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(16, 86);
+            this.labelControl5.Location = new System.Drawing.Point(21, 106);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(55, 24);
+            this.labelControl5.Size = new System.Drawing.Size(67, 30);
             this.labelControl5.TabIndex = 7;
             this.labelControl5.Text = "Năm: ";
             // 
@@ -152,9 +158,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnItemYear.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItemYear.Appearance.Options.UseFont = true;
-            this.btnItemYear.Location = new System.Drawing.Point(189, 134);
+            this.btnItemYear.Location = new System.Drawing.Point(252, 165);
+            this.btnItemYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnItemYear.Name = "btnItemYear";
-            this.btnItemYear.Size = new System.Drawing.Size(121, 34);
+            this.btnItemYear.Size = new System.Drawing.Size(161, 42);
             this.btnItemYear.TabIndex = 6;
             this.btnItemYear.Text = "Xác nhận";
             this.btnItemYear.Click += new System.EventHandler(this.btnItemYear_Click_1);
@@ -166,9 +173,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbItemName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemName.FormattingEnabled = true;
-            this.cbItemName.Location = new System.Drawing.Point(189, 32);
+            this.cbItemName.Location = new System.Drawing.Point(252, 39);
+            this.cbItemName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbItemName.Name = "cbItemName";
-            this.cbItemName.Size = new System.Drawing.Size(121, 26);
+            this.cbItemName.Size = new System.Drawing.Size(160, 31);
             this.cbItemName.TabIndex = 4;
             // 
             // labelControl4
@@ -178,9 +186,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(16, 31);
+            this.labelControl4.Location = new System.Drawing.Point(21, 38);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(147, 24);
+            this.labelControl4.Size = new System.Drawing.Size(180, 30);
             this.labelControl4.TabIndex = 2;
             this.labelControl4.Text = "Tên sản phẩm: ";
             // 
@@ -192,9 +201,10 @@ namespace WindowsFormsApp1
             this.panel3.Controls.Add(this.labelControl3);
             this.panel3.Controls.Add(this.labelControl2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 142);
+            this.panel3.Location = new System.Drawing.Point(0, 175);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(359, 187);
+            this.panel3.Size = new System.Drawing.Size(479, 230);
             this.panel3.TabIndex = 2;
             // 
             // btnFromYearToYear
@@ -204,9 +214,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFromYearToYear.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFromYearToYear.Appearance.Options.UseFont = true;
-            this.btnFromYearToYear.Location = new System.Drawing.Point(189, 133);
+            this.btnFromYearToYear.Location = new System.Drawing.Point(252, 164);
+            this.btnFromYearToYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFromYearToYear.Name = "btnFromYearToYear";
-            this.btnFromYearToYear.Size = new System.Drawing.Size(121, 32);
+            this.btnFromYearToYear.Size = new System.Drawing.Size(161, 39);
             this.btnFromYearToYear.TabIndex = 5;
             this.btnFromYearToYear.Text = "Xác nhận";
             this.btnFromYearToYear.Click += new System.EventHandler(this.btnFromYearToYear_Click_1);
@@ -219,9 +230,10 @@ namespace WindowsFormsApp1
             this.cbToYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbToYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbToYear.FormattingEnabled = true;
-            this.cbToYear.Location = new System.Drawing.Point(189, 88);
+            this.cbToYear.Location = new System.Drawing.Point(252, 108);
+            this.cbToYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbToYear.Name = "cbToYear";
-            this.cbToYear.Size = new System.Drawing.Size(121, 26);
+            this.cbToYear.Size = new System.Drawing.Size(160, 31);
             this.cbToYear.TabIndex = 4;
             // 
             // cbFromYear
@@ -231,9 +243,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFromYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFromYear.FormattingEnabled = true;
-            this.cbFromYear.Location = new System.Drawing.Point(189, 42);
+            this.cbFromYear.Location = new System.Drawing.Point(252, 52);
+            this.cbFromYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbFromYear.Name = "cbFromYear";
-            this.cbFromYear.Size = new System.Drawing.Size(121, 26);
+            this.cbFromYear.Size = new System.Drawing.Size(160, 31);
             this.cbFromYear.TabIndex = 3;
             // 
             // labelControl3
@@ -243,9 +256,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(27, 85);
+            this.labelControl3.Location = new System.Drawing.Point(36, 105);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(96, 24);
+            this.labelControl3.Size = new System.Drawing.Size(118, 30);
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "Đến năm: ";
             // 
@@ -256,9 +270,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(27, 42);
+            this.labelControl2.Location = new System.Drawing.Point(36, 52);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(86, 24);
+            this.labelControl2.Size = new System.Drawing.Size(104, 30);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Từ năm: ";
             // 
@@ -269,8 +284,9 @@ namespace WindowsFormsApp1
             this.panel5.Controls.Add(this.labelControl1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(359, 142);
+            this.panel5.Size = new System.Drawing.Size(479, 175);
             this.panel5.TabIndex = 1;
             // 
             // cbYear
@@ -280,9 +296,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbYear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(189, 30);
+            this.cbYear.Location = new System.Drawing.Point(252, 37);
+            this.cbYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(121, 26);
+            this.cbYear.Size = new System.Drawing.Size(160, 31);
             this.cbYear.TabIndex = 2;
             // 
             // btnYearConfirm
@@ -292,9 +309,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYearConfirm.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYearConfirm.Appearance.Options.UseFont = true;
-            this.btnYearConfirm.Location = new System.Drawing.Point(189, 80);
+            this.btnYearConfirm.Location = new System.Drawing.Point(252, 98);
+            this.btnYearConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnYearConfirm.Name = "btnYearConfirm";
-            this.btnYearConfirm.Size = new System.Drawing.Size(121, 42);
+            this.btnYearConfirm.Size = new System.Drawing.Size(161, 52);
             this.btnYearConfirm.TabIndex = 1;
             this.btnYearConfirm.Text = "Xác nhận";
             this.btnYearConfirm.Click += new System.EventHandler(this.btnYearConfirm_Click_1);
@@ -306,9 +324,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(27, 29);
+            this.labelControl1.Location = new System.Drawing.Point(36, 36);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 24);
+            this.labelControl1.Size = new System.Drawing.Size(67, 30);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Năm: ";
             // 
@@ -318,17 +337,19 @@ namespace WindowsFormsApp1
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1064, 881);
+            this.panel2.Size = new System.Drawing.Size(683, 689);
             this.panel2.TabIndex = 2;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.chartDetail);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 100);
+            this.panel7.Location = new System.Drawing.Point(0, 123);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1064, 781);
+            this.panel7.Size = new System.Drawing.Size(683, 566);
             this.panel7.TabIndex = 1;
             // 
             // panel6
@@ -336,17 +357,20 @@ namespace WindowsFormsApp1
             this.panel6.Controls.Add(this.lbTitle);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1064, 100);
+            this.panel6.Size = new System.Drawing.Size(683, 123);
             this.panel6.TabIndex = 0;
             // 
             // ChartBillDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1423, 881);
+            this.ClientSize = new System.Drawing.Size(1162, 689);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChartBillDetailForm";
             this.Text = "ChartBillDetailForm";
             ((System.ComponentModel.ISupportInitialize)(this.chartDetail)).EndInit();
