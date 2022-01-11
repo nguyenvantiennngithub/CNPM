@@ -26,6 +26,7 @@ namespace WindowsFormsApp1
         public int idEmployee { get; set; }
         public string mailAddress { get; set; }
         public Nullable<int> post { get; set; }
+        public string img { get; set; }
         public string status { get; set; }
     
         public virtual Employee Employee { get; set; }

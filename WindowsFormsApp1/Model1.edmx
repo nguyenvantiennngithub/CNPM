@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Acount">
           <Key>
             <PropertyRef Name="username" />
@@ -14,6 +14,7 @@
           <Property Name="idEmployee" Type="int" Nullable="false" />
           <Property Name="mailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="post" Type="int" />
+          <Property Name="img" Type="nvarchar" MaxLength="100" />
           <Property Name="status" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Bill">
@@ -39,6 +40,7 @@
             <PropertyRef Name="idBillBuy" />
             <PropertyRef Name="idItem" />
             <PropertyRef Name="classify" />
+            <PropertyRef Name="status" />
           </Key>
           <Property Name="idBillBuy" Type="int" Nullable="false" />
           <Property Name="idItem" Type="int" Nullable="false" />
@@ -46,7 +48,7 @@
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="remainAmount" Type="int" Nullable="false" />
           <Property Name="amountCount" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="status" Type="nvarchar" MaxLength="20" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="note" Type="nvarchar" MaxLength="20" />
           <Property Name="singlePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
@@ -158,7 +160,7 @@
           <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="website" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <Association Name="FK__Acount__status__18EBB532">
+        <Association Name="FK__Acount__status__245D67DE">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Acount" Type="Self.Acount" Multiplicity="*" />
           <ReferentialConstraint>
@@ -170,7 +172,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bill__creator__1DB06A4F">
+        <Association Name="FK__Bill__creator__29221CFB">
           <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -182,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillBuy__creator__2739D489">
+        <Association Name="FK__BillBuy__creator__32AB8735">
           <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
           <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -194,7 +196,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillBuyDe__idBil__2B0A656D">
+        <Association Name="FK__BillBuyDe__idBil__367C1819">
           <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="1" />
           <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -206,7 +208,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillBuyDetail__2BFE89A6">
+        <Association Name="FK__BillBuyDetail__37703C52">
           <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
           <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -220,7 +222,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__idBil__2180FB33">
+        <Association Name="FK__BillDetai__idBil__2CF2ADDF">
           <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -232,7 +234,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetail__22751F6C">
+        <Association Name="FK__BillDetail__2DE6D218">
           <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,7 +248,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Item__idType__05D8E0BE">
+        <Association Name="FK__Item__idType__114A936A">
           <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
           <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -258,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemClass__idIte__0A9D95DB">
+        <Association Name="FK__ItemClass__idIte__160F4887">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
           <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,7 +272,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemPrice__0F624AF8">
+        <Association Name="FK__ItemPrice__1AD3FDA4">
           <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
           <End Role="ItemPrice" Type="Self.ItemPrice" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -284,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Questiona__idBil__30C33EC3">
+        <Association Name="FK__Questiona__idBil__3C34F16F">
           <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
           <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -296,7 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Questionable__31B762FC">
+        <Association Name="FK__Questionable__3D2915A8">
           <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
           <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,73 +326,136 @@
           <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questionable" EntityType="Self.Questionable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supermarket" EntityType="Self.Supermarket" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Acount__status__18EBB532" Association="Self.FK__Acount__status__18EBB532">
+          <AssociationSet Name="FK__Acount__status__245D67DE" Association="Self.FK__Acount__status__245D67DE">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Acount" EntitySet="Acount" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bill__creator__1DB06A4F" Association="Self.FK__Bill__creator__1DB06A4F">
+          <AssociationSet Name="FK__Bill__creator__29221CFB" Association="Self.FK__Bill__creator__29221CFB">
             <End Role="Acount" EntitySet="Acount" />
             <End Role="Bill" EntitySet="Bill" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillBuy__creator__2739D489" Association="Self.FK__BillBuy__creator__2739D489">
+          <AssociationSet Name="FK__BillBuy__creator__32AB8735" Association="Self.FK__BillBuy__creator__32AB8735">
             <End Role="Acount" EntitySet="Acount" />
             <End Role="BillBuy" EntitySet="BillBuy" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillBuyDe__idBil__2B0A656D" Association="Self.FK__BillBuyDe__idBil__2B0A656D">
+          <AssociationSet Name="FK__BillBuyDe__idBil__367C1819" Association="Self.FK__BillBuyDe__idBil__367C1819">
             <End Role="BillBuy" EntitySet="BillBuy" />
             <End Role="BillBuyDetail" EntitySet="BillBuyDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillBuyDetail__2BFE89A6" Association="Self.FK__BillBuyDetail__2BFE89A6">
+          <AssociationSet Name="FK__BillBuyDetail__37703C52" Association="Self.FK__BillBuyDetail__37703C52">
             <End Role="ItemClassify" EntitySet="ItemClassify" />
             <End Role="BillBuyDetail" EntitySet="BillBuyDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__idBil__2180FB33" Association="Self.FK__BillDetai__idBil__2180FB33">
+          <AssociationSet Name="FK__BillDetai__idBil__2CF2ADDF" Association="Self.FK__BillDetai__idBil__2CF2ADDF">
             <End Role="Bill" EntitySet="Bill" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetail__22751F6C" Association="Self.FK__BillDetail__22751F6C">
+          <AssociationSet Name="FK__BillDetail__2DE6D218" Association="Self.FK__BillDetail__2DE6D218">
             <End Role="ItemClassify" EntitySet="ItemClassify" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Item__idType__05D8E0BE" Association="Self.FK__Item__idType__05D8E0BE">
+          <AssociationSet Name="FK__Item__idType__114A936A" Association="Self.FK__Item__idType__114A936A">
             <End Role="ItemType" EntitySet="ItemType" />
             <End Role="Item" EntitySet="Item" />
           </AssociationSet>
-          <AssociationSet Name="FK__ItemClass__idIte__0A9D95DB" Association="Self.FK__ItemClass__idIte__0A9D95DB">
+          <AssociationSet Name="FK__ItemClass__idIte__160F4887" Association="Self.FK__ItemClass__idIte__160F4887">
             <End Role="Item" EntitySet="Item" />
             <End Role="ItemClassify" EntitySet="ItemClassify" />
           </AssociationSet>
-          <AssociationSet Name="FK__ItemPrice__0F624AF8" Association="Self.FK__ItemPrice__0F624AF8">
+          <AssociationSet Name="FK__ItemPrice__1AD3FDA4" Association="Self.FK__ItemPrice__1AD3FDA4">
             <End Role="ItemClassify" EntitySet="ItemClassify" />
             <End Role="ItemPrice" EntitySet="ItemPrice" />
           </AssociationSet>
-          <AssociationSet Name="FK__Questiona__idBil__30C33EC3" Association="Self.FK__Questiona__idBil__30C33EC3">
+          <AssociationSet Name="FK__Questiona__idBil__3C34F16F" Association="Self.FK__Questiona__idBil__3C34F16F">
             <End Role="Bill" EntitySet="Bill" />
             <End Role="Questionable" EntitySet="Questionable" />
           </AssociationSet>
-          <AssociationSet Name="FK__Questionable__31B762FC" Association="Self.FK__Questionable__31B762FC">
+          <AssociationSet Name="FK__Questionable__3D2915A8" Association="Self.FK__Questionable__3D2915A8">
             <End Role="ItemClassify" EntitySet="ItemClassify" />
             <End Role="Questionable" EntitySet="Questionable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acounts" EntityType="KMSModel.Acount" />
+          <EntitySet Name="Bills" EntityType="KMSModel.Bill" />
+          <EntitySet Name="BillBuys" EntityType="KMSModel.BillBuy" />
+          <EntitySet Name="BillBuyDetails" EntityType="KMSModel.BillBuyDetail" />
+          <EntitySet Name="BillDetails" EntityType="KMSModel.BillDetail" />
+          <EntitySet Name="Costs" EntityType="KMSModel.Cost" />
+          <EntitySet Name="Employees" EntityType="KMSModel.Employee" />
+          <EntitySet Name="Items" EntityType="KMSModel.Item" />
+          <EntitySet Name="ItemClassifies" EntityType="KMSModel.ItemClassify" />
+          <EntitySet Name="ItemPrices" EntityType="KMSModel.ItemPrice" />
+          <EntitySet Name="ItemTypes" EntityType="KMSModel.ItemType" />
+          <EntitySet Name="Questionables" EntityType="KMSModel.Questionable" />
+          <EntitySet Name="Supermarkets" EntityType="KMSModel.Supermarket" />
+          <AssociationSet Name="FK__Acount__status__245D67DE" Association="KMSModel.FK__Acount__status__245D67DE">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Acount" EntitySet="Acounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__creator__29221CFB" Association="KMSModel.FK__Bill__creator__29221CFB">
+            <End Role="Acount" EntitySet="Acounts" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillBuy__creator__32AB8735" Association="KMSModel.FK__BillBuy__creator__32AB8735">
+            <End Role="Acount" EntitySet="Acounts" />
+            <End Role="BillBuy" EntitySet="BillBuys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__idBil__2CF2ADDF" Association="KMSModel.FK__BillDetai__idBil__2CF2ADDF">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questiona__idBil__3C34F16F" Association="KMSModel.FK__Questiona__idBil__3C34F16F">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="Questionable" EntitySet="Questionables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillBuyDe__idBil__367C1819" Association="KMSModel.FK__BillBuyDe__idBil__367C1819">
+            <End Role="BillBuy" EntitySet="BillBuys" />
+            <End Role="BillBuyDetail" EntitySet="BillBuyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillBuyDetail__37703C52" Association="KMSModel.FK__BillBuyDetail__37703C52">
+            <End Role="ItemClassify" EntitySet="ItemClassifies" />
+            <End Role="BillBuyDetail" EntitySet="BillBuyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetail__2DE6D218" Association="KMSModel.FK__BillDetail__2DE6D218">
+            <End Role="ItemClassify" EntitySet="ItemClassifies" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Item__idType__114A936A" Association="KMSModel.FK__Item__idType__114A936A">
+            <End Role="ItemType" EntitySet="ItemTypes" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ItemClass__idIte__160F4887" Association="KMSModel.FK__ItemClass__idIte__160F4887">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ItemClassify" EntitySet="ItemClassifies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ItemPrice__1AD3FDA4" Association="KMSModel.FK__ItemPrice__1AD3FDA4">
+            <End Role="ItemClassify" EntitySet="ItemClassifies" />
+            <End Role="ItemPrice" EntitySet="ItemPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questionable__3D2915A8" Association="KMSModel.FK__Questionable__3D2915A8">
+            <End Role="ItemClassify" EntitySet="ItemClassifies" />
+            <End Role="Questionable" EntitySet="Questionables" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Acount">
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="idEmployee" Type="Int32" Nullable="false" />
           <Property Name="mailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="post" Type="Int32" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Acount__status__18EBB532" FromRole="Acount" ToRole="Employee" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__creator__1DB06A4F" FromRole="Acount" ToRole="Bill" />
-          <NavigationProperty Name="BillBuys" Relationship="Self.FK__BillBuy__creator__2739D489" FromRole="Acount" ToRole="BillBuy" />
+          <NavigationProperty Name="Employee" Relationship="KMSModel.FK__Acount__status__245D67DE" FromRole="Acount" ToRole="Employee" />
+          <NavigationProperty Name="Bills" Relationship="KMSModel.FK__Bill__creator__29221CFB" FromRole="Acount" ToRole="Bill" />
+          <NavigationProperty Name="BillBuys" Relationship="KMSModel.FK__BillBuy__creator__32AB8735" FromRole="Acount" ToRole="BillBuy" />
         </EntityType>
         <EntityType Name="Bill">
           <Key>
@@ -398,11 +463,11 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="createdDay" Type="DateTime" Precision="3" />
-          <Property Name="creator" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creator" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Acount" Relationship="Self.FK__Bill__creator__1DB06A4F" FromRole="Bill" ToRole="Acount" />
-          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__idBil__2180FB33" FromRole="Bill" ToRole="BillDetail" />
-          <NavigationProperty Name="Questionables" Relationship="Self.FK__Questiona__idBil__30C33EC3" FromRole="Bill" ToRole="Questionable" />
+          <NavigationProperty Name="Acount" Relationship="KMSModel.FK__Bill__creator__29221CFB" FromRole="Bill" ToRole="Acount" />
+          <NavigationProperty Name="BillDetails" Relationship="KMSModel.FK__BillDetai__idBil__2CF2ADDF" FromRole="Bill" ToRole="BillDetail" />
+          <NavigationProperty Name="Questionables" Relationship="KMSModel.FK__Questiona__idBil__3C34F16F" FromRole="Bill" ToRole="Questionable" />
         </EntityType>
         <EntityType Name="BillBuy">
           <Key>
@@ -410,28 +475,29 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="createdDay" Type="DateTime" Precision="3" />
-          <Property Name="creator" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creator" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Acount" Relationship="Self.FK__BillBuy__creator__2739D489" FromRole="BillBuy" ToRole="Acount" />
-          <NavigationProperty Name="BillBuyDetails" Relationship="Self.FK__BillBuyDe__idBil__2B0A656D" FromRole="BillBuy" ToRole="BillBuyDetail" />
+          <NavigationProperty Name="Acount" Relationship="KMSModel.FK__BillBuy__creator__32AB8735" FromRole="BillBuy" ToRole="Acount" />
+          <NavigationProperty Name="BillBuyDetails" Relationship="KMSModel.FK__BillBuyDe__idBil__367C1819" FromRole="BillBuy" ToRole="BillBuyDetail" />
         </EntityType>
         <EntityType Name="BillBuyDetail">
           <Key>
             <PropertyRef Name="idBillBuy" />
             <PropertyRef Name="idItem" />
             <PropertyRef Name="classify" />
+            <PropertyRef Name="status" />
           </Key>
           <Property Name="idBillBuy" Type="Int32" Nullable="false" />
           <Property Name="idItem" Type="Int32" Nullable="false" />
-          <Property Name="classify" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="classify" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="remainAmount" Type="Int32" Nullable="false" />
-          <Property Name="amountCount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="amountCount" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="note" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="singlePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="BillBuy" Relationship="Self.FK__BillBuyDe__idBil__2B0A656D" FromRole="BillBuyDetail" ToRole="BillBuy" />
-          <NavigationProperty Name="ItemClassify" Relationship="Self.FK__BillBuyDetail__2BFE89A6" FromRole="BillBuyDetail" ToRole="ItemClassify" />
+          <Property Name="singlePrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="BillBuy" Relationship="KMSModel.FK__BillBuyDe__idBil__367C1819" FromRole="BillBuyDetail" ToRole="BillBuy" />
+          <NavigationProperty Name="ItemClassify" Relationship="KMSModel.FK__BillBuyDetail__37703C52" FromRole="BillBuyDetail" ToRole="ItemClassify" />
         </EntityType>
         <EntityType Name="BillDetail">
           <Key>
@@ -441,13 +507,13 @@
           </Key>
           <Property Name="idBill" Type="Int32" Nullable="false" />
           <Property Name="idItem" Type="Int32" Nullable="false" />
-          <Property Name="classify" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="classify" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="amount" Type="Int32" Nullable="false" />
-          <Property Name="amountCount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amountCount" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="singlePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="Bill" Relationship="Self.FK__BillDetai__idBil__2180FB33" FromRole="BillDetail" ToRole="Bill" />
-          <NavigationProperty Name="ItemClassify" Relationship="Self.FK__BillDetail__22751F6C" FromRole="BillDetail" ToRole="ItemClassify" />
+          <Property Name="singlePrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Bill" Relationship="KMSModel.FK__BillDetai__idBil__2CF2ADDF" FromRole="BillDetail" ToRole="Bill" />
+          <NavigationProperty Name="ItemClassify" Relationship="KMSModel.FK__BillDetail__2DE6D218" FromRole="BillDetail" ToRole="ItemClassify" />
         </EntityType>
         <EntityType Name="Cost">
           <Key>
@@ -470,28 +536,28 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="birthDay" Type="DateTime" Precision="0" />
           <Property Name="identityCardNumber" Type="Int32" Nullable="false" />
           <Property Name="startDay" Type="DateTime" Precision="0" />
           <Property Name="endDay" Type="DateTime" Precision="0" />
           <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="age" Type="Int32" Nullable="false" />
-          <Property Name="post" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="post" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Acounts" Relationship="Self.FK__Acount__status__18EBB532" FromRole="Employee" ToRole="Acount" />
+          <NavigationProperty Name="Acounts" Relationship="KMSModel.FK__Acount__status__245D67DE" FromRole="Employee" ToRole="Acount" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="idType" Type="Int32" Nullable="false" />
-          <Property Name="amountCount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amountCount" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ItemType" Relationship="Self.FK__Item__idType__05D8E0BE" FromRole="Item" ToRole="ItemType" />
-          <NavigationProperty Name="ItemClassifies" Relationship="Self.FK__ItemClass__idIte__0A9D95DB" FromRole="Item" ToRole="ItemClassify" />
+          <NavigationProperty Name="ItemType" Relationship="KMSModel.FK__Item__idType__114A936A" FromRole="Item" ToRole="ItemType" />
+          <NavigationProperty Name="ItemClassifies" Relationship="KMSModel.FK__ItemClass__idIte__160F4887" FromRole="Item" ToRole="ItemClassify" />
         </EntityType>
         <EntityType Name="ItemClassify">
           <Key>
@@ -500,13 +566,13 @@
           </Key>
           <Property Name="idItem" Type="Int32" Nullable="false" />
           <Property Name="amount" Type="Int32" />
-          <Property Name="classify" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="classify" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BillBuyDetails" Relationship="Self.FK__BillBuyDetail__2BFE89A6" FromRole="ItemClassify" ToRole="BillBuyDetail" />
-          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetail__22751F6C" FromRole="ItemClassify" ToRole="BillDetail" />
-          <NavigationProperty Name="Item" Relationship="Self.FK__ItemClass__idIte__0A9D95DB" FromRole="ItemClassify" ToRole="Item" />
-          <NavigationProperty Name="ItemPrice" Relationship="Self.FK__ItemPrice__0F624AF8" FromRole="ItemClassify" ToRole="ItemPrice" />
-          <NavigationProperty Name="Questionables" Relationship="Self.FK__Questionable__31B762FC" FromRole="ItemClassify" ToRole="Questionable" />
+          <NavigationProperty Name="BillBuyDetails" Relationship="KMSModel.FK__BillBuyDetail__37703C52" FromRole="ItemClassify" ToRole="BillBuyDetail" />
+          <NavigationProperty Name="BillDetails" Relationship="KMSModel.FK__BillDetail__2DE6D218" FromRole="ItemClassify" ToRole="BillDetail" />
+          <NavigationProperty Name="Item" Relationship="KMSModel.FK__ItemClass__idIte__160F4887" FromRole="ItemClassify" ToRole="Item" />
+          <NavigationProperty Name="ItemPrice" Relationship="KMSModel.FK__ItemPrice__1AD3FDA4" FromRole="ItemClassify" ToRole="ItemPrice" />
+          <NavigationProperty Name="Questionables" Relationship="KMSModel.FK__Questionable__3D2915A8" FromRole="ItemClassify" ToRole="Questionable" />
         </EntityType>
         <EntityType Name="ItemPrice">
           <Key>
@@ -514,19 +580,19 @@
             <PropertyRef Name="classify" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="classify" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="classify" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="tax" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ItemClassify" Relationship="Self.FK__ItemPrice__0F624AF8" FromRole="ItemPrice" ToRole="ItemClassify" />
+          <NavigationProperty Name="ItemClassify" Relationship="KMSModel.FK__ItemPrice__1AD3FDA4" FromRole="ItemPrice" ToRole="ItemClassify" />
         </EntityType>
         <EntityType Name="ItemType">
           <Key>
             <PropertyRef Name="idType" />
           </Key>
           <Property Name="idType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nameType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Items" Relationship="Self.FK__Item__idType__05D8E0BE" FromRole="ItemType" ToRole="Item" />
+          <Property Name="nameType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Items" Relationship="KMSModel.FK__Item__idType__114A936A" FromRole="ItemType" ToRole="Item" />
         </EntityType>
         <EntityType Name="Questionable">
           <Key>
@@ -537,27 +603,27 @@
           </Key>
           <Property Name="idBill" Type="Int32" Nullable="false" />
           <Property Name="idItem" Type="Int32" Nullable="false" />
-          <Property Name="classify" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="classify" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="time" Type="Time" Precision="7" />
           <Property Name="amount" Type="Int32" Nullable="false" />
-          <Property Name="amountCount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="singlePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="Bill" Relationship="Self.FK__Questiona__idBil__30C33EC3" FromRole="Questionable" ToRole="Bill" />
-          <NavigationProperty Name="ItemClassify" Relationship="Self.FK__Questionable__31B762FC" FromRole="Questionable" ToRole="ItemClassify" />
+          <Property Name="amountCount" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="singlePrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Bill" Relationship="KMSModel.FK__Questiona__idBil__3C34F16F" FromRole="Questionable" ToRole="Bill" />
+          <NavigationProperty Name="ItemClassify" Relationship="KMSModel.FK__Questionable__3D2915A8" FromRole="Questionable" ToRole="ItemClassify" />
         </EntityType>
         <EntityType Name="Supermarket">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="website" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK__Acount__status__18EBB532">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Acount" Type="Self.Acount" Multiplicity="*" />
+        <Association Name="FK__Acount__status__245D67DE">
+          <End Type="KMSModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="KMSModel.Acount" Role="Acount" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="id" />
@@ -567,9 +633,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bill__creator__1DB06A4F">
-          <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
-          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+        <Association Name="FK__Bill__creator__29221CFB">
+          <End Type="KMSModel.Acount" Role="Acount" Multiplicity="1" />
+          <End Type="KMSModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Acount">
               <PropertyRef Name="username" />
@@ -579,9 +645,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillBuy__creator__2739D489">
-          <End Role="Acount" Type="Self.Acount" Multiplicity="1" />
-          <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="*" />
+        <Association Name="FK__BillBuy__creator__32AB8735">
+          <End Type="KMSModel.Acount" Role="Acount" Multiplicity="1" />
+          <End Type="KMSModel.BillBuy" Role="BillBuy" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Acount">
               <PropertyRef Name="username" />
@@ -591,9 +657,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__idBil__2180FB33">
-          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
-          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+        <Association Name="FK__BillDetai__idBil__2CF2ADDF">
+          <End Type="KMSModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="KMSModel.BillDetail" Role="BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bill">
               <PropertyRef Name="id" />
@@ -603,9 +669,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Questiona__idBil__30C33EC3">
-          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
-          <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
+        <Association Name="FK__Questiona__idBil__3C34F16F">
+          <End Type="KMSModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="KMSModel.Questionable" Role="Questionable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bill">
               <PropertyRef Name="id" />
@@ -615,9 +681,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillBuyDe__idBil__2B0A656D">
-          <End Role="BillBuy" Type="Self.BillBuy" Multiplicity="1" />
-          <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
+        <Association Name="FK__BillBuyDe__idBil__367C1819">
+          <End Type="KMSModel.BillBuy" Role="BillBuy" Multiplicity="1" />
+          <End Type="KMSModel.BillBuyDetail" Role="BillBuyDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BillBuy">
               <PropertyRef Name="id" />
@@ -627,9 +693,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillBuyDetail__2BFE89A6">
-          <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
-          <End Role="BillBuyDetail" Type="Self.BillBuyDetail" Multiplicity="*" />
+        <Association Name="FK__BillBuyDetail__37703C52">
+          <End Type="KMSModel.ItemClassify" Role="ItemClassify" Multiplicity="1" />
+          <End Type="KMSModel.BillBuyDetail" Role="BillBuyDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ItemClassify">
               <PropertyRef Name="idItem" />
@@ -641,9 +707,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetail__22751F6C">
-          <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
-          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+        <Association Name="FK__BillDetail__2DE6D218">
+          <End Type="KMSModel.ItemClassify" Role="ItemClassify" Multiplicity="1" />
+          <End Type="KMSModel.BillDetail" Role="BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ItemClassify">
               <PropertyRef Name="idItem" />
@@ -655,9 +721,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Item__idType__05D8E0BE">
-          <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+        <Association Name="FK__Item__idType__114A936A">
+          <End Type="KMSModel.ItemType" Role="ItemType" Multiplicity="1" />
+          <End Type="KMSModel.Item" Role="Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ItemType">
               <PropertyRef Name="idType" />
@@ -667,9 +733,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemClass__idIte__0A9D95DB">
-          <End Role="Item" Type="Self.Item" Multiplicity="1" />
-          <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="*" />
+        <Association Name="FK__ItemClass__idIte__160F4887">
+          <End Type="KMSModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="KMSModel.ItemClassify" Role="ItemClassify" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="id" />
@@ -679,9 +745,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ItemPrice__0F624AF8">
-          <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
-          <End Role="ItemPrice" Type="Self.ItemPrice" Multiplicity="0..1" />
+        <Association Name="FK__ItemPrice__1AD3FDA4">
+          <End Type="KMSModel.ItemClassify" Role="ItemClassify" Multiplicity="1" />
+          <End Type="KMSModel.ItemPrice" Role="ItemPrice" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="ItemClassify">
               <PropertyRef Name="idItem" />
@@ -693,9 +759,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Questionable__31B762FC">
-          <End Role="ItemClassify" Type="Self.ItemClassify" Multiplicity="1" />
-          <End Role="Questionable" Type="Self.Questionable" Multiplicity="*" />
+        <Association Name="FK__Questionable__3D2915A8">
+          <End Type="KMSModel.ItemClassify" Role="ItemClassify" Multiplicity="1" />
+          <End Type="KMSModel.Questionable" Role="Questionable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ItemClassify">
               <PropertyRef Name="idItem" />
@@ -707,69 +773,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KMSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Acounts" EntityType="Self.Acount" />
-          <EntitySet Name="Bills" EntityType="Self.Bill" />
-          <EntitySet Name="BillBuys" EntityType="Self.BillBuy" />
-          <EntitySet Name="BillBuyDetails" EntityType="Self.BillBuyDetail" />
-          <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
-          <EntitySet Name="Costs" EntityType="Self.Cost" />
-          <EntitySet Name="Employees" EntityType="Self.Employee" />
-          <EntitySet Name="Items" EntityType="Self.Item" />
-          <EntitySet Name="ItemClassifies" EntityType="Self.ItemClassify" />
-          <EntitySet Name="ItemPrices" EntityType="Self.ItemPrice" />
-          <EntitySet Name="ItemTypes" EntityType="Self.ItemType" />
-          <EntitySet Name="Questionables" EntityType="Self.Questionable" />
-          <EntitySet Name="Supermarkets" EntityType="Self.Supermarket" />
-          <AssociationSet Name="FK__Acount__status__18EBB532" Association="Self.FK__Acount__status__18EBB532">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Acount" EntitySet="Acounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bill__creator__1DB06A4F" Association="Self.FK__Bill__creator__1DB06A4F">
-            <End Role="Acount" EntitySet="Acounts" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillBuy__creator__2739D489" Association="Self.FK__BillBuy__creator__2739D489">
-            <End Role="Acount" EntitySet="Acounts" />
-            <End Role="BillBuy" EntitySet="BillBuys" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__idBil__2180FB33" Association="Self.FK__BillDetai__idBil__2180FB33">
-            <End Role="Bill" EntitySet="Bills" />
-            <End Role="BillDetail" EntitySet="BillDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Questiona__idBil__30C33EC3" Association="Self.FK__Questiona__idBil__30C33EC3">
-            <End Role="Bill" EntitySet="Bills" />
-            <End Role="Questionable" EntitySet="Questionables" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillBuyDe__idBil__2B0A656D" Association="Self.FK__BillBuyDe__idBil__2B0A656D">
-            <End Role="BillBuy" EntitySet="BillBuys" />
-            <End Role="BillBuyDetail" EntitySet="BillBuyDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillBuyDetail__2BFE89A6" Association="Self.FK__BillBuyDetail__2BFE89A6">
-            <End Role="ItemClassify" EntitySet="ItemClassifies" />
-            <End Role="BillBuyDetail" EntitySet="BillBuyDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillDetail__22751F6C" Association="Self.FK__BillDetail__22751F6C">
-            <End Role="ItemClassify" EntitySet="ItemClassifies" />
-            <End Role="BillDetail" EntitySet="BillDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Item__idType__05D8E0BE" Association="Self.FK__Item__idType__05D8E0BE">
-            <End Role="ItemType" EntitySet="ItemTypes" />
-            <End Role="Item" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ItemClass__idIte__0A9D95DB" Association="Self.FK__ItemClass__idIte__0A9D95DB">
-            <End Role="Item" EntitySet="Items" />
-            <End Role="ItemClassify" EntitySet="ItemClassifies" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ItemPrice__0F624AF8" Association="Self.FK__ItemPrice__0F624AF8">
-            <End Role="ItemClassify" EntitySet="ItemClassifies" />
-            <End Role="ItemPrice" EntitySet="ItemPrices" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Questionable__31B762FC" Association="Self.FK__Questionable__31B762FC">
-            <End Role="ItemClassify" EntitySet="ItemClassifies" />
-            <End Role="Questionable" EntitySet="Questionables" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -779,156 +782,157 @@
           <EntitySetMapping Name="Acounts">
             <EntityTypeMapping TypeName="KMSModel.Acount">
               <MappingFragment StoreEntitySet="Acount">
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
-                <ScalarProperty Name="mailAddress" ColumnName="mailAddress" />
-                <ScalarProperty Name="post" ColumnName="post" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="post" ColumnName="post" />
+                <ScalarProperty Name="mailAddress" ColumnName="mailAddress" />
+                <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="KMSModel.Bill">
               <MappingFragment StoreEntitySet="Bill">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="createdDay" ColumnName="createdDay" />
-                <ScalarProperty Name="creator" ColumnName="creator" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="createdDay" ColumnName="createdDay" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BillBuys">
             <EntityTypeMapping TypeName="KMSModel.BillBuy">
               <MappingFragment StoreEntitySet="BillBuy">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="createdDay" ColumnName="createdDay" />
-                <ScalarProperty Name="creator" ColumnName="creator" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="createdDay" ColumnName="createdDay" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BillBuyDetails">
             <EntityTypeMapping TypeName="KMSModel.BillBuyDetail">
               <MappingFragment StoreEntitySet="BillBuyDetail">
-                <ScalarProperty Name="idBillBuy" ColumnName="idBillBuy" />
-                <ScalarProperty Name="idItem" ColumnName="idItem" />
-                <ScalarProperty Name="classify" ColumnName="classify" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="remainAmount" ColumnName="remainAmount" />
-                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="note" ColumnName="note" />
                 <ScalarProperty Name="singlePrice" ColumnName="singlePrice" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+                <ScalarProperty Name="remainAmount" ColumnName="remainAmount" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="classify" ColumnName="classify" />
+                <ScalarProperty Name="idItem" ColumnName="idItem" />
+                <ScalarProperty Name="idBillBuy" ColumnName="idBillBuy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BillDetails">
             <EntityTypeMapping TypeName="KMSModel.BillDetail">
               <MappingFragment StoreEntitySet="BillDetail">
-                <ScalarProperty Name="idBill" ColumnName="idBill" />
-                <ScalarProperty Name="idItem" ColumnName="idItem" />
-                <ScalarProperty Name="classify" ColumnName="classify" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
-                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="singlePrice" ColumnName="singlePrice" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="classify" ColumnName="classify" />
+                <ScalarProperty Name="idItem" ColumnName="idItem" />
+                <ScalarProperty Name="idBill" ColumnName="idBill" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Costs">
             <EntityTypeMapping TypeName="KMSModel.Cost">
               <MappingFragment StoreEntitySet="Cost">
-                <ScalarProperty Name="month" ColumnName="month" />
-                <ScalarProperty Name="year" ColumnName="year" />
-                <ScalarProperty Name="premiseCost" ColumnName="premiseCost" />
-                <ScalarProperty Name="electricityCost" ColumnName="electricityCost" />
-                <ScalarProperty Name="waterCost" ColumnName="waterCost" />
-                <ScalarProperty Name="totalFundCost" ColumnName="totalFundCost" />
-                <ScalarProperty Name="bankInterestExpensePercent" ColumnName="bankInterestExpensePercent" />
-                <ScalarProperty Name="totalTaxCost" ColumnName="totalTaxCost" />
-                <ScalarProperty Name="total" ColumnName="total" />
                 <ScalarProperty Name="totalIncome" ColumnName="totalIncome" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="totalTaxCost" ColumnName="totalTaxCost" />
+                <ScalarProperty Name="bankInterestExpensePercent" ColumnName="bankInterestExpensePercent" />
+                <ScalarProperty Name="totalFundCost" ColumnName="totalFundCost" />
+                <ScalarProperty Name="waterCost" ColumnName="waterCost" />
+                <ScalarProperty Name="electricityCost" ColumnName="electricityCost" />
+                <ScalarProperty Name="premiseCost" ColumnName="premiseCost" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="month" ColumnName="month" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="KMSModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="birthDay" ColumnName="birthDay" />
-                <ScalarProperty Name="identityCardNumber" ColumnName="identityCardNumber" />
-                <ScalarProperty Name="startDay" ColumnName="startDay" />
-                <ScalarProperty Name="endDay" ColumnName="endDay" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="age" ColumnName="age" />
-                <ScalarProperty Name="post" ColumnName="post" />
                 <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="post" ColumnName="post" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="endDay" ColumnName="endDay" />
+                <ScalarProperty Name="startDay" ColumnName="startDay" />
+                <ScalarProperty Name="identityCardNumber" ColumnName="identityCardNumber" />
+                <ScalarProperty Name="birthDay" ColumnName="birthDay" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="KMSModel.Item">
               <MappingFragment StoreEntitySet="Item">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="idType" ColumnName="idType" />
-                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ItemClassifies">
             <EntityTypeMapping TypeName="KMSModel.ItemClassify">
               <MappingFragment StoreEntitySet="ItemClassify">
-                <ScalarProperty Name="idItem" ColumnName="idItem" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="classify" ColumnName="classify" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="classify" ColumnName="classify" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="idItem" ColumnName="idItem" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ItemPrices">
             <EntityTypeMapping TypeName="KMSModel.ItemPrice">
               <MappingFragment StoreEntitySet="ItemPrice">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="classify" ColumnName="classify" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="tax" ColumnName="tax" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="classify" ColumnName="classify" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ItemTypes">
             <EntityTypeMapping TypeName="KMSModel.ItemType">
               <MappingFragment StoreEntitySet="ItemType">
-                <ScalarProperty Name="idType" ColumnName="idType" />
                 <ScalarProperty Name="nameType" ColumnName="nameType" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questionables">
             <EntityTypeMapping TypeName="KMSModel.Questionable">
               <MappingFragment StoreEntitySet="Questionable">
-                <ScalarProperty Name="idBill" ColumnName="idBill" />
-                <ScalarProperty Name="idItem" ColumnName="idItem" />
-                <ScalarProperty Name="classify" ColumnName="classify" />
-                <ScalarProperty Name="time" ColumnName="time" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
-                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="singlePrice" ColumnName="singlePrice" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="amountCount" ColumnName="amountCount" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="classify" ColumnName="classify" />
+                <ScalarProperty Name="idItem" ColumnName="idItem" />
+                <ScalarProperty Name="idBill" ColumnName="idBill" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Supermarkets">
             <EntityTypeMapping TypeName="KMSModel.Supermarket">
               <MappingFragment StoreEntitySet="Supermarket">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

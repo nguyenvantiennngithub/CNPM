@@ -98,7 +98,7 @@ namespace WindowsFormsApp1
         
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txbuser.Text == "" || txbpass.Text == "")
+            if (txbuser.Text == "Tên đăng nhập" || txbpass.Text == "Mật khẩu")
             {
                 msgError("        Vui lòng nhập đủ thông tin");
                 return;
@@ -109,7 +109,7 @@ namespace WindowsFormsApp1
                 msgError("        Sai tài khoảng hoặc mật khẩu");
             }else
             {
-                FormUse formUse = new FormUse();
+                FormUse formUse = new FormUse(acc);
                 this.Hide();
                 formUse.Show();
             }

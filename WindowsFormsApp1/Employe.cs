@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         }
 
 
-        String Coneclink = @"Data Source=DESKTOP-N781AR9\SQLEXPRESS;Initial Catalog=KMS;Integrated Security=True";
+        String Coneclink = @"Data Source=LAPTOP-P8V8O690\SQLEXPRESS;Initial Catalog=KMS;Integrated Security=True";
 
         
         SqlConnection conec;

@@ -11,13 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace WindowsFormsApp1
 {
+
     public partial class FormUse : Form
     {
+        private Acount ac;
+
         private Form activeForm;
-        public FormUse()
+        public FormUse(Acount ac)
         {
             InitializeComponent();
             HideAllllSubMenu();
+            this.ac = ac;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -86,13 +90,13 @@ namespace WindowsFormsApp1
 
         private void ibtnAcountPrivate_Click(object sender, EventArgs e)
         {
-           // OpenChildForm(new AcountPrivateForm(), sender);
+            OpenChildForm(new AccountPrivate(ac), sender);
             lblTitle.Text = "TÀI KHOẢN CÁ NHÂN";
         }
 
         private void ibtnAcountAdd_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.AcountAddForm(), sender);
+            OpenChildForm(new AddAcount(ac), sender);
             lblTitle.Text = "THÊM TÀI KHOẢN";
         }
 
@@ -105,6 +109,7 @@ namespace WindowsFormsApp1
 
         private void ibtnEmployeeList_Click(object sender, EventArgs e)
         {
+
             ////OpenChildForm(new Forms.AcountDeleteForm(), sender);
             lblTitle.Text = "DANH SÁCH NHÂN VIÊN";
         }
@@ -152,19 +157,20 @@ namespace WindowsFormsApp1
         private void btnRevenueIn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Revenue(), sender);
-            lblTitle.Text = "THÊM";
+            lblTitle.Text = "DOANH THU BÁN";
         }
 
         private void btnRenevueOut_Click(object sender, EventArgs e)
         {
             OpenChildForm(new CostUpdatForm(), sender);
-            lblTitle.Text = "THÊM";
+            lblTitle.Text = "CẬP NHẬT";
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            HideAllllSubMenu();
             OpenChildForm(new Employe(), sender);
-
+            lblTitle.Text = "NHÂN VIÊN";
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -182,29 +188,54 @@ namespace WindowsFormsApp1
         private void btnCategory_Click(object sender, EventArgs e)
         {
             OpenChildForm(new CategoryForm(), sender);
+            lblTitle.Text = "LOẠI SẢN PHẨM";
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ItemForm(), sender);
+            lblTitle.Text = "THÊM SẢN PHẨM";
 
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ItemEditForm(), sender);
+            lblTitle.Text = "SỬA SẢN PHẨM";
         }
 
         private void btnChart_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ChartBillDetailForm(), sender);
+            lblTitle.Text = "THỐNG KÊ";
 
         }
 
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
+            HideAllllSubMenu();
             OpenChildForm(new BuyForm(), sender);
 
+        }
+
+        private void FormUse_Load(object sender, EventArgs e)
+        {
+            OpenChildForm(new SalesForm(), sender);
+            lblTitle.Text = "NHẬP HÀNG";
+        }
+
+        private void guna2TileButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnmini.Visible = true;
+            btnmax.Visible = false;
+        }
+
+        private void btnmini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnmax.Visible = true;
+            btnmini.Visible = false;            
         }
     }
 }

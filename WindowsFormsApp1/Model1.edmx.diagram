@@ -4,40 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-<<<<<<< HEAD
-      <Diagram DiagramId="8ff8aa7515f1438e85979a403f08a5eb" Name="Diagram1">
-=======
-<<<<<<< HEAD
-      <Diagram DiagramId="ab9a341f5d6c4b50a44e32f3b594681a" Name="Diagram1">
-=======
-      <Diagram DiagramId="3005bc46e6174b67a7776813a1b49878" Name="Diagram1">
->>>>>>> master
->>>>>>> master
-        <EntityTypeShape EntityType="KMSModel.Acount" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.Bill" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.BillBuy" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.BillBuyDetail" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.BillDetail" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.Cost" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.Employee" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.Item" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.ItemClassify" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.ItemPrice" Width="1.5" PointX="7.5" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.ItemType" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.Questionable" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="KMSModel.Supermarket" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <AssociationConnector Association="KMSModel.FK__Acount__status__18EBB532" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__Bill__creator__1DB06A4F" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__BillBuy__creator__2739D489" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__BillDetai__idBil__2180FB33" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__Questiona__idBil__30C33EC3" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__BillBuyDe__idBil__2B0A656D" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__BillBuyDetail__2BFE89A6" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__BillDetail__22751F6C" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__Item__idType__05D8E0BE" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__ItemClass__idIte__0A9D95DB" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__ItemPrice__0F624AF8" ManuallyRouted="false" />
-        <AssociationConnector Association="KMSModel.FK__Questionable__31B762FC" ManuallyRouted="false" />
+      <Diagram DiagramId="b87a1c0b29af482a9eb787a16a47e1c2" Name="Diagram1">
+        <EntityTypeShape EntityType="KMSModel.Acount" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="KMSModel.Bill" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="KMSModel.BillBuy" Width="1.5" PointX="5.25" PointY="11" />
+        <EntityTypeShape EntityType="KMSModel.BillBuyDetail" Width="1.5" PointX="7.5" PointY="6.5" />
+        <EntityTypeShape EntityType="KMSModel.BillDetail" Width="1.5" PointX="7.5" PointY="2.75" />
+        <EntityTypeShape EntityType="KMSModel.Cost" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KMSModel.Employee" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="KMSModel.Item" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="KMSModel.ItemClassify" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="KMSModel.ItemPrice" Width="1.5" PointX="7.5" PointY="18.125" />
+        <EntityTypeShape EntityType="KMSModel.ItemType" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="KMSModel.Questionable" Width="1.5" PointX="10.5" PointY="6.625" />
+        <EntityTypeShape EntityType="KMSModel.Supermarket" Width="1.5" PointX="0.75" PointY="10.75" />
+        <AssociationConnector Association="KMSModel.FK__Acount__status__245D67DE" />
+        <AssociationConnector Association="KMSModel.FK__Bill__creator__29221CFB" />
+        <AssociationConnector Association="KMSModel.FK__BillBuy__creator__32AB8735" />
+        <AssociationConnector Association="KMSModel.FK__BillDetai__idBil__2CF2ADDF" />
+        <AssociationConnector Association="KMSModel.FK__Questiona__idBil__3C34F16F" />
+        <AssociationConnector Association="KMSModel.FK__BillBuyDe__idBil__367C1819" />
+        <AssociationConnector Association="KMSModel.FK__BillBuyDetail__37703C52" />
+        <AssociationConnector Association="KMSModel.FK__BillDetail__2DE6D218" />
+        <AssociationConnector Association="KMSModel.FK__Item__idType__114A936A" />
+        <AssociationConnector Association="KMSModel.FK__ItemClass__idIte__160F4887" />
+        <AssociationConnector Association="KMSModel.FK__ItemPrice__1AD3FDA4" />
+        <AssociationConnector Association="KMSModel.FK__Questionable__3D2915A8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

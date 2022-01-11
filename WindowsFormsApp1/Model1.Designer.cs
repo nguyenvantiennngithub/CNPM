@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\quoct\Downloads\Công nghệ phần mềm\project\PROJECT\CNPM\WindowsFormsApp1\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\sauba\OneDrive\Desktop\New folder\CNPM\WindowsFormsApp1\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
